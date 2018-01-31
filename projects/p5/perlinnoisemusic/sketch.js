@@ -1,7 +1,7 @@
 var cols, rows;
 var scl = 50;
 var w = 2000;
-var h = 1400;
+var h = 1200;
 var playing = false;
 var audio, sound;
 var flying = 0;
@@ -37,7 +37,7 @@ function draw() {
   //c.drop(gotFile);
   //if(playing){
   //frameRate(100);
-  flying -= 0.06;
+  flying -= 0.04;
   var yoff = flying;
   for (var y = 0; y < rows; y++) {
     var xoff = 0;
