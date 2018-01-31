@@ -1,5 +1,5 @@
 var cols, rows;
-var scl = 50;
+var scl = 20;
 var w = 2000;
 var h = 1400;
 var playing = false;
@@ -43,7 +43,7 @@ function draw() {
     var xoff = 0;
     for (var x = 0; x < cols; x++) {
       var level = amplitude.getLevel();
-      var mount = map(level,0,1,0,waveAmp);
+      var mount = map(level,0,1,-1*waveAmp,waveAmp);
       //var mount = waveAmp * level;
       //print(amp.getLevel());
       //terrain[x][y] = map(noise(xoff, yoff), 0, 1, -1*waveAmp, waveAmp);
