@@ -47,7 +47,7 @@ function draw() {
       //var mount = waveAmp * level;
       //print(amp.getLevel());
       //terrain[x][y] = map(noise(xoff, yoff), 0, 1, -1*waveAmp, waveAmp);
-      terrain[x][y] = map(noise(xoff, yoff), 0, 1, -1*mount, mount);
+      terrain[x][y] = map(noise(xoff, yoff), 0, 1, 0, mount);
       //terrain[x][y] = map(spectrum[x*y],0,255,-1*waveAmp,waveAmp);
       //terrain[x][y] = map(amplitude.getLevel(),0,1,-1*waveAmp,waveAmp);
       //print(level);
