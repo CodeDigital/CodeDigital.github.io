@@ -1,5 +1,5 @@
 var cols, rows;
-var scl = 20;
+var scl = 40;
 var w = 2000;
 var h = 1400;
 var playing = false;
