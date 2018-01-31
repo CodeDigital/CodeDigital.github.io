@@ -1,5 +1,5 @@
 var cols, rows;
-var scl = 40;
+var scl = 50;
 var w = 2000;
 var h = 1400;
 var playing = false;
@@ -58,7 +58,7 @@ function draw() {
 
 
   background(50);
-  //translate(0, 50);
+  translate(25,0);
   translate(-(w/2), -(h/6),-350);
   rotateX(PI/3);
   //beginShape(LINES);
