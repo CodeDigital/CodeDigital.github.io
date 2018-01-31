@@ -1,5 +1,5 @@
 var cols, rows;
-var scl = 100;
+var scl = 50;
 var w = 2000;
 var h = 1400;
 var playing = false;
@@ -7,7 +7,7 @@ var audio, sound;
 var flying = 0;
 var c;
 var terrain;
-var waveAmp = 300;
+var waveAmp = 500;
 var amplitude;
 
 function preload(){
@@ -47,7 +47,7 @@ function draw() {
       //var mount = waveAmp * level;
       //print(amp.getLevel());
       //terrain[x][y] = map(noise(xoff, yoff), 0, 1, -1*waveAmp, waveAmp);
-      terrain[x][y] = map(noise(xoff, yoff), 0, 1,0, mount);
+      terrain[x][y] = map(noise(xoff, yoff), 0, 1, -1*mount, mount);
       //terrain[x][y] = map(spectrum[x*y],0,255,-1*waveAmp,waveAmp);
       //terrain[x][y] = map(amplitude.getLevel(),0,1,-1*waveAmp,waveAmp);
       //print(level);
