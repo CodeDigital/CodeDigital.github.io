@@ -12,6 +12,8 @@
     <script src="../p5.js"></script>
     <script src="../addons/p5.dom.js"></script>
     <script src="../addons/p5.sound.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script src="music.js"></script> -->
     <script src="sketch.js"></script>
     <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DigitalDataGame">
@@ -50,8 +52,27 @@
     </header>
         <a href="../../p5.html" class="backButton" style="margin-top:130px;margin-left:15px;"><span>Back To p5.js Projects</span></a>
     <h1 style="margin-top:-122px;padding:0;">Perlin Noise Music Visualizer!</h1>
-     <p style="color:white;margin-top:-60px;margin-left:130px;">Look at that perlin noise terrain generation go to the beat of the music!</p>
+     <p style="color:white;margin-top:-60px;margin-left:130px;">Look at that perlin noise terrain generation go to the beat of the music! Try it with your own music by uploading it at the BOTTOM OF THE PAGE.</p>
+     <!-- Upload Music File: <input type="file" value="Upload a Music File" id="audio-field"> -->
+
      <footer>
+       <!-- <audio id="sound" controls></audio> -->
+       <input type="file" id="input"/>
+       <script type="text/javascript"> -->
+       input.onchange = function(e){
+         //var song = document.getElementById('sound');
+         var src;
+         src = URL.createObjectURL(this.files[0]);
+         audio = loadSound(src,function(){ready = true;});
+         //audio = loadSound(src);
+
+         // not really needed in this exact case, but since it is really important in other cases,
+         // don't forget to revoke the blobURI when you don't need it
+         //song.onend = function(e) {
+           //URL.revokeObjectURL(src);
+         //}
+       }
+       <!-- // </script>
        <span style="padding-left:20px;"></span>Site Created by <a class="code" href="https://github.com/DigitalData">DigitalData</a>.
      </footer>
   </body>

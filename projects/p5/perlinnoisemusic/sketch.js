@@ -3,15 +3,112 @@ var scl = 50;
 var w = 2000;
 var h = 1200;
 var playing = false;
-var audio, sound;
+var audio, ready = false;
 var flying = 0;
 var c;
 var terrain;
 var waveAmp = 600;
 var amplitude;
+var timer = 100;
+var countdown = false;
+//var input = document.getElementById('input');
+
+// input.onchange = function(e){
+//   //var song = document.getElementById('sound');
+//   song.src = URL.createObjectURL(this.files[0]);
+//   audio = loadSound(song.src);
+//   // not really needed in this exact case, but since it is really important in other cases,
+//   // don't forget to revoke the blobURI when you don't need it
+//   song.onend = function(e) {
+//     URL.revokeObjectURL(this.src);
+//   }
+// }
+
+// if (window.File && window.FileReader && window.FileList && window.Blob) {
+//
+//    //this is not completely neccesary, just a nice function I found to make the file size format friendlier
+// 	//http://stackoverflow.com/questions/10420352/converting-file-size-in-bytes-to-human-readable
+// 	function humanFileSize(bytes, si) {
+// 	    var thresh = si ? 1000 : 1024;
+// 	    if(bytes < thresh) return bytes + ' B';
+// 	    var units = si ? ['kB','MB','GB','TB','PB','EB','ZB','YB'] : ['KiB','MiB','GiB','TiB','PiB','EiB','ZiB','YiB'];
+// 	    var u = -1;
+// 	    do {
+// 	        bytes /= thresh;
+// 	        ++u;
+// 	    } while(bytes >= thresh);
+// 	    return bytes.toFixed(1)+' '+units[u];
+// 	}
+//
+//
+//   // //this function is called when the input loads an image
+// 	// function renderImage(file){
+// 	// 	var reader = new FileReader();
+// 	// 	reader.onload = function(event){
+// 	// 		the_url = event.target.result
+//   //     //of course using a template library like handlebars.js is a better solution than just inserting a string
+// 	// 		$('#preview').html("<img src='"+the_url+"' />")
+// 	// 		$('#name').html(file.name)
+// 	// 		$('#size').html(humanFileSize(file.size, "MB"))
+// 	// 		$('#type').html(file.type)
+// 	// 	}
+//   //
+//   //   //when the file is read it triggers the onload event above.
+// 	// 	reader.readAsDataURL(file);
+// 	// }
+//
+//
+//   //this function is called when the input loads a video
+// 	function renderVideo(file){
+// 		var reader = new FileReader();
+// 		reader.onload = function(event){
+// 			the_url = event.target.result
+//       //of course using a template library like handlebars.js is a better solution than just inserting a string
+//       //$('#data-vid').html("<video width='400' controls><source id='vid-source' src='"+the_url+"' type='video/mp4'></video>")
+//        //$('#name-vid').html(file.name)
+// 			//$('#size-vid').html(humanFileSize(file.size, "MB"))
+// 			//$('#type-vid').html(file.type)
+//
+// 		}
+//
+//     //when the file is read it triggers the onload event above.
+// 		reader.readAsDataURL(file);
+// 	}
+//
+//
+//
+//   // //watch for change on the
+// 	// $( "#the-photo-file-field" ).change(function() {
+// 	// 	console.log("photo file has been chosen")
+// 	// 	//grab the first image in the fileList
+// 	// 	//in this example we are only loading one file.
+// 	// 	console.log(this.files[0].size)
+// 	// 	renderImage(this.files[0])
+//   //
+// 	// });
+//
+// 	$( "#audio-field" ).change(function() {
+// 		console.log("video file has been chosen")
+// 		//grab the first image in the fileList
+// 		//in this example we are only loading one file.
+// 		console.log(this.files[0].size)
+//     sound = this.files[0]
+//     preload();
+//     setup();
+// 		//renderVideo(this.files[0])
+//
+// 	});
+//
+// } else {
+//
+//   alert('The File APIs are not fully supported in this browser.');
+//
+// }
+
 
 function preload(){
-  sound = loadSound('assets/ballin.mp3');
+  //audio = loadSound(sound);
+  //setup();
 }
 
 function setup() {
@@ -24,12 +121,16 @@ function setup() {
     terrain[x] = [];
   }
 
-  c.drop(gotFile);
+  //c.drop(gotFile);
   //fft = new p5.FFT();
   amplitude = new p5.Amplitude();
   //amplitude.setInput(audio);
-  sound.loop();
 
+}
+
+function itWorked(){
+  print("too early")
+  ready = true;
 }
 
 function draw() {
@@ -37,6 +138,12 @@ function draw() {
   //c.drop(gotFile);
   //if(playing){
   //frameRate(100);
+  if (audio && ready && !playing) {
+    playing = true;
+    audio.play();
+  }
+  //audio.play()
+
   flying -= 0.04;
   var yoff = flying;
   for (var y = 0; y < rows; y++) {
@@ -129,24 +236,28 @@ function draw() {
     }
     vertex(-10000,10000,0);
     endShape();
-  //}else{
-    //background(255,0,200);
-    //text("Drag and Drop a music file onto this box!",700,700);
-
-  //}
+  // }else{
+  //   background(255,0,200);
+  //   fill(255);
+  //   text("Drag and Drop a music file onto this box!",700,700);
+  //
+  // }
 }
 
-function gotFile(file) {
-  print("got it");
-  // If it's an image file
-  if (file.type === 'audio') {
-    // Create an image DOM element but don't show it
-    var song = createAudio(file.data);
-    //audio = new p5.SoundFile(file);
-    playing = true;
-    //song.play();
-    // Draw the image onto the canvas
-  } else {
-    println('Not an audio file!');
-  }
-}
+// function gotFile(file) {
+//   print("got it");
+//   // If it's an image file
+//   if (file.type === 'audio') {
+//     // Create an image DOM element but don't show it
+//     var song = createAudio(file.data);
+//     //audio = new p5.SoundFile(file);
+//     audio = new p5.SoundFile(song);
+//     playing = true;
+//     audio.loop();
+//     setup();
+//     //song.play();
+//     // Draw the image onto the canvas
+//   } else {
+//     println('Not an audio file!');
+//   }
+// }
