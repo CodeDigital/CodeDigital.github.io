@@ -207,7 +207,8 @@ function draw() {
         //pop();
         //endShape();
 
-      }}else{
+      }
+    }else{
         for (var x = cols - 1; x >= 0; x--) {
           //beginShape(LINES);
           //beginShape(TRIANGLE_STRIP);
@@ -219,11 +220,11 @@ function draw() {
           if(x>0) {
             //line(x*scl,y*scl,terrain[x][y],(x-1)*scl,y*scl,terrain[x-1][y]);
             vertex(x*scl, y*scl, terrain[x][y]);
-            vertex((x-1)*scl, y*scl, terrain[x-1][y]);
 
             if(y<rows){
               vertex((x-1)*scl, (y+1)*scl, terrain[x-1][y+1]);
-              vertex((x)*scl, (y+1)*scl, terrain[x][y+1]);
+              vertex((x)*scl, (y)*scl, terrain[x][y]);
+              vertex((x-1)*scl, (y)*scl, terrain[x-1][y]);
               //vertex((x-1)*scl, y*scl, terrain[x-1][y]);
 
             }
