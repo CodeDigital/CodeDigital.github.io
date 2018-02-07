@@ -220,3 +220,8 @@ td a:hover{
   border: 5px solid #ff00f2;
   border-radius: 5px;
 }
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
