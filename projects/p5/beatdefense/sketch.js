@@ -200,9 +200,9 @@ function draw() {
 
   textAlign(CENTER);
   text(("HEALTH: " + health),10,20,200,40);
-  textSize(20);
+  textSize(25);
   text(("SCORE: " + score),w/2-100,20,200,40)
-  textSize(30);
+  textSize(20);
   if(playing == true){
     text(("TIME LEFT: " + floor(audio.duration() - audio.currentTime())),w-210,20,200,40);
   }else{
