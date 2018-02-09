@@ -123,7 +123,7 @@ function draw() {
   strokeWeight(thick);
   stroke(0,10,230,255);
   fill(0,50,255,255);
-  ellipse(w/2,h/2,80);
+  //ellipse(w/2,h/2,80);
   image(img,w/2 - 45,h/2 - 45,90,90);
 
 
@@ -131,8 +131,9 @@ function draw() {
 
   //print(dir);
 
-  noFill();
-  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+  //noFill();
+  fill(0,50,255,255);
+  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
 
   //Checks if the rockets need to be deleted. Checks for health loss as well.
   for (var i = 0; i < missiles.length; i++) {
