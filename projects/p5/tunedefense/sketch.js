@@ -1,0 +1,293 @@
+var w = 700;
+var h = 700;
+var thick = 10;
+var aSize = Math.PI/3;
+var dir = 0;
+var fps = 144;
+var missiles = [];
+var amp,fft;
+var playing = false;
+var audio, ready = false;
+var average = 0.1;
+var amtAmp = 1;
+var tempo;
+var peakDetect;
+var health = 100;
+var score = 0;
+var img;
+
+function preload(){
+  img = loadImage('assets/earth.png');
+}
+
+function setup() {
+  createCanvas(w,h);
+  fft = new p5.FFT();
+  amp = new p5.Amplitude();
+  peakDetect = new p5.PeakDetect(20,20000,0.35,5);
+}
+
+function draw() {
+  //   if(playing){
+  //   average = average * amtAmp;
+  //   average = average + amp.getLevel();
+  //   amtAmp = amtAmp + 1;
+  //   average = average / amtAmp;
+  // }
+  fft.analyze();
+  peakDetect.update(fft);
+  if(playing){
+    //if(audio.currentTime() == tempo[0]){
+    if (peakDetect.isDetected) {
+      //tempo.pop();
+      var angles = fft.analyze();
+      //var centroid = fft.getCentroid();
+      //var nyquist = 22050;
+
+      //var mean_freq_index = centroid/(nyquist/angles.length);
+      //startAngle = map(angles.indexOf(findMax(angles,mean_freq_index - 10,mean_freq_index + 10)),mean_freq_index - 10,mean_freq_index + 10,0,2*Math.PI);
+      var randA = floor(random(0,1023.99999999));
+      var startAngle = map(randA,0,1023,0,(2*Math.PI));
+      //print(randA);
+      //print(startAngle);
+      var newX = (w/2) + ((w/2) * cos(startAngle));
+      var newY = (h/2) - ((h/2) * sin(startAngle));
+      //print(newX + "  -  " + newY);
+      //var newSpeed = map(findMax(angles),0,255,1,10);
+      //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
+      //var newSpeed = map(angles[randA],0,255,2,15);
+      var newSpeed = 7;
+
+      //print(findMax(angles));
+      //print(newSpeed);
+      var newDir = startAngle + Math.PI;
+      var newMissile = new Missile(newSpeed,newX,newY,newDir);
+      append(missiles,newMissile);
+    }
+  }
+  // var angles = fft.analyze();
+  // var sum;
+  // for (var i = 0; i < angles.length; i++) {
+  //   sum = sum+ angles[i];
+  // }
+  // var average = sum/angles.length;
+
+  if (audio && ready && !playing) {
+    playing = true;
+    ready = false;
+    tempo = audio.processPeaks(function(){
+      audio.play();
+      //print(tempo);
+      playing = true;
+    });
+    //  playing = true;
+  }
+
+  //frameRate(fps);
+  frameRate(100);
+  //print(amp.getLevel());
+  // if(amp.getLevel() > average + 0.1){
+  //
+  //   var angles = fft.analyze();
+  //   var centroid = fft.getCentroid();
+  //   var nyquist = 22050;
+  //
+  //   var mean_freq_index = centroid/(nyquist/angles.length);
+  //   startAngle = map(angles.indexOf(findMax(angles,mean_freq_index - 10,mean_freq_index + 10)),mean_freq_index - 10,mean_freq_index + 10,0,2*Math.PI);
+  //   //var randA = floor(random(0,1023.99999999));
+  //   //var startAngle = map(randA,0,1023,0,(2*Math.PI));
+  //   //print(randA);
+  //   //print(startAngle);
+  //   var newX = (w/2) + ((w/2) * cos(startAngle));
+  //   var newY = (h/2) - ((h/2) * sin(startAngle));
+  //   //print(newX + "  -  " + newY);
+  //   //var newSpeed = map(findMax(angles),0,255,1,10);
+  //   var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
+  //   //var newSpeed = map(angles[randA],0,255,1,5);
+  //
+  //   //print(findMax(angles));
+  //   //print(newSpeed);
+  //   var newDir = startAngle + Math.PI;
+  //   var newMissile = new Missile(newSpeed,newX,newY,newDir);
+  //   append(missiles,newMissile);
+  //
+  // }
+
+  for (var i = 0; i < missiles.length; i++) {
+    missiles[i].move();
+  }
+
+  var backC = color(30,30,30,255);
+  background(backC);
+
+  strokeWeight(thick);
+  stroke(0,10,230,255);
+  fill(0,50,255,255);
+  ellipse(w/2,h/2,80);
+  image(img,w/2 - 40,h/2 - 40,80);
+
+
+  dir = findAngle(mouseX,mouseY);
+
+  //print(dir);
+
+  noFill();
+  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+
+  //Checks if the rockets need to be deleted. Checks for health loss as well.
+  for (var i = 0; i < missiles.length; i++) {
+    //if distance from earth is in between thickness of arc.
+    if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
+      print("this far");
+      var missileAngle = missiles[i].getDir();
+      var angle1 = dir - aSize;
+      var angle2 = dir + aSize;
+      if(missileAngle <= angle2 && missileAngle >= angle1){
+        missiles.splice(i,1);
+        print("killed1");
+      }else if(missileAngle >= angle2 && missileAngle <= angle1){
+        missiles.splice(i,1);
+        print("killed2");
+      }
+    }else if(missiles[i].cDist() < 40 + (thick/2)){
+        missiles.splice(i,1);
+        health = health - 1;
+    }
+
+  }
+
+  for (var i = 0; i < missiles.length; i++) {
+    missiles[i].show();
+  }
+  fill(0,100,255,255);
+  noStroke();
+  textSize(20);
+  strokeWeight(2);
+  stroke(0,0,255);
+  //point((w/2) - 70,(h/2));
+  //strokeWeight(1);
+  textAlign(CENTER);
+  text(("HEALTH: " + health),10,20,200,40);
+  text(("SCORE: " + score),w/2-100,20,200,40)
+  if(playing == true){
+    text(("TIME LEFT: " + floor(audio.duration() - audio.currentTime())),w-210,20,200,40);
+  }else{
+    text(("TIME LEFT: NA"),w-210,20,200,40);
+    textSize(40);
+    text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2,600,40);
+  }
+
+}
+
+function findAngle(x,y){
+  var angle;
+  var hor = x - (w/2);
+  var ver = y - (h/2);
+  angle = atan(ver/hor);
+  if(x < (w/2)){
+    angle = angle + Math.PI;
+  }
+  //print(angle);
+  return angle;
+}
+
+function unitCircleAngle(ang){
+  //print("before" + ang);
+  ang = tan(ang);
+  ang = atan(ang);
+  // while(true){
+  //   if(ang < 0){
+  //     ang = ang+ 2*Math.PI;
+  //   }else if(ang >= 2*Math.PI){
+  //     ang = ang - 2*Math.PI;
+  //   }else{
+  //     break;
+  //     //return ang;
+  //   }
+  // }
+  //print("after" + ang)
+  return ang;
+}
+
+function Missile(mSpeed,mX,mY,mDir){
+  this.x = mX;
+  this.y = mY;
+  this.dir = mDir;
+  //print(this.dir);
+  this.speed = mSpeed;
+  this.len = 15;
+
+  this.getDir = function(){
+    var angle;
+    var hor = this.x - (w/2);
+    var ver =this.y - (h/2);
+    angle = atan(ver/hor);
+    if(this.x < (w/2)){
+      angle = angle + Math.PI;
+    }
+    //print(angle);
+    return angle;
+  }
+
+  this.cDist = function(){
+    var distX = this.x - (w/2);
+    var distY = this.y - (h/2);
+    var distance = sqrt(((distX * distX) + (distY * distY)));
+    return distance;
+  }
+
+  this.move = function(){
+    this.x = this.x + (this.speed * cos(this.dir));
+    this.y = this.y - (this.speed * sin(this.dir));
+  }
+
+  this.show = function(){
+    var showAngle = this.dir - Math.PI;
+    var dX = this.x + (this.len * cos(showAngle));
+    var dY = this.y - (this.len * sin(showAngle));
+    stroke(255);
+    strokeWeight(8);
+    line(this.x,this.y,dX,dY);
+  }
+}
+
+function findMax(arr){
+  var max = arr[0];
+  for (var i = 1; i < arr.length; i++) {
+    if(arr[i] > max){
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+function findMax(arr,start,stop){
+  if(start < 0){
+    start = 0;
+  }
+  if(stop > arr.length - 1){
+    stop = arr.length - 1;
+  }
+  var max = 0;
+  for (var i = start; i < stop; i++) {
+    if(arr[i] > max){
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+function keyPressed(){
+  if(keyCode === ENTER){
+    //var angles = fft.analyze();
+    //print("Index of: " + angles.indexOf(findMax(angles)));
+    var startAngle = -1 * findAngle(mouseX,mouseY);
+    var newX = (w/2) + (400 * cos(startAngle));
+    var newY = (h/2) - (400 * sin(startAngle));
+    //print(newX + "  -  " + newY);
+    var newSpeed = 10;
+    var newDir = startAngle + Math.PI;
+    var newMissile = new Missile(newSpeed,newX,newY,newDir);
+    append(missiles,newMissile);
+  }
+}

@@ -3,7 +3,6 @@ var en,pl;
 
 
 function setup() {
-  space1 = createP("    ");
   enName = createP("English");
   en = createInput('Enter the English here.');
   space2 = createP("<hr>");
@@ -13,8 +12,8 @@ function setup() {
   plName = createP("Pig Latin")
   pl = createP('Resulting Pig Latin Text...');
 
-  en.size(1400, 70);
-  pl.size(1400, 70);
+  en.size(1000, 70);
+  pl.size(1000, 70);
 
   en.style('font-size','30px');
   en.style('margin-left','auto');
