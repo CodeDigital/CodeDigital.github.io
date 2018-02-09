@@ -124,7 +124,7 @@ function draw() {
   stroke(0,10,230,255);
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
-  //image(img,w/2 - 45,h/2 - 45,90,90);
+  image(img,w/2 - 45,h/2 - 45,90,90);
 
 
   dir = findAngle(mouseX,mouseY);
@@ -132,9 +132,11 @@ function draw() {
   //print(dir);
 
   //noFill();
-  fill(0,50,255,255);
-  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
-  image(img,w/2 - 45,h/2 - 45,90,90);
+  if(playing){
+    fill(0,50,255,255);
+    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    //image(img,w/2 - 45,h/2 - 45,90,90);
+  }
 
 
   //Checks if the rockets need to be deleted. Checks for health loss as well.
@@ -153,8 +155,8 @@ function draw() {
         print("killed2");
       }
     }else if(missiles[i].cDist() < 40 + (thick/2)){
-        missiles.splice(i,1);
-        health = health - 1;
+      missiles.splice(i,1);
+      health = health - 1;
     }
 
   }
