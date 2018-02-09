@@ -190,9 +190,9 @@ function draw() {
     playing = false;
     textSize(40);
     text(("FINAL SCORE: " + score),w/2 - 300,h/2 - 90,600,40);
-    text(("EARTH BLEW UP!"),w/2 - 300,h/2 + 50,600,40);
+    text(("EARTH BLEW UP!"),w/2 - 300,h/2 - 140,600,40);
     textSize(20);
-    text(("Reload the page to TRY AGAIN."),w/2 - 300,h/2 + 90,600,40);
+    //text(("Reload the page to TRY AGAIN."),w/2 - 300,h/2 + 90,600,40);
 
   }
 }
