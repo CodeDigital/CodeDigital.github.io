@@ -56,7 +56,7 @@ function draw() {
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
       //var newSpeed = map(angles[randA],0,255,2,15);
-      var newSpeed = 7;
+      var newSpeed = 10;
 
       //print(findMax(angles));
       //print(newSpeed);
@@ -134,7 +134,9 @@ function draw() {
   //noFill();
   if(playing){
     fill(0,50,255,255);
-    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+  //  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+
     //image(img,w/2 - 45,h/2 - 45,90,90);
   }
 
@@ -183,7 +185,7 @@ function draw() {
   }else{
     text(("TIME LEFT: NA"),w-210,20,200,40);
     textSize(40);
-    text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
+    text(("UPLOAD A SONG TO RESTART!"),w/2 - 300,h/2 + 50,600,40);
   }
   if(health == 0){
     audio.stop();
@@ -228,12 +230,14 @@ function unitCircleAngle(ang){
 }
 
 function Missile(mSpeed,mX,mY,mDir){
+  this.sX = mX;
+  this.sY = mY;
   this.x = mX;
   this.y = mY;
   this.dir = mDir;
   //print(this.dir);
   this.speed = mSpeed;
-  this.len = 15;
+  this.len = 30;
 
   this.getDir = function(){
     var angle;
@@ -265,7 +269,8 @@ function Missile(mSpeed,mX,mY,mDir){
     var dY = this.y - (this.len * sin(showAngle));
     stroke(255);
     strokeWeight(8);
-    line(this.x,this.y,dX,dY);
+    //line(this.x,this.y,dX,dY);
+    line(this.x,this.y,this.sX,this.sY);
   }
 }
 
