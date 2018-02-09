@@ -16,9 +16,14 @@ var health = 40;
 var maxH = 40;
 var score = 0;
 var img;
+var ping, destroy;
 
 function preload(){
   img = loadImage('assets/earth3.png');
+  ping = loadSound('assets/missileping.wav');
+  destroy = loadSound('assets/missiledest.wav');
+  ping.playMode('sustain');
+  destroy.playMode('sustain');
 }
 
 function setup() {
@@ -155,14 +160,17 @@ function draw() {
         missiles.splice(i,1);
         print("killed1");
         score = score + 1;
+        ping.play();
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
         print("killed2");
         score = score + 1;
+        ping.play();
       }
     }else if(missiles[i].cDist() < 40 + (thick/2)){
       missiles.splice(i,1);
       health = health - 1;
+      destroy.play();
     }
 
   }
