@@ -212,7 +212,8 @@ function draw() {
     textSize(40);
     text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
   }
-  if(health == 0){
+  if(health <= 0){
+    missiles = [];
     tint(255,0,0);
     audio.stop();
     playing = false;
