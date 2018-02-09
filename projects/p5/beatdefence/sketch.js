@@ -74,6 +74,7 @@ function draw() {
   // var average = sum/angles.length;
 
   if (audio && ready && !playing) {
+    noTint();
     playing = true;
     ready = false;
     tempo = audio.processPeaks(function(){
@@ -212,6 +213,7 @@ function draw() {
     text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
   }
   if(health == 0){
+    tint(255,0,0);
     audio.stop();
     playing = false;
     textSize(40);
