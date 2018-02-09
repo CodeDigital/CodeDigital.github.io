@@ -13,6 +13,7 @@ var amtAmp = 1;
 var tempo;
 var peakDetect;
 var health = 20;
+var maxH = 20;
 var score = 0;
 var img;
 
@@ -177,6 +178,14 @@ function draw() {
   stroke(0,0,255);
   //point((w/2) - 70,(h/2));
   //strokeWeight(1);
+
+  fill(255,0,0,255);
+  rect(20,50,map((health/maxH),0,1,50,150),50);
+  noFill();
+  stroke(33,33,33,255);
+  strokeWeight(5);
+  rect(20,50,150,50);
+
   textAlign(CENTER);
   text(("HEALTH: " + health),10,20,200,40);
   text(("SCORE: " + score),w/2-100,20,200,40)
