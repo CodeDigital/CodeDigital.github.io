@@ -12,7 +12,7 @@ var average = 0.1;
 var amtAmp = 1;
 var tempo;
 var peakDetect;
-var health = 20;
+var health = 40;
 var maxH = 20;
 var score = 0;
 var img;
