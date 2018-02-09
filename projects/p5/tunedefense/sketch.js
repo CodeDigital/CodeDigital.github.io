@@ -17,7 +17,7 @@ var score = 0;
 var img;
 
 function preload(){
-  img = loadImage('assets/earth.png');
+  img = loadImage('assets/earth2.png');
 }
 
 function setup() {
@@ -124,7 +124,7 @@ function draw() {
   stroke(0,10,230,255);
   fill(0,50,255,255);
   ellipse(w/2,h/2,80);
-  image(img,w/2 - 40,h/2 - 40,80,80);
+  image(img,w/2 - 45,h/2 - 45,90,90);
 
 
   dir = findAngle(mouseX,mouseY);
