@@ -174,11 +174,22 @@ function draw() {
   //strokeWeight(1);
 
   fill(255,0,0,255);
-  rect(20,50,map((health/maxH),0,1,20,220),20);
+  rect(20,50,map((health/maxH),0,1,0,200),20);
   noFill();
   stroke(33,33,33,255);
   strokeWeight(10);
-  rect(20,50,220,20);
+  rect(20,50,200,20);
+
+  fill(0,255,0,255);
+  if(playing){
+    rect(w - 220,50,map((audio.currentTime()/audio.duration()),0,1,0,200),20);
+  }else{
+    rect(w - 220,50,200,20);
+  }
+  noFill();
+  stroke(33,33,33,255);
+  strokeWeight(10);
+  rect(w - 220,50,200,20);
 
   fill(0,100,255,255);
   fill(255);
