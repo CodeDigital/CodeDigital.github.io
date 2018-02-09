@@ -60,7 +60,8 @@
       var src;
       src = URL.createObjectURL(this.files[0]);
       audio = loadSound(src,function(){
-
+        health = 100;
+        score = 0;
           ready = true;
         });
       //audio = loadSound(src);

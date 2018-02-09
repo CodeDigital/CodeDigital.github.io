@@ -150,9 +150,11 @@ function draw() {
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
         print("killed1");
+        score = score + 1;
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
         print("killed2");
+        score = score + 1;
       }
     }else if(missiles[i].cDist() < 40 + (thick/2)){
       missiles.splice(i,1);
@@ -164,6 +166,7 @@ function draw() {
   for (var i = 0; i < missiles.length; i++) {
     missiles[i].show();
   }
+
   fill(0,100,255,255);
   fill(255);
   noStroke();
@@ -180,9 +183,18 @@ function draw() {
   }else{
     text(("TIME LEFT: NA"),w-210,20,200,40);
     textSize(40);
-    text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2,600,40);
+    text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
   }
+  if(health == 0){
+    audio.stop();
+    playing = false;
+    textSize(40);
+    text(("FINAL SCORE: " + score),w/2 - 300,h/2 - 90,600,40);
+    text(("EARTH BLEW UP!"),w/2 - 300,h/2 + 50,600,40);
+    textSize(20);
+    text(("Reload the page to TRY AGAIN."),w/2 - 300,h/2 + 90,600,40);
 
+  }
 }
 
 function findAngle(x,y){
