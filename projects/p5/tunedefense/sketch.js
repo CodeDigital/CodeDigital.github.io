@@ -185,7 +185,7 @@ function draw() {
   }else{
     text(("TIME LEFT: NA"),w-210,20,200,40);
     textSize(40);
-    text(("UPLOAD A SONG TO RESTART!"),w/2 - 300,h/2 + 50,600,40);
+    text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
   }
   if(health == 0){
     audio.stop();
@@ -269,8 +269,8 @@ function Missile(mSpeed,mX,mY,mDir){
     var dY = this.y - (this.len * sin(showAngle));
     stroke(255);
     strokeWeight(8);
-    //line(this.x,this.y,dX,dY);
-    line(this.x,this.y,this.sX,this.sY);
+    line(this.x,this.y,dX,dY);
+    //line(this.x,this.y,this.sX,this.sY);
   }
 }
 
