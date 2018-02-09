@@ -172,7 +172,8 @@ function draw() {
 
   //point((w/2) - 70,(h/2));
   //strokeWeight(1);
-
+  stroke(33,33,33,255);
+  strokeWeight(10);
   fill(255,0,0,255);
   rect(20,50,map((health/maxH),0,1,0,200),20);
   noFill();
