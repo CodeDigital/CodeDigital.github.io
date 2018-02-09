@@ -170,21 +170,22 @@ function draw() {
     missiles[i].show();
   }
 
+  //point((w/2) - 70,(h/2));
+  //strokeWeight(1);
+
+  fill(255,0,0,255);
+  rect(20,50,map((health/maxH),0,1,20,220),20);
+  noFill();
+  stroke(33,33,33,255);
+  strokeWeight(10);
+  rect(20,50,220,20);
+
   fill(0,100,255,255);
   fill(255);
   noStroke();
   textSize(20);
   strokeWeight(2);
   stroke(0,0,255);
-  //point((w/2) - 70,(h/2));
-  //strokeWeight(1);
-
-  fill(255,0,0,255);
-  rect(20,50,map((health/maxH),0,1,50,150),50);
-  noFill();
-  stroke(33,33,33,255);
-  strokeWeight(5);
-  rect(20,50,150,50);
 
   textAlign(CENTER);
   text(("HEALTH: " + health),10,20,200,40);
