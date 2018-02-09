@@ -124,7 +124,7 @@ function draw() {
   stroke(0,10,230,255);
   fill(0,50,255,255);
   ellipse(w/2,h/2,80);
-  image(img,w/2 - 40,h/2 - 40,80);
+  image(img,w/2 - 40,h/2 - 40,80,80);
 
 
   dir = findAngle(mouseX,mouseY);
