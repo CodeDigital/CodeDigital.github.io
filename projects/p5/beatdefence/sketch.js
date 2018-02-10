@@ -371,6 +371,9 @@ function keyPressed(){
     print("restarted")
     //tint(255,0,0);
     audio.stop();
-    playing = true;
+    ready = true;
+    playing = false;
+    health = maxH;
+    score = 0;
   }
 }
