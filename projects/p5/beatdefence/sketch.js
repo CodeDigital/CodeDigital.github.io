@@ -1,5 +1,5 @@
-var w = 700;
-var h = 700;
+var w = 1000;
+var h = 1000;
 var thick = 10;
 var aSize = Math.PI/3;
 var dir = 0;
@@ -58,8 +58,8 @@ function draw() {
       var startAngle = map(randA,0,1023,0,(2*Math.PI));
       //print(randA);
       //print(startAngle);
-      var newX = (w/2) + ((w/2) * cos(startAngle));
-      var newY = (h/2) - ((h/2) * sin(startAngle));
+      var newX = (w/2) + ((w/1.5) * cos(startAngle));
+      var newY = (h/2) - ((h/1.5) * sin(startAngle));
       //print(newX + "  -  " + newY);
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
@@ -349,5 +349,12 @@ function keyPressed(){
     var newDir = startAngle + Math.PI;
     var newMissile = new Missile(newSpeed,newX,newY,newDir);
     append(missiles,newMissile);
+  }
+  if(key === "r"){
+    missiles = [];
+    print("restarted")
+    //tint(255,0,0);
+    audio.stop();
+    playing = false;
   }
 }
