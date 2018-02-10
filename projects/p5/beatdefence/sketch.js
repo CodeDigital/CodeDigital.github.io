@@ -355,6 +355,6 @@ function keyPressed(){
     print("restarted")
     //tint(255,0,0);
     audio.stop();
-    playing = false;
+    playing = true;
   }
 }
