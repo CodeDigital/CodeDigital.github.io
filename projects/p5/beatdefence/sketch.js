@@ -143,7 +143,7 @@ function draw() {
   //noFill();
   if(playing){
     fill(0,50,255,255);
-  //  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    //  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
     arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
 
     //image(img,w/2 - 45,h/2 - 45,90,90);
@@ -174,22 +174,20 @@ function draw() {
         ping.play();
       }
     }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
-      if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
-        print("this far");
-        var missileAngle = missiles[i].getDir();
-        var angle1 = dir - aSize;
-        var angle2 = dir + aSize;
-        if(missileAngle <= angle2 && missileAngle >= angle1){
-          missiles.splice(i,1);
-          print("killed3");
-          score = score + 1;
-          ping.play();
-        }else if(missileAngle >= angle2 && missileAngle <= angle1){
-          missiles.splice(i,1);
-          print("killed4");
-          score = score + 1;
-          ping.play();
-        }
+      print("this far");
+      var missileAngle = missiles[i].getDir();
+      var angle1 = dir - aSize;
+      var angle2 = dir + aSize;
+      if(missileAngle <= angle2 && missileAngle >= angle1){
+        missiles.splice(i,1);
+        print("killed3");
+        score = score + 1;
+        ping.play();
+      }else if(missileAngle >= angle2 && missileAngle <= angle1){
+        missiles.splice(i,1);
+        print("killed4");
+        score = score + 1;
+        ping.play();
       }
     }
 
@@ -368,7 +366,7 @@ function keyPressed(){
     var newMissile = new Missile(newSpeed,newX,newY,newDir);
     append(missiles,newMissile);
   }
-  if(key === "r"){
+  if(key === "R"){
     missiles = [];
     print("restarted")
     //tint(255,0,0);
