@@ -58,7 +58,9 @@
     input.onchange = function(e){
       //var song = document.getElementById('sound');
       var src;
-      audio.stop();
+      if(playing){
+        audio.stop();
+      }
       score = 0;
       health = maxH;
       ready = false;
