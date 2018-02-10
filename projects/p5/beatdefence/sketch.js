@@ -153,7 +153,11 @@ function draw() {
   //Checks if the rockets need to be deleted. Checks for health loss as well.
   for (var i = 0; i < missiles.length; i++) {
     //if distance from earth is in between thickness of arc.
-    if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
+    if(missiles[i].cDist() < 40 + (thick/2)){
+      missiles.splice(i,1);
+      health = health - 1;
+      destroy.play();
+    }else if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
       print("this far");
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
@@ -169,10 +173,24 @@ function draw() {
         score = score + 1;
         ping.play();
       }
-    }else if(missiles[i].cDist() < 40 + (thick/2)){
-      missiles.splice(i,1);
-      health = health - 1;
-      destroy.play();
+    }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
+      if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
+        print("this far");
+        var missileAngle = missiles[i].getDir();
+        var angle1 = dir - aSize;
+        var angle2 = dir + aSize;
+        if(missileAngle <= angle2 && missileAngle >= angle1){
+          missiles.splice(i,1);
+          print("killed3");
+          score = score + 1;
+          ping.play();
+        }else if(missileAngle >= angle2 && missileAngle <= angle1){
+          missiles.splice(i,1);
+          print("killed4");
+          score = score + 1;
+          ping.play();
+        }
+      }
     }
 
   }
