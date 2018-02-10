@@ -58,6 +58,11 @@
     input.onchange = function(e){
       //var song = document.getElementById('sound');
       var src;
+      audio.stop();
+      score = 0;
+      health = maxH;
+      ready = false;
+      playing = false;
       src = URL.createObjectURL(this.files[0]);
       audio = loadSound(src,function(){
         health = 40;
