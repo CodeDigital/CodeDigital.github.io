@@ -158,6 +158,7 @@ function draw() {
     //if distance from earth is in between thickness of arc.
     if(missiles[i].cDist() < 40 + (thick/2)){
       missiles.splice(i,1);
+      isHit = true;
       health = health - 1;
       destroy.play();
     }else if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
