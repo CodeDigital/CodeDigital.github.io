@@ -17,6 +17,8 @@ var maxH = 40;
 var score = 0;
 var img;
 var ping, destroy;
+var isHit = false;
+var hitCountdown = 10;
 
 function preload(){
   img = loadImage('assets/earth3.png');
@@ -42,6 +44,7 @@ function draw() {
   //   amtAmp = amtAmp + 1;
   //   average = average / amtAmp;
   // }
+
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
@@ -249,6 +252,15 @@ function draw() {
     textSize(20);
     //text(("Reload the page to TRY AGAIN."),w/2 - 300,h/2 + 90,600,40);
 
+  }
+
+  if (isHit) {
+    tint(255,0,0);
+    hitCountdown = hitCountdown - 1;
+    if(hitCountdown <= 0)
+    hitCountdown = 10;
+    noTint();
+    isHit = false;
   }
 }
 
