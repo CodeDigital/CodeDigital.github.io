@@ -277,6 +277,9 @@ function findAngle(x,y){
   if(x < (w/2)){
     angle = angle + Math.PI;
   }
+  if(angle <= 0){
+    angle = angle + (2*Math.PI);
+  }
   //print(angle);
   return angle;
 }
@@ -317,6 +320,11 @@ function Missile(mSpeed,mX,mY,mDir){
     if(this.x < (w/2)){
       angle = angle + Math.PI;
     }
+
+    if(angle <= 0){
+      angle = angle + (2*Math.PI);
+    }
+
     //print(angle);
     return angle;
   }
