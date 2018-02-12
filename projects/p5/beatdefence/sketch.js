@@ -105,7 +105,7 @@ function draw() {
       audio.play();
       //print(tempo);
       playing = true;
-    }0.7,0.3,500);
+    },0.7,0.3,500);
     //  playing = true;
   }
 
