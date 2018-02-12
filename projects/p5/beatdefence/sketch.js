@@ -258,15 +258,15 @@ function draw() {
 
   }
 
-  if (isHit) {
-    tint(255,0,0);
-    hitCountdown = hitCountdown - 1;
-    if(hitCountdown <= 0){
-      hitCountdown = 10;
-      noTint();
-      isHit = false;
-    }
-  }
+  // if (isHit) {
+  //   tint(255,0,0);
+  //   hitCountdown = hitCountdown - 1;
+  //   if(hitCountdown <= 0){
+  //     hitCountdown = 10;
+  //     noTint();
+  //     isHit = false;
+  //   }
+  // }
 }
 
 function findAngle(x,y){
