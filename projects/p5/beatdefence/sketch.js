@@ -90,8 +90,9 @@ function draw() {
   if (audio && ready && !playing) {
     noTint();
     //playing = true;
-    ready = false
-    tempo = audio.processPeaks(function(){
+    ready = false;
+    audio.processPeaks(function(){
+      tempo = this;
       var sumDiff
       for (var i = 0; i < tempo.length - 1; i++) {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
