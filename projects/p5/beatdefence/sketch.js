@@ -22,7 +22,7 @@ var hitCountdown = 10;
 
 function preload(){
   earth = loadImage('assets/earth3.png');
-  eartHit = loadImage('assets/earthHit.png');
+  eartHit = loadImage('assets/earthhit.png');
   ping = loadSound('assets/missileping.wav');
   destroy = loadSound('assets/missiledest.wav');
   ping.playMode('sustain');
