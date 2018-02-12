@@ -15,13 +15,14 @@ var peakDetect;
 var health = 40;
 var maxH = 40;
 var score = 0;
-var img;
+var earth, earthHit;
 var ping, destroy;
 var isHit = false;
 var hitCountdown = 10;
 
 function preload(){
-  img = loadImage('assets/earth3.png');
+  earth = loadImage('assets/earth3.png');
+  eartHit = loadImage('assets/earthHit.png');
   ping = loadSound('assets/missileping.wav');
   destroy = loadSound('assets/missiledest.wav');
   ping.playMode('sustain');
@@ -136,7 +137,11 @@ function draw() {
   stroke(0,10,230,255);
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
-  image(img,w/2 - 45,h/2 - 45,90,90);
+  if(isHit){
+    image(earthHit,w/2 - 45,h/2 - 45,90,90);
+  }else{
+    image(earth,w/2 - 45,h/2 - 45,90,90);
+  }
 
 
   dir = findAngle(mouseX,mouseY);
@@ -258,15 +263,15 @@ function draw() {
 
   }
 
-  // if (isHit) {
-  //   tint(255,0,0);
-  //   hitCountdown = hitCountdown - 1;
-  //   if(hitCountdown <= 0){
-  //     hitCountdown = 10;
-  //     noTint();
-  //     isHit = false;
-  //   }
-  // }
+  if (isHit) {
+    //tint(255,0,0);
+    hitCountdown = hitCountdown - 1;
+    if(hitCountdown <= 0){
+      hitCountdown = 10;
+      //noTint();
+      isHit = false;
+    }
+  }
 }
 
 function findAngle(x,y){
