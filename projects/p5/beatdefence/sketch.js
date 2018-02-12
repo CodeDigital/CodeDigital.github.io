@@ -27,8 +27,8 @@ function preload(){
   destroy = loadSound('assets/missiledest.wav');
   ping.playMode('sustain');
   destroy.playMode('sustain');
-  ping.setVolume(0.3);
-  destroy.setVolume(0.3);
+  ping.setVolume(0.1);
+  destroy.setVolume(0.1);
 }
 
 function setup() {
