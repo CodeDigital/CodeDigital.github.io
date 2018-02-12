@@ -203,8 +203,8 @@ function draw() {
     }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
       //print("this far");
       var missileAngle = missiles[i].getDir();
-      var angle1 = dir - aSize;
-      var angle2 = dir + aSize;
+      var angle1 = findAngle(mouseX,mouseY) - aSize;
+      var angle2 = findAngle(mouseX,mouseY) + aSize;
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
         //print("killed3");
