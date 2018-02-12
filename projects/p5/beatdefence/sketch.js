@@ -50,9 +50,12 @@ function draw() {
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
-    if(audio.currentTime() == tempo[0]){
+    //if(audio.currentTime() == tempo[0]){
+    if(inTempo(audio.currentTime())){
+
+      tempo.splice(tempo.indexOf(audio.currentTime()));
     //if (peakDetect.isDetected) {
-      tempo.pop();
+      //tempo.pop();
       var angles = fft.analyze();
       //var centroid = fft.getCentroid();
       //var nyquist = 22050;
@@ -285,6 +288,16 @@ function draw() {
       isHit = false;
     }
   }
+}
+
+function inTempo(curr){
+  var isTrue = false;
+  for (var i = 0; i < tempo.length; i++) {
+    if(tempo[i] === curr){
+      isTrue = true;
+    }
+  }
+  return isTrue;
 }
 
 function findAngle(x,y){
