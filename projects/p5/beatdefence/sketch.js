@@ -52,8 +52,8 @@ function draw() {
   if(playing){
     //print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
-    if(inTempo(audio.currentTime())){
-    //if (peakDetect.isDetected) {
+    //if(inTempo(audio.currentTime())){
+    if (peakDetect.isDetected) {
       //tempo.pop();
       var angles = fft.analyze();
       //var centroid = fft.getCentroid();
@@ -101,7 +101,7 @@ function draw() {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
       }
       bpm = (sumDiff) / (100 * (tempo.length - 1));
-      peakDetect = new p5.PeakDetect(20,20000,0.3,bpm);
+      peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
       audio.play();
       //print(tempo);
       playing = true;
