@@ -19,6 +19,7 @@ var earth, earthHit;
 var ping, destroy;
 var isHit = false;
 var hitCountdown = 10;
+var bpm;
 
 function preload(){
   earth = loadImage('assets/earth3.png');
@@ -88,9 +89,15 @@ function draw() {
 
   if (audio && ready && !playing) {
     noTint();
-    playing = true;
-    ready = false;
+    //playing = true;
+    ready = false
     tempo = audio.processPeaks(function(){
+      var sumDiff
+      for (var i = 0; i < tempo.length - 1; i++) {
+        sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
+      }
+      bpm = (sumDiff) / (100 * (tempo.length - 1));
+      peakDetect = new p5.peakDetect(20,20000,0.3,bpm);
       audio.play();
       //print(tempo);
       playing = true;
@@ -153,8 +160,9 @@ function draw() {
   //noFill();
   if(playing){
     fill(0,50,255,255);
-     arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
     //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+    noFill();
     ellipse(w/2,h/2,w);
     //image(img,w/2 - 45,h/2 - 45,90,90);
   }
