@@ -202,7 +202,8 @@ function draw() {
       }
     }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
       //print("this far");
-      var missileAngle = missiles[i].getDir();
+      //var missileAngle = missiles[i].getDir();
+      var missileAngle = findAngle(missiles[i].x, missiles[i].y);
       var angle1 = findAngle(mouseX,mouseY) - aSize;
       var angle2 = findAngle(mouseX,mouseY) + aSize;
       if(missileAngle <= angle2 && missileAngle >= angle1){
@@ -311,6 +312,13 @@ function findAngle(x,y){
   }
   if(angle <= 0){
     angle = angle + (2*Math.PI);
+  }
+
+  while(angle <= 0){
+    angle = angle + (2*Math.PI);
+  }
+  while(angle >= (2*Math.PI)){
+    angle = angle - (2*Math.PI);
   }
   //print(angle);
   return angle;
