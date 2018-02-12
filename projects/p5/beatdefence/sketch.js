@@ -67,7 +67,7 @@ function draw() {
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
       //var newSpeed = map(angles[randA],0,255,2,15);
-      var newSpeed = 10;
+      var newSpeed = 5;
 
       //print(findMax(angles));
       //print(newSpeed);
@@ -162,34 +162,37 @@ function draw() {
       health = health - 1;
       destroy.play();
     }else if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
-      print("this far");
+      //print("this far");
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
       var angle2 = dir + aSize;
+      println("angle 1 - " + angle1);
+      println("angle 2 - " + angle2);
+      println("missileAngle - " + missileAngle);
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
-        print("killed1");
+        //print("killed1");
         score = score + 1;
         ping.play();
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
-        print("killed2");
+        //print("killed2");
         score = score + 1;
         ping.play();
       }
     }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
-      print("this far");
+      //print("this far");
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
       var angle2 = dir + aSize;
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
-        print("killed3");
+        //print("killed3");
         score = score + 1;
         ping.play();
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
-        print("killed4");
+        //print("killed4");
         score = score + 1;
         ping.play();
       }
@@ -368,7 +371,7 @@ function findMax(arr,start,stop){
 }
 
 function keyPressed(){
-  if(keyCode === ENTER){
+  if(keyCode === ENTER || key === " "){
     //var angles = fft.analyze();
     //print("Index of: " + angles.indexOf(findMax(angles)));
     var startAngle = -1 * findAngle(mouseX,mouseY);
