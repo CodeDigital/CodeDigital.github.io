@@ -166,9 +166,9 @@ function draw() {
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
       var angle2 = dir + aSize;
-      println("angle 1 - " + angle1);
-      println("angle 2 - " + angle2);
-      println("missileAngle - " + missileAngle);
+      print("angle 1 - " + angle1);
+      print("angle 2 - " + angle2);
+      print("missileAngle - " + missileAngle);
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
         //print("killed1");
