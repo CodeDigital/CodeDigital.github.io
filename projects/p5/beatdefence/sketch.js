@@ -91,8 +91,8 @@ function draw() {
     noTint();
     //playing = true;
     ready = false;
-    audio.processPeaks(function(){
-      tempo = this;
+    audio.processPeaks(function(arr){
+      tempo = arr;
       print(tempo);
       var sumDiff
       for (var i = 0; i < tempo.length - 1; i++) {
