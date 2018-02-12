@@ -62,8 +62,10 @@ function draw() {
       var startAngle = map(randA,0,1023,0,(2*Math.PI));
       //print(randA);
       //print(startAngle);
-      var newX = (w/2) + ((w/1.5) * cos(startAngle));
-      var newY = (h/2) - ((h/1.5) * sin(startAngle));
+      // var newX = (w/2) + ((w/1.5) * cos(startAngle));
+      // var newY = (h/2) - ((h/1.5) * sin(startAngle));
+      var newX = (w/2) + ((w/2) * cos(startAngle));
+      var newY = (h/2) - ((h/2) * sin(startAngle));
       //print(newX + "  -  " + newY);
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
@@ -151,9 +153,9 @@ function draw() {
   //noFill();
   if(playing){
     fill(0,50,255,255);
-    //  arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
-    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
-
+     arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+    ellipse(w/2,h/2,w);
     //image(img,w/2 - 45,h/2 - 45,90,90);
   }
 
