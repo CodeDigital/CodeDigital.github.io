@@ -272,7 +272,7 @@ function draw() {
 function findAngle(x,y){
   var angle;
   var hor = x - (w/2);
-  var ver = y - (h/2);
+  var ver = (h/2) - y;
   angle = atan(ver/hor);
   if(x < (w/2)){
     angle = angle + Math.PI;
@@ -311,8 +311,8 @@ function Missile(mSpeed,mX,mY,mDir){
 
   this.getDir = function(){
     var angle;
-    var hor = this.x - (w/2);
-    var ver =this.y - (h/2);
+    var hor = this.x + (w/2);
+    var ver = (h/2) - this.y;
     angle = atan(ver/hor);
     if(this.x < (w/2)){
       angle = angle + Math.PI;
