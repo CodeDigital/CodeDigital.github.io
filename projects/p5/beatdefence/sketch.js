@@ -50,7 +50,7 @@ function draw() {
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
-    print(audio.currentTime());
+    //print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
     if(inTempo(audio.currentTime())){
     //if (peakDetect.isDetected) {
@@ -186,9 +186,9 @@ function draw() {
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
       var angle2 = dir + aSize;
-      print("angle 1 - " + angle1);
-      print("angle 2 - " + angle2);
-      print("missileAngle - " + missileAngle);
+      //print("angle 1 - " + angle1);
+      //print("angle 2 - " + angle2);
+      //print("missileAngle - " + missileAngle);
       if(angle1 <= (0)){
         missileAngle = missileAngle - (2*Math.PI);
       }else if(angle2 >= (2*Math.PI)){
