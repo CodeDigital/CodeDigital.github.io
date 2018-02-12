@@ -50,9 +50,9 @@ function draw() {
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
-    //if(audio.currentTime() == tempo[0]){
-    if (peakDetect.isDetected) {
-      //tempo.pop();
+    if(audio.currentTime() == tempo[0]){
+    //if (peakDetect.isDetected) {
+      tempo.pop();
       var angles = fft.analyze();
       //var centroid = fft.getCentroid();
       //var nyquist = 22050;
@@ -161,9 +161,10 @@ function draw() {
 
   //noFill();
   if(playing){
-    fill(0,50,255,255);
-    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
-    //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+    //fill(0,50,255,255);
+    noFill();
+    //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
+    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
     noFill();
     ellipse(w/2,h/2,w);
     //image(img,w/2 - 45,h/2 - 45,90,90);
