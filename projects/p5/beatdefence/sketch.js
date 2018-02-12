@@ -294,7 +294,7 @@ function draw() {
 function inTempo(curr){
   var isTrue = false;
   for (var i = 0; i < tempo.length; i++) {
-    if(tempo[i] === curr){
+    if((tempo[i] <= (curr + 0.0001)) && (tempo[i] >= (curr - 0.0001))){
       isTrue = true;
     }
   }
