@@ -189,6 +189,11 @@ function draw() {
       print("angle 1 - " + angle1);
       print("angle 2 - " + angle2);
       print("missileAngle - " + missileAngle);
+      if(angle1 <= (0)){
+        missileAngle = missileAngle - (2*Math.PI);
+      }else if(angle2 >= (2*Math.PI)){
+        missileAngle = missileAngle + (2*Math.PI);
+      }
       if(missileAngle <= angle2 && missileAngle >= angle1){
         missiles.splice(i,1);
         //print("killed1");
