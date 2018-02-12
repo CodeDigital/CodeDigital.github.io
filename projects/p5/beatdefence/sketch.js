@@ -50,10 +50,11 @@ function draw() {
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
+    print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
     if(inTempo(audio.currentTime())){
 
-      tempo.splice(tempo.indexOf(audio.currentTime()));
+      tempo.splice(tempo.indexOf(audio.currentTime()),1);
     //if (peakDetect.isDetected) {
       //tempo.pop();
       var angles = fft.analyze();
