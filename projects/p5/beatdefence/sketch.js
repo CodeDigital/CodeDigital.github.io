@@ -53,8 +53,6 @@ function draw() {
     print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
     if(inTempo(audio.currentTime())){
-
-      tempo.splice(tempo.indexOf(audio.currentTime()),1);
     //if (peakDetect.isDetected) {
       //tempo.pop();
       var angles = fft.analyze();
@@ -296,6 +294,8 @@ function inTempo(curr){
   for (var i = 0; i < tempo.length; i++) {
     if((tempo[i] <= (curr + 0.05)) && (tempo[i] >= (curr - 0.05))){
       isTrue = true;
+      tempo.splice(i,1);
+      break;
     }
   }
   return isTrue;
