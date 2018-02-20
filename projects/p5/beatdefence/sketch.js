@@ -5,7 +5,7 @@ var aSize = Math.PI/3;
 var dir = 0;
 var fps = 144;
 var missiles = [];
-var missilesSpeed = 5;
+var missileSpeed = 5;
 var earlySpawn;
 var amp,fft;
 var playing = false;
