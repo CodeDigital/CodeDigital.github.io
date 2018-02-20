@@ -104,11 +104,11 @@ function draw() {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
       }
       bpm = (sumDiff) / (100 * (tempo.length - 1));
-      //peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
+      peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
       audio.play();
       //print(tempo);
       playing = true;
-    },0.7,0.3,200);
+    },0.9,0.1,500);
     //  playing = true;
   }
 
