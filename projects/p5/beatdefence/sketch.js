@@ -5,6 +5,8 @@ var aSize = Math.PI/3;
 var dir = 0;
 var fps = 144;
 var missiles = [];
+var missilesSpeed = 5;
+var earlySpawn;
 var amp,fft;
 var playing = false;
 var audio, ready = false;
@@ -52,9 +54,9 @@ function draw() {
   if(playing){
     //print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
-    //if(inTempo(audio.currentTime())){
-    if (peakDetect.isDetected) {
-      //tempo.pop();
+    if(inTempo(audio.currentTime())){
+    //if (peakDetect.isDetected) {
+      tempo.pop();
       var angles = fft.analyze();
       //var centroid = fft.getCentroid();
       //var nyquist = 22050;
@@ -73,7 +75,7 @@ function draw() {
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
       //var newSpeed = map(angles[randA],0,255,2,15);
-      var newSpeed = 5;
+      var newSpeed = missileSpeed;
 
       //print(findMax(angles));
       //print(newSpeed);
@@ -96,12 +98,13 @@ function draw() {
     audio.processPeaks(function(arr){
       tempo = arr;
       print(tempo);
-      var sumDiff
+      earlySpawn = (w/2) / missileSpeed;
+      var sumDiff;
       for (var i = 0; i < tempo.length - 1; i++) {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
       }
       bpm = (sumDiff) / (100 * (tempo.length - 1));
-      peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
+      //peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
       audio.play();
       //print(tempo);
       playing = true;
@@ -298,7 +301,7 @@ function draw() {
 function inTempo(curr){
   var isTrue = false;
   for (var i = 0; i < tempo.length; i++) {
-    if((tempo[i] <= (curr + 0.05)) && (tempo[i] >= (curr - 0.05))){
+    if((tempo[i] <= ((curr + 0.05) - earlySpawn)) && ((tempo[i] >= (curr - 0.05) - earlySpawn))){
       isTrue = true;
       tempo.splice(i,1);
       break;
