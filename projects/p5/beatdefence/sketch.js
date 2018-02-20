@@ -112,8 +112,8 @@ function draw() {
     //  playing = true;
   }
 
-  //frameRate(fps);
-  frameRate(100);
+  frameRate(fps);
+  //frameRate(100);
   //print(amp.getLevel());
   // if(amp.getLevel() > average + 0.1){
   //
