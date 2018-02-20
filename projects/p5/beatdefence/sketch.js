@@ -3,7 +3,7 @@ var h = 1000;
 var thick = 10;
 var aSize = Math.PI/3;
 var dir = 0;
-var fps = 20;
+var fps = 60;
 var missiles = [];
 var missileSpeed = 5;
 var earlySpawn;
@@ -30,8 +30,8 @@ function preload(){
   destroy = loadSound('assets/missiledest.wav');
   ping.playMode('sustain');
   destroy.playMode('sustain');
-  ping.setVolume(0.1);
-  destroy.setVolume(0.1);
+  ping.setVolume(0.2);
+  destroy.setVolume(0.2);
 }
 
 function setup() {
@@ -268,7 +268,8 @@ function draw() {
   text(("SCORE: " + score),w/2-100,20,200,40)
   textSize(20);
   if(playing == true){
-    text(("TIME LEFT: " + floor(audio.duration() - audio.currentTime())),w-210,20,200,40);
+    //text(("TIME LEFT: " + floor(audio.duration() - audio.currentTime())),w-210,20,200,40);
+    text(("TIME: " + floor(audio.currentTime())),w-210,20,200,40);
   }else{
     text(("TIME LEFT: NA"),w-210,20,200,40);
     textSize(40);
@@ -301,7 +302,8 @@ function draw() {
 function inTempo(curr){
   var isTrue = false;
   for (var i = 0; i < tempo.length; i++) {
-    if((tempo[i] <= ((curr + 0.05) + earlySpawn)) && ((tempo[i] >= (curr - 0.05) + earlySpawn))){
+    if((tempo[i] - earlySpawn <= ((curr + 0.05))) && ((tempo[i] - earlySpawn >= (curr - 0.05)))){
+      destroy.play();
       isTrue = true;
       tempo.splice(i,1);
       break;
