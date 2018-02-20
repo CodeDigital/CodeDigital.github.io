@@ -3,7 +3,7 @@ var h = 1000;
 var thick = 10;
 var aSize = Math.PI/3;
 var dir = 0;
-var fps = 144;
+var fps = 20;
 var missiles = [];
 var missileSpeed = 5;
 var earlySpawn;
