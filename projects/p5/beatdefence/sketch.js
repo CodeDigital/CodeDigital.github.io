@@ -301,7 +301,7 @@ function draw() {
 function inTempo(curr){
   var isTrue = false;
   for (var i = 0; i < tempo.length; i++) {
-    if((tempo[i] <= ((curr + 0.05) - earlySpawn)) && ((tempo[i] >= (curr - 0.05) - earlySpawn))){
+    if((tempo[i] <= ((curr + 0.05) + earlySpawn)) && ((tempo[i] >= (curr - 0.05) + earlySpawn))){
       isTrue = true;
       tempo.splice(i,1);
       break;
