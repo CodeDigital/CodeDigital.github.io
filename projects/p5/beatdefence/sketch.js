@@ -98,7 +98,7 @@ function draw() {
     audio.processPeaks(function(arr){
       tempo = arr;
       print(tempo);
-      earlySpawn = (w/2) / missileSpeed;
+      earlySpawn = (w/2) / (missileSpeed * fps);
       var sumDiff;
       for (var i = 0; i < tempo.length - 1; i++) {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
@@ -108,7 +108,7 @@ function draw() {
       audio.play();
       //print(tempo);
       playing = true;
-    },0.7,0.3,500);
+    },0.7,0.3,200);
     //  playing = true;
   }
 
