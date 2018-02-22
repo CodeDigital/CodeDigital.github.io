@@ -4,10 +4,10 @@ var playing = false;
 var audio, ready = false;
 var amplitude;
 var fft;
-var sizeX = 5;
+var sizeX = 15;
 var minY = 1;
 var maxY = 150;
-var length = 128;
+var length = 32;
 var angle = (Math.PI / (2* length));
 var name = "";
 var fileType = "-";
@@ -119,6 +119,6 @@ function draw() {
     fill(255);
     textAlign(CENTER);
     //textSize(25);
-    textSize(map(amp,0,1,23,27));
+    textSize(map(amp,0,1,23,30));
     text(name,-total + 10,-30,2*(total-10),60)
   }
