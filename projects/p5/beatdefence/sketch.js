@@ -5,7 +5,7 @@ var aSize = Math.PI/3;
 var dir = 0;
 var fps = 60;
 var missiles = [];
-var missileSpeed = 5;
+var missileSpeed = 8;
 var earlySpawn;
 var amp,fft;
 var playing = false;
@@ -104,7 +104,7 @@ function draw() {
     //playing = true;
     ready = false;
     //backing = audio;
-    earlySpawn = ((w/2) - 45) / (missileSpeed);
+    earlySpawn = ((w/2) - 70) / (missileSpeed);
     loop = true;
     fft.setInput(backing);
     //backing.setVolume(0);
