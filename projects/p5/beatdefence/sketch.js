@@ -25,20 +25,20 @@ var bpm;
 
 function preload(){
   earth = loadImage('assets/earth3.png');
-  //earthHit = loadImage('assets/earthhit.png');
-  // ping = loadSound('assets/missileping.wav');
-  // destroy = loadSound('assets/missiledest.wav');
-  // ping.playMode('sustain');
-  // destroy.playMode('sustain');
-  // ping.setVolume(0.2);
-  // destroy.setVolume(0.2);
+  earthHit = loadImage('assets/earthhit.png');
+  ping = loadSound('assets/missileping.wav');
+  destroy = loadSound('assets/missiledest.wav');
+  ping.playMode('sustain');
+  destroy.playMode('sustain');
+  ping.setVolume(0.2);
+  destroy.setVolume(0.2);
 }
 
 function setup() {
   createCanvas(w,h);
   fft = new p5.FFT();
   amp = new p5.Amplitude();
-  peakDetect = new p5.PeakDetect(20,20000,0.35,5);
+  peakDetect = new p5.PeakDetect(20,20000,0.2,20);
 }
 
 function draw() {
@@ -104,10 +104,12 @@ function draw() {
     //playing = true;
     ready = false;
     //backing = audio;
-    earlySpawn = (w/2) / (missileSpeed);
+    earlySpawn = ((w/2) - 45) / (missileSpeed);
     loop = true;
     fft.setInput(backing);
-    backing.setVolume(0);
+    //backing.setVolume(0);
+    //backing.connect(fft);
+    backing.disconnect();
     backing.play();
     playing = true;
     // audio.processPeaks(function(arr){
@@ -168,12 +170,12 @@ function draw() {
   stroke(0,10,230,255);
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
-  // if(isHit){
-  //   image(earthHit,w/2 - 45,h/2 - 45,90,90);
-  // }else{
-  //   image(earth,w/2 - 45,h/2 - 45,90,90);
-  // }
-  image(earth,w/2 - 45,h/2 - 45,90,90);
+  if(isHit){
+    image(earthHit,w/2 - 45,h/2 - 45,90,90);
+  }else{
+    image(earth,w/2 - 45,h/2 - 45,90,90);
+  }
+  //image(earth,w/2 - 45,h/2 - 45,90,90);
 
 
   dir = findAngle(mouseX,mouseY);
@@ -199,7 +201,7 @@ function draw() {
       missiles.splice(i,1);
       isHit = true;
       health = health - 1;
-      //destroy.play();
+      destroy.play();
     }else if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
       //print("this far");
       var missileAngle = missiles[i].getDir();
@@ -217,12 +219,12 @@ function draw() {
         missiles.splice(i,1);
         //print("killed1");
         score = score + 1;
-        //ping.play();
+        ping.play();
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
         //print("killed2");
         score = score + 1;
-        //ping.play();
+        ping.play();
       }
     }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
       //print("this far");
@@ -234,12 +236,12 @@ function draw() {
         missiles.splice(i,1);
         //print("killed3");
         score = score + 1;
-        //ping.play();
+        ping.play();
       }else if(missileAngle >= angle2 && missileAngle <= angle1){
         missiles.splice(i,1);
         //print("killed4");
         score = score + 1;
-        //ping.play();
+        ping.play();
       }
     }
 
