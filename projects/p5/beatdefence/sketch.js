@@ -104,7 +104,7 @@ function draw() {
     //playing = true;
     ready = false;
     //backing = audio;
-    earlySpawn = ((w/2) - 70) / (missileSpeed);
+    earlySpawn = ((w/2) - 60) / (missileSpeed);
     loop = true;
     fft.setInput(backing);
     //backing.setVolume(0);
