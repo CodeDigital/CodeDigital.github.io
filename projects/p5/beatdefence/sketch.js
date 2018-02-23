@@ -95,6 +95,7 @@ function draw() {
       earlySpawn = earlySpawn - 1;
     }else{
       audio.play();
+      earlySpawn = -1;
     }
   }
 
