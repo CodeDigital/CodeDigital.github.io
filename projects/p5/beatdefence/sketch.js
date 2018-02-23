@@ -42,6 +42,8 @@ function setup() {
 }
 
 function draw() {
+  var backC = color(38,38,38,255);
+  background(backC);
   //   if(playing){
   //   average = average * amtAmp;
   //   average = average + amp.getLevel();
@@ -163,11 +165,10 @@ function draw() {
     missiles[i].move();
   }
 
-  var backC = color(30,30,30,255);
-  background(backC);
 
   strokeWeight(thick);
-  stroke(0,10,230,255);
+  //stroke(0,10,230,255);
+  stroke(255);
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
   if(isHit){
