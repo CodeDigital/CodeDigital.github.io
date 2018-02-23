@@ -9,7 +9,7 @@ var missileSpeed = 5;
 var earlySpawn;
 var amp,fft;
 var playing = false;
-var audio, backing, ready = false;
+var audio, backing, ready = false, loop = true;
 var average = 0.1;
 var amtAmp = 1;
 var tempo;
@@ -90,12 +90,12 @@ function draw() {
   //   sum = sum+ angles[i];
   // }
   // var average = sum/angles.length;
-  if(playing){
+  if(playing && loop){
     if(earlySpawn > 0){
       earlySpawn = earlySpawn - 1;
     }else{
       audio.play();
-      earlySpawn = -1;
+      loop = false;;
     }
   }
 
@@ -105,6 +105,7 @@ function draw() {
     ready = false;
     //backing = audio;
     earlySpawn = (w/2) / (missileSpeed);
+    loop = true;
     fft.setInput(backing);
     backing.setVolume(0);
     backing.play();
