@@ -1,7 +1,7 @@
 var w = 1000;
 var h = 1000;
 var thick = 10;
-var aSize = Math.PI/3;
+var aSize = Math.PI/5;
 var dir = 0;
 var fps = 60;
 var missiles = [];
@@ -22,8 +22,9 @@ var ping, destroy;
 var isHit = false;
 var hitCountdown = 10;
 var bpm;
-var previousAngle;
+var previousAngle = Math.PI;
 var missileTimer = 0;
+var shieldDist = 70;
 
 function preload(){
   earth = loadImage('assets/earth3.png');
@@ -53,6 +54,8 @@ function draw() {
   //   average = average / amtAmp;
   // }
 
+  //shieldDist = map(amp.getLevel(),0,1,55,75);
+
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
@@ -71,17 +74,17 @@ function draw() {
       //var startAngle = map(angles.indexOf(findMax(angles,mean_freq_index - 10,mean_freq_index + 10)),mean_freq_index - 10,mean_freq_index + 10,0,2*Math.PI);
       var randA = floor(random(0,1023.99999999));
 
-      if(missileTimer >= 200){
+      if(missileTimer >= fps/2){
         var startAngle = map(randA,0,1023,0,(2*Math.PI));
-
-      }else if(missileTimer >= 100){
-        var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 12),previousAngle + (Math.PI / 12));
+        //missileTimer = 0;
+        print("1")
 
       }else{
-        var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 24),previousAngle + (Math.PI / 24));
-
+        var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 6),previousAngle + (Math.PI / 6));
+        //missileTimer = 0;
+        print("2");
       }
-
+      missileTimer = 0;
       previousAngle = startAngle;
 
       //print(randA);
@@ -101,6 +104,7 @@ function draw() {
       var newDir = startAngle + Math.PI;
       var newMissile = new Missile(newSpeed,newX,newY,newDir);
       append(missiles,newMissile);
+      //missileTimer = 0;
     }
   }
   // var angles = fft.analyze();
@@ -131,30 +135,34 @@ function draw() {
     backing.disconnect();
     backing.play();
     playing = true;
-    audio.processPeaks(function(arr){
-      tempo = arr;
-      tempo = sort(tempo);
-      //print(tempo);
-      //earlySpawn = (w/2) / (missileSpeed * fps);
-      var sumDiff = 0;
-      var sum = 0;
-      for (var i = 0; i < tempo.length - 1; i++) {
-        sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
-        sum = sum + 1;
-      }
-      sumDiff = sumDiff / (sum);
-      sumDiff = sumDiff;
-      print(sumDiff);
-      bpm = 10 / (sumDiff)
-      print(bpm);
-      var fpp = fps / (bpm / fps);
-      print(fpp);
-      peakDetect = new p5.PeakDetect(20,20000,0.2,fpp);
-      //audio.play();
-      //print(tempo);
-      playing = true;
-    });
-    // //  playing = true;
+    // audio.processPeaks(function(arr){
+    //   tempo = arr;
+    //   tempo = sort(tempo);
+    //   //print(tempo);
+    //   //earlySpawn = (w/2) / (missileSpeed * fps);
+    //   // var sumDiff = 0;
+    //   // var sum = 0;
+    //   // for (var i = 0; i < tempo.length - 1; i++) {
+    //   //   sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
+    //   //   sum = sum + 1;
+    //   // }
+    //   // sumDiff = sumDiff / (sum);
+    //   // sumDiff = sumDiff;
+    //   // print(sumDiff);
+    //   //bpm = 10 / (sumDiff)
+    //   print(bpm);
+    //   var fpp = fps / (bpm / fps);
+    //   print(fpp);
+    //   peakDetect = new p5.PeakDetect(20,20000,0.2,fpp);
+    //   //audio.play();
+    //   //print(tempo);
+    //   //playing = true;
+    // });
+    print(bpm);
+    var fpp = fps / ((2 * bpm) / fps);
+    print(fpp);
+    peakDetect = new p5.PeakDetect(20,20000,0.15,fpp);
+    //playing = true;
   }
 
   frameRate(fps);
@@ -214,9 +222,9 @@ function draw() {
     //fill(0,50,255,255);
     noFill();
     //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
-    arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize));
+    arc(w/2,h/2,2*shieldDist,2*shieldDist,(dir - aSize),(dir + aSize));
     noFill();
-    ellipse(w/2,h/2,w);
+    //ellipse(w/2,h/2,w -30);
     //image(img,w/2 - 45,h/2 - 45,90,90);
   }
 
@@ -229,7 +237,7 @@ function draw() {
       isHit = true;
       health = health - 1;
       destroy.play();
-    }else if(missiles[i].cDist() >= 70 - (thick/2) && missiles[i].cDist() <= 70 + (thick/2)){
+    }else if(missiles[i].cDist() >= shieldDist - (thick/2) && missiles[i].cDist() <= shieldDist + (thick/2)){
       //print("this far");
       var missileAngle = missiles[i].getDir();
       var angle1 = dir - aSize;
@@ -253,7 +261,7 @@ function draw() {
         score = score + 1;
         ping.play();
       }
-    }else if(missiles[i].cDist() + missiles[i].len >= 70 + (thick/2) && missiles[i].cDist() <= 70 - (thick/2)){
+    }else if(missiles[i].cDist() + missiles[i].len >= shieldDist + (thick/2) && missiles[i].cDist() <= shieldDist - (thick/2)){
       //print("this far");
       //var missileAngle = missiles[i].getDir();
       var missileAngle = findAngle(missiles[i].x, missiles[i].y);
@@ -278,7 +286,7 @@ function draw() {
     missiles[i].show();
   }
 
-  //point((w/2) - 70,(h/2));
+  //point((w/2) - shieldDist,(h/2));
   //strokeWeight(1);
   stroke(33,33,33,255);
   strokeWeight(10);
@@ -291,7 +299,7 @@ function draw() {
 
   fill(0,255,0,255);
   if(playing){
-    rect(w - 220,50,map((audio.currentTime()/audio.duration()),0,1,0,200),20);
+    rect(w - 220,50,map((audio.currentTime()/audio.duration()),0,0.99,0,200),20);
   }else{
     rect(w - 220,50,200,20);
   }
@@ -440,8 +448,11 @@ function Missile(mSpeed,mX,mY,mDir){
     var showAngle = this.dir - Math.PI;
     var dX = this.x + (this.len * cos(showAngle));
     var dY = this.y - (this.len * sin(showAngle));
-    stroke(255);
+    stroke(255,50,0);
+    strokeWeight(4);
+    line(this.x,this.y,this.sX,this.sY);
     strokeWeight(8);
+    stroke(255);
     line(this.x,this.y,dX,dY);
     //line(this.x,this.y,this.sX,this.sY);
   }
