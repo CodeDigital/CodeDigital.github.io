@@ -133,6 +133,7 @@ function draw() {
     playing = true;
     audio.processPeaks(function(arr){
       tempo = arr;
+      tempo = sort(tempo);
       //print(tempo);
       //earlySpawn = (w/2) / (missileSpeed * fps);
       var sumDiff = 0;
