@@ -135,7 +135,7 @@ function draw() {
       tempo = arr;
       //print(tempo);
       //earlySpawn = (w/2) / (missileSpeed * fps);
-      var sumDiff;
+      var sumDiff = 0;
       var sum = 0;
       for (var i = 0; i < tempo.length - 1; i++) {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
