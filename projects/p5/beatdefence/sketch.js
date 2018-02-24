@@ -136,15 +136,17 @@ function draw() {
       //print(tempo);
       //earlySpawn = (w/2) / (missileSpeed * fps);
       var sumDiff;
+      var sum = 0;
       for (var i = 0; i < tempo.length - 1; i++) {
         sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
+        sum = sum + 1;
       }
-      sumDiff = sumDiff / (tempo.length - 1);
+      sumDiff = sumDiff / (sum);
       sumDiff = sumDiff / 60;
       bpm = 1/sumDiff
       var fpp = fps / (bpm / fps);
       peakDetect = new p5.PeakDetect(20,20000,0.2,fpp);
-      audio.play();
+      //audio.play();
       //print(tempo);
       playing = true;
     });
