@@ -143,8 +143,11 @@ function draw() {
       }
       sumDiff = sumDiff / (sum);
       sumDiff = sumDiff / 60;
+      print(sumDiff);
       bpm = 1/sumDiff
+      print(bpm);
       var fpp = fps / (bpm / fps);
+      print(fpp);
       peakDetect = new p5.PeakDetect(20,20000,0.2,fpp);
       //audio.play();
       //print(tempo);
