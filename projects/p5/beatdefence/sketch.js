@@ -143,9 +143,9 @@ function draw() {
         sum = sum + 1;
       }
       sumDiff = sumDiff / (sum);
-      sumDiff = sumDiff / 60;
+      sumDiff = sumDiff;
       print(sumDiff);
-      bpm = 1/sumDiff
+      bpm = 1/ (60 * sumDiff)
       print(bpm);
       var fpp = fps / (bpm / fps);
       print(fpp);
