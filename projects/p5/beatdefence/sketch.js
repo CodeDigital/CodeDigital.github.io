@@ -22,6 +22,8 @@ var ping, destroy;
 var isHit = false;
 var hitCountdown = 10;
 var bpm;
+var previousAngle;
+var missileTimer = 0;
 
 function preload(){
   earth = loadImage('assets/earth3.png');
@@ -54,10 +56,12 @@ function draw() {
   fft.analyze();
   peakDetect.update(fft);
   if(playing){
+    missileTimer = missileTimer + 1;
     //print(audio.currentTime());
     //if(audio.currentTime() == tempo[0]){
     //if(inTempo(audio.currentTime())){
     if (peakDetect.isDetected) {
+
       //tempo.pop();
       //var angles = fft.analyze();
       //var centroid = fft.getCentroid();
@@ -66,7 +70,20 @@ function draw() {
       //var mean_freq_index = centroid/(nyquist/angles.length);
       //var startAngle = map(angles.indexOf(findMax(angles,mean_freq_index - 10,mean_freq_index + 10)),mean_freq_index - 10,mean_freq_index + 10,0,2*Math.PI);
       var randA = floor(random(0,1023.99999999));
-      var startAngle = map(randA,0,1023,0,(2*Math.PI));
+
+      if(missileTimer >= 200){
+        var startAngle = map(randA,0,1023,0,(2*Math.PI));
+
+      }else if(missileTimer >= 100){
+        var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 12),previousAngle + (Math.PI / 12));
+
+      }else{
+        var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 24),previousAngle + (Math.PI / 24));
+
+      }
+
+      previousAngle = startAngle;
+
       //print(randA);
       //print(startAngle);
       // var newX = (w/2) + ((w/1.5) * cos(startAngle));
@@ -114,20 +131,23 @@ function draw() {
     backing.disconnect();
     backing.play();
     playing = true;
-    // audio.processPeaks(function(arr){
-    //   tempo = arr;
-    //   print(tempo);
-    //   earlySpawn = (w/2) / (missileSpeed * fps);
-    //   var sumDiff;
-    //   for (var i = 0; i < tempo.length - 1; i++) {
-    //     sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
-    //   }
-    //   bpm = (sumDiff) / (100 * (tempo.length - 1));
-    //   peakDetect = new p5.PeakDetect(25,15000,0.3,bpm);
-    //   audio.play();
-    //   //print(tempo);
-    //   playing = true;
-    // },0.9,0.1,500);
+    audio.processPeaks(function(arr){
+      tempo = arr;
+      //print(tempo);
+      //earlySpawn = (w/2) / (missileSpeed * fps);
+      var sumDiff;
+      for (var i = 0; i < tempo.length - 1; i++) {
+        sumDiff = sumDiff + ((tempo[i+1] - tempo[i]) / 60);
+      }
+      sumDiff = sumDiff / (tempo.length - 1);
+      sumDiff = sumDiff / 60;
+      bpm = 1/sumDiff
+      var fpp = fps / (bpm / fps);
+      peakDetect = new p5.PeakDetect(20,20000,0.2,fpp);
+      audio.play();
+      //print(tempo);
+      playing = true;
+    });
     // //  playing = true;
   }
 
