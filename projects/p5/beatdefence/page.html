@@ -237,7 +237,7 @@
       src = URL.createObjectURL(this.files[0]);
       audio = loadSound(src,function(){
         backing = loadSound(src,function(){
-          health = 40;
+          health = maxH;
           score = 0;
           ready = true;
         });
