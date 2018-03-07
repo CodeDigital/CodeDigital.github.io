@@ -15,7 +15,8 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  var backC = color(38,38,38,255);
+  background(backC);
   frameRate(60);
 
   if(points.length < 500){
@@ -42,7 +43,7 @@ function draw() {
 function Point(x,y){
   this.x = x;
   this.y = y;
-  this.speed = random(0.1,5);
+  this.speed = random(0.1,2);
   this.rad = 0;
   this.canGrow = true;
   this.color = random(10,255);
