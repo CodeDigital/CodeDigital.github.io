@@ -58,7 +58,7 @@ function draw() {
   }
 
   for (var i = 0; i < points.length; i++) {
-    if(mouseX = points[i].x && mouseY = points[i].y){
+    if((mouseX <= points[i].x + (points[i].rad * 0.9) && mouseX >= points[i].x - (points[i].rad * 0.9)) && (mouseY <= points[i].y + (points[i].rad * 0.9) && mouseY >= points[i].y - (points[i].rad * 0.9))){
       splice(points,1,i);
     }
   }
