@@ -127,8 +127,8 @@
         // init state
         var state;
 
-        var notifier = Object.getNotifier(this),
-            changeIndex;
+        // var notifier = Object.getNotifier(this),
+        //     changeIndex;
 
         /**
          * @name Pulse#state
@@ -144,12 +144,12 @@
                     return;
                 }
 
-                notifier.notify({
-                    type: "update",
-                    name: "state",
-                    oldValue: s
-                });
-
+                // notifier.notify({
+                //     type: "update",
+                //     name: "state",
+                //     oldValue: s
+                // });
+                //
                 state = s;
             }
         });
