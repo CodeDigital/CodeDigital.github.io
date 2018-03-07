@@ -5,7 +5,7 @@ var timer = new Date();
 var points = [];
 
 function preload(){
-  img = loadImage("assets/icon.png");
+  img = loadImage("projects/p5/logoshow/assets/icon.png");
 }
 
 function setup() {
