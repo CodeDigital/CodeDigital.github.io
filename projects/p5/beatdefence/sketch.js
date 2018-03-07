@@ -1,9 +1,9 @@
 var w = 1000;
 var h = 1000;
 var thick = 10;
-var aSize = Math.PI/5;
+var aSize = Math.PI/12;
 var dir = 0;
-var fps = 30;
+var fps = 100;
 var missiles = [];
 var missileSpeed = 8;
 var earlySpawn;
