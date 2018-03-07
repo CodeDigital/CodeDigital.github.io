@@ -236,7 +236,7 @@
       ready = false;
       playing = false;
       src = URL.createObjectURL(this.files[0]);
-      var uri = URI.createObjectURI(this.files[0]);
+      var uri = URL.createObjectURL(this.files[0]);
       var pulse = new Pulse({
 
         // when Pulse has finished to compute main data: beat, significant peaks...
@@ -257,7 +257,7 @@
       });
 
       pulse.loadBufferFromURI(uri);
-      
+
       audio = loadSound(src,function(){
         backing = loadSound(src,function(){
           health = maxH;
