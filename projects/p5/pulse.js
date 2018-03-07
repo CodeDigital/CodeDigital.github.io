@@ -180,45 +180,45 @@
         // init options
         this.options = options;
 
-        Object.observe(this, function(changes) {
-            for(changeIndex = 0; changeIndex < changes.length; changeIndex++) {
-                if(
-                    changes[changeIndex].type === "update" &&
-                    changes[changeIndex].name === "state" &&
-                    changes[changeIndex].lastValue != self.state
-                    ) {
-                    switch(self.state) {
-                        case self.READY :
-                        global.console.log("READY");
-                        break;
-
-                        case self.WEB_AUDIO_API_NOT_SUPPORTED :
-                        global.console.error("WEB_AUDIO_API_NOT_SUPPORTED");
-                        break;
-
-                        case self.REQUEST_PROGRESS :
-                        global.console.log("REQUEST_PROGRESS");
-                        break;
-
-                        case self.REQUEST_LOAD :
-                        global.console.log("REQUEST_LOAD");
-                        break;
-
-                        case self.REQUEST_ERROR :
-                        global.console.error("REQUEST_ERROR");
-                        break;
-
-                        case self.REQUEST_ABORT :
-                        global.console.error("REQUEST_ABORT");
-                        break;
-
-                        default :
-                        global.console.error("STATE NOT IMPLEMENTED");
-                        break;
-                    }
-                }
-            }
-        });
+        // Object.observe(this, function(changes) {
+        //     for(changeIndex = 0; changeIndex < changes.length; changeIndex++) {
+        //         if(
+        //             changes[changeIndex].type === "update" &&
+        //             changes[changeIndex].name === "state" &&
+        //             changes[changeIndex].lastValue != self.state
+        //             ) {
+        //             switch(self.state) {
+        //                 case self.READY :
+        //                 global.console.log("READY");
+        //                 break;
+        //
+        //                 case self.WEB_AUDIO_API_NOT_SUPPORTED :
+        //                 global.console.error("WEB_AUDIO_API_NOT_SUPPORTED");
+        //                 break;
+        //
+        //                 case self.REQUEST_PROGRESS :
+        //                 global.console.log("REQUEST_PROGRESS");
+        //                 break;
+        //
+        //                 case self.REQUEST_LOAD :
+        //                 global.console.log("REQUEST_LOAD");
+        //                 break;
+        //
+        //                 case self.REQUEST_ERROR :
+        //                 global.console.error("REQUEST_ERROR");
+        //                 break;
+        //
+        //                 case self.REQUEST_ABORT :
+        //                 global.console.error("REQUEST_ABORT");
+        //                 break;
+        //
+        //                 default :
+        //                 global.console.error("STATE NOT IMPLEMENTED");
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // });
     };
 
     /**
