@@ -56,16 +56,15 @@ function draw() {
   }else{
     stillGrowing = true;
   }
+
   var len = points.length;
   for (var i = 0; i < len; i++) {
     if((mouseX <= points[i].x + (points[i].rad * 0.9) && mouseX >= points[i].x - (points[i].rad * 0.9)) && (mouseY <= points[i].y + (points[i].rad * 0.9) && mouseY >= points[i].y - (points[i].rad * 0.9))){
       splice(points,1,i);
       splice(prevRad,1,i);
-      len = len - 1;
+break;
     }
   }
-
-
 }
 
 function Point(x,y){
