@@ -45,7 +45,7 @@ function draw() {
     points[i].show();
   }
 
-  if(stillGrowing){
+  if(stillGrowing && points.length == 1500){
     for (var i = 0; i < points.length; i++) {
       stillGrowing = false;
       if(points[i].rad == prevRad[i]){
