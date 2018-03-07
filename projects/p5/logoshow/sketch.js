@@ -53,6 +53,14 @@ function draw() {
         stillGrowing = true;
       }
     }
+  }else{
+    stillGrowing = true;
+  }
+
+  for (var i = 0; i < points.length; i++) {
+    if(mouseX = points[i].x && mouseY = points[i].y){
+      splice(points,1,i);
+    }
   }
 
 
