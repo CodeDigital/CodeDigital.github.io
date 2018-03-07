@@ -24,8 +24,8 @@ function draw() {
   for (var i = 0; i < 20; i++) {
     //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
-      var newX = random(0,w);
-      var newY = random(0,h);
+      var newX = random((w/16),(w - (w/16)));
+      var newY = random((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
       points.push(newPoint);
       //print('1');

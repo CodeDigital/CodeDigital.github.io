@@ -13,20 +13,6 @@ header{
   border-bottom: 2px solid white;
 }
 
-main{
-  color: white;
-  position: fixed;
-  display: block;
-  margin-top: 198px;
-  margin-left: 855px;
-  width: 500px;
-  margin-bottom: 10px;
-  padding-bottom: 50px;
-  background-color: #151719;
-  height: 100px;
-  z-index: -1;
-}
-
 footer{
   position: fixed;
   bottom: 0;
@@ -45,7 +31,7 @@ nav{
   width: 850px;
   height: 100%;
   margin-top: -20px;
-  margin-left: -805px;
+  margin-left: -705px;
   font-size: 80px;
   text-align: right;
   font-family: 'Baloo Da', cursive;
@@ -58,7 +44,6 @@ ul {
   width: 100%;
   background-color: #333;
   border-radius: 0px 0px 100px 0px;
-
 }
 
 li a {
@@ -66,7 +51,7 @@ li a {
   padding: 8px 16px;
   text-decoration: none;
   background-color: #333;
-  padding: 50px 40px;
+  padding: 60px 40px;
   background: -moz-linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%); /* ff3.6+ */
   background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,0,255,1)), color-stop(100%, rgba(0,255,255,1))); /* safari4+,chrome */
   background: -webkit-linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%); /* safari5.1+,chrome10+ */
