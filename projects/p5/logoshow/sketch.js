@@ -19,7 +19,7 @@ function draw() {
   background(backC);
   frameRate(60);
 
-  if(points.length < 500){
+  if(points.length < 2000){
     //var now = new Date();
   for (var i = 0; i < 20; i++) {
     //if((now.getTime() - timer.getTime()) >= 50){
