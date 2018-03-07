@@ -10,6 +10,7 @@ header{
       width: 100%;
       left: 0;
       border-bottom: 2px solid white;
+  background-color: #151719;
 }
 
 main{
@@ -23,6 +24,7 @@ main{
   padding-bottom: 50px;
   left:40px;
   background-color: #151719;
+  background-color: #333;
   height: 100%;
   bottom: 0;
 }
@@ -34,8 +36,9 @@ color: white;
 left: 0;
 width: 100%;
 background-color: #333;
+background-color: #151719;
 font-family: 'Baloo Da', cursive;
-
+border-top: 2px solid white;
 }
 
 nav{
@@ -49,12 +52,15 @@ nav ul{
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    background-color: #151719;
+
 }
 
 nav ul li{
   display: inline;
   float: right;
   border-left: 1px solid #bbb;
+  background-color: #333;
 }
 nav ul li a{
   display: block;
@@ -66,6 +72,8 @@ nav ul li a{
 
 nav ul li:first-child {
   border-right: 1px solid #bbb;
+  background-color: #151719;
+
 }
 
 nav ul li:last-child {
@@ -85,6 +93,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', end
 
 .active {
     background-color: #1c1c1c;
+    background-color: #151719;
+
 }
 
 .code{
@@ -102,6 +112,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', end
 
 .blank-space{
   color: #333;
+  background-color: #151719;
+  color: #151719;
   display: block;
     text-align: center;
     padding: 32px 25px;
