@@ -3,9 +3,9 @@ var h = 1000;
 var thick = 10;
 var aSize = Math.PI/5;
 var dir = 0;
-var fps = 60;
+var fps = 30;
 var missiles = [];
-var missileSpeed = 6;
+var missileSpeed = 8;
 var earlySpawn;
 var amp,fft;
 var playing = false;
@@ -77,12 +77,12 @@ function draw() {
       if(missileTimer >= fps/2){
         var startAngle = map(randA,0,1023,0,(2*Math.PI));
         //missileTimer = 0;
-        print("1")
+        //print("1")
 
       }else{
         var startAngle = map(randA,0,1023,previousAngle - (Math.PI / 6),previousAngle + (Math.PI / 6));
         //missileTimer = 0;
-        print("2");
+        //print("2");
       }
       missileTimer = 0;
       previousAngle = startAngle;
@@ -159,7 +159,7 @@ function draw() {
     //   //playing = true;
     // });
     print(bpm);
-    var fpp = fps / ((2 * bpm) / fps);
+    var fpp = fps / ((4 * bpm) / fps);
     print(fpp);
     peakDetect = new p5.PeakDetect(20,20000,0.15,fpp);
     //playing = true;
