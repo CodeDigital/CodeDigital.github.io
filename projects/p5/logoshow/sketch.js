@@ -3,6 +3,8 @@ var w = 500;
 var h = 500;
 var timer = new Date();
 var points = [];
+var prevRad = [];
+var stillGrowing = true;
 
 function preload(){
   img = loadImage("projects/p5/logoshow/assets/icon.png");
@@ -19,25 +21,41 @@ function draw() {
   background(backC);
   frameRate(60);
 
-  if(points.length < 2000){
+  if(points.length < 1500){
     //var now = new Date();
-  for (var i = 0; i < 20; i++) {
-    //if((now.getTime() - timer.getTime()) >= 50){
+    for (var i = 0; i < 20; i++) {
+      //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
       var newX = random((w/16),(w - (w/16)));
       var newY = random((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
       points.push(newPoint);
+      prevRad.push(0);
       //print('1');
-    //}
-  }
+      //}
+    }
   }
 
   for (var i = 0; i < points.length; i++) {
-    points[i].grow();
+    if(stillGrowing){
+      points[i].grow();
+      prevRad[i] = points[i].rad;
+    }
     //print(points[i].rad);
     points[i].show();
   }
+
+  if(stillGrowing){
+    for (var i = 0; i < points.length; i++) {
+      stillGrowing = false;
+      if(points[i].rad == prevRad[i]){
+      }else{
+        stillGrowing = true;
+      }
+    }
+  }
+
+
 }
 
 function Point(x,y){
