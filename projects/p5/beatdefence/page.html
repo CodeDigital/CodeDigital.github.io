@@ -237,6 +237,8 @@
       playing = false;
       src = URL.createObjectURL(this.files[0]);
       var uri = URL.createObjectURL(this.files[0]);
+      print(uri);
+      print(this.files[0]);
       var pulse = new Pulse({
 
         // when Pulse has finished to compute main data: beat, significant peaks...
