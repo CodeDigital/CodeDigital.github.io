@@ -32,7 +32,6 @@ nav{
   height: 100%;
   margin-top: -20px;
   margin-left: -755px;
-  font-size: 80px;
   text-align: right;
   font-family: 'Baloo Da', cursive;
   z-index: -1;
@@ -47,8 +46,9 @@ ul {
 }
 
 li a {
+  width: 100%;
   display: block;
-  padding: 8px 16px;
+  font-size: 80px;
   text-decoration: none;
   background-color: #333;
   padding: 70px 50px;
