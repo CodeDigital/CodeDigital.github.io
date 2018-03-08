@@ -28,7 +28,7 @@ function draw() {
       //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
       var newX = getRandomInt((w/16),(w - (w/16)));
-      var newY = GetRandomInt((h/16),(h - (h/16)));
+      var newY = getRandomInt((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
       points.push(newPoint);
       prevRad.push(0);

@@ -1,4 +1,4 @@
-p5.disableFriendlyErrors = true;
+ Math.cosp5.disableFriendlyErrors = true;
 var w = 1000;
 var h = 1000;
 var thick = 10;
@@ -73,7 +73,7 @@ function draw() {
 
       //var mean_freq_index = centroid/(nyquist/angles.length);
       //var startAngle = map(angles.indexOf(findMax(angles,mean_freq_index - 10,mean_freq_index + 10)),mean_freq_index - 10,mean_freq_index + 10,0,2*Math.PI);
-      var randA = floor(random(0,1023.99999999));
+      var randA = floor(getRandomArbitrary(0,1023.99999999));
 
       if(missileTimer >= fps/2){
         var startAngle = map(randA,0,1023,0,(2*Math.PI));
@@ -92,8 +92,8 @@ function draw() {
       //print(startAngle);
       // var newX = (w/2) + ((w/1.5) * cos(startAngle));
       // var newY = (h/2) - ((h/1.5) * sin(startAngle));
-      var newX = (w/2) + ((w/2) * cos(startAngle));
-      var newY = (h/2) - ((h/2) * sin(startAngle));
+      var newX = (w/2) + ((w/2) * Math.cos(startAngle));
+      var newY = (h/2) - ((h/2) * Math.sin(startAngle));
       //print(newX + "  -  " + newY);
       //var newSpeed = map(findMax(angles),0,255,1,10);
       //var newSpeed = map(findMax(angles,mean_freq_index - 10,mean_freq_index + 10),0,255,1,10);
@@ -162,7 +162,7 @@ function draw() {
     print(bpm);
     var fpp = fps / ((4 * bpm) / fps);
     print(fpp);
-    peakDetect = new p5.PeakDetect(0,26000,0.10,fpp);
+    peakDetect = new p5.PeakDetect(40,15000,0.10,fpp);
     //playing = true;
   }
 
@@ -441,14 +441,14 @@ function Missile(mSpeed,mX,mY,mDir){
   }
 
   this.move = function(){
-    this.x = this.x + (this.speed * cos(this.dir));
-    this.y = this.y - (this.speed * sin(this.dir));
+    this.x = this.x + (this.speed * Math.cos(this.dir));
+    this.y = this.y - (this.speed * Math.sin(this.dir));
   }
 
   this.show = function(){
     var showAngle = this.dir - Math.PI;
-    var dX = this.x + (this.len * cos(showAngle));
-    var dY = this.y - (this.len * sin(showAngle));
+    var dX = this.x + (this.len * Math.cos(showAngle));
+    var dY = this.y - (this.len * Math.sin(showAngle));
     stroke(255,50,0);
     strokeWeight(4);
     line(this.x,this.y,this.sX,this.sY);
@@ -490,8 +490,8 @@ function keyPressed(){
     //var angles = fft.analyze();
     //print("Index of: " + angles.indexOf(findMax(angles)));
     var startAngle = -1 * findAngle(mouseX,mouseY);
-    var newX = (w/2) + (400 * cos(startAngle));
-    var newY = (h/2) - (400 * sin(startAngle));
+    var newX = (w/2) + (400 * Math.cos(startAngle));
+    var newY = (h/2) - (400 * Math.sin(startAngle));
     //print(newX + "  -  " + newY);
     var newSpeed = 10;
     var newDir = startAngle + Math.PI;
@@ -508,4 +508,8 @@ function keyPressed(){
     health = maxH;
     score = 0;
   }
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
