@@ -30,7 +30,8 @@ var shieldDist = 70;
 function preload(){
   earth = loadImage('assets/earth3.png');
   earthHit = loadImage('assets/earthhit.png');
-  ping = loadSound('assets/missileping.wav');
+  //ping = loadSound('assets/missileping.wav');
+  ping = loadSound('assets/beat.mp3');
   destroy = loadSound('assets/missiledest.wav');
   ping.playMode('sustain');
   destroy.playMode('sustain');
