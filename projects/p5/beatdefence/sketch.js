@@ -1,4 +1,4 @@
- Math.cosp5.disableFriendlyErrors = true;
+p5.disableFriendlyErrors = true;
 var w = 1000;
 var h = 1000;
 var thick = 10;
