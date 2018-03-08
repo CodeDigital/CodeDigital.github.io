@@ -162,7 +162,7 @@ function draw() {
     print(bpm);
     var fpp = fps / ((4 * bpm) / fps);
     print(fpp);
-    peakDetect = new p5.PeakDetect(40,15000,0.10,fpp);
+    peakDetect = new p5.PeakDetect(20,20000,0.15,fpp);
     //playing = true;
   }
 
