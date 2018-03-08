@@ -19,9 +19,9 @@ function setup() {
 function draw() {
   var backC = color(38,38,38,255);
   background(backC);
-  frameRate(60);
+  frameRate(30);
 
-  if(points.length < 1200){
+  if(points.length < 1500){
     //var now = new Date();
     for (var i = 0; i < 20; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){
@@ -45,7 +45,7 @@ function draw() {
     points[i].show();
   }
 
-  if(stillGrowing && points.length == 1500){
+  if(stillGrowing && points.length == 2000){
     for (var i = 0; i < points.length; i++) {
       stillGrowing = false;
       if(points[i].rad == prevRad[i]){
