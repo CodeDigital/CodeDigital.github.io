@@ -1,12 +1,12 @@
 p5.disableFriendlyErrors = true;
-var w = 1000;
-var h = 1000;
+var w = 900;
+var h = 900;
 var thick = 10;
 var aSize = Math.PI/11;
 var dir = 0;
-var fps = 100;
+var fps = 60;
 var missiles = [];
-var missileSpeed = 8;
+var missileSpeed = 7;
 var earlySpawn;
 var amp,fft;
 var playing = false;
@@ -47,6 +47,7 @@ function setup() {
 }
 
 function draw() {
+  frameRate(fps);
   var backC = color(38,38,38,255);
   background(backC);
   //   if(playing){
@@ -167,7 +168,6 @@ function draw() {
     //playing = true;
   }
 
-  frameRate(fps);
   //frameRate(100);
   //print(amp.getLevel());
   // if(amp.getLevel() > average + 0.1){
