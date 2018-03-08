@@ -92,8 +92,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffff', end
 }
 
 .active {
-    background-color: #1c1c1c;
-    background-color: #151719;
+    background-color: #ff00f2;
 
 }
 

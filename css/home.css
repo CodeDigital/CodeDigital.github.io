@@ -11,6 +11,7 @@ header{
   left: 0;
   text-align: center;
   border-bottom: 2px solid white;
+  z-index: 2;
 }
 
 footer{
@@ -26,7 +27,7 @@ footer{
 }
 
 nav{
-  position: fixed;
+  position: absolute;
   display: block;
   width: 1050px;
   height: 100%;
@@ -34,7 +35,7 @@ nav{
   margin-left: -755px;
   text-align: right;
   font-family: 'Baloo Da', cursive;
-  z-index: -1;
+  padding:0;
 }
 
 ul {
@@ -43,11 +44,12 @@ ul {
   width: 100%;
   background-color: #333;
   border-radius: 0px 0px 100px 0px;
+  padding-left: 0;
 }
 
 li a {
-  width: 100%;
   display: block;
+  width: 100%;
   font-size: 80px;
   text-decoration: none;
   padding: 70px 60px;
