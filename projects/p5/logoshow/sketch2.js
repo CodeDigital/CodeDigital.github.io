@@ -7,7 +7,7 @@ var prevRad = [];
 var stillGrowing = true;
 
 function preload(){
-  img = loadImage("projects/p5/logoshow/assets/icon.png");
+  img = loadImage("assets/icon.png");
 }
 
 function setup() {
@@ -21,7 +21,7 @@ function draw() {
   background(backC);
   frameRate(60);
 
-  if(points.length < 1200){
+  if(points.length < 1000){
     //var now = new Date();
     for (var i = 0; i < 20; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){

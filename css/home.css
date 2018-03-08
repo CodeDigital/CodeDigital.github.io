@@ -28,7 +28,7 @@ footer{
 nav{
   position: fixed;
   display: block;
-  width: 950px;
+  width: 1050px;
   height: 100%;
   margin-top: -20px;
   margin-left: -755px;
@@ -50,8 +50,8 @@ li a {
   display: block;
   font-size: 80px;
   text-decoration: none;
-  background-color: #333;
-  padding: 70px 50px;
+  padding: 70px 60px;
+  margin-left: -120px;
   background: -moz-linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%); /* ff3.6+ */
   background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,0,255,1)), color-stop(100%, rgba(0,255,255,1))); /* safari4+,chrome */
   background: -webkit-linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%); /* safari5.1+,chrome10+ */
