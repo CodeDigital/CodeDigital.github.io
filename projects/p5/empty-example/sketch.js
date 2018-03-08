@@ -1,3 +1,5 @@
+p5.disableFriendlyErrors = true;
+
 function setup() {
   // put setup code here
 }

@@ -1,3 +1,4 @@
+p5.disableFriendlyErrors = true;
 var vowels = ['a','e','i','o','u'];
 var en,pl;
 

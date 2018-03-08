@@ -1,3 +1,4 @@
+p5.disableFriendlyErrors = true;
 var dir = "D"
 var w = 1401;
 var h = 701;

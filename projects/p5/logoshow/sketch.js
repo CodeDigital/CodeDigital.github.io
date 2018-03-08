@@ -1,3 +1,4 @@
+p5.disableFriendlyErrors = true;
 var img;
 var w = 500;
 var h = 500;
@@ -19,15 +20,15 @@ function setup() {
 function draw() {
   var backC = color(38,38,38,255);
   background(backC);
-  frameRate(30);
+  frameRate(60);
 
   if(points.length < 1500){
     //var now = new Date();
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 10; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
-      var newX = random((w/16),(w - (w/16)));
-      var newY = random((h/16),(h - (h/16)));
+      var newX = getRandomInt((w/16),(w - (w/16)));
+      var newY = GetRandomInt((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
       points.push(newPoint);
       prevRad.push(0);
@@ -45,7 +46,7 @@ function draw() {
     points[i].show();
   }
 
-  if(stillGrowing && points.length == 2000){
+  if(stillGrowing && points.length == 1500){
     for (var i = 0; i < points.length; i++) {
       stillGrowing = false;
       if(points[i].rad == prevRad[i]){
@@ -70,10 +71,10 @@ function draw() {
 function Point(x,y){
   this.x = x;
   this.y = y;
-  this.speed = random(0.1,2);
+  this.speed = Math.random();
   this.rad = 0;
   this.canGrow = true;
-  this.color = random(10,255);
+  this.color = getRandomInt(10,255);
   this.color = img.get(this.x,this.y);
   this.grow = function(){
     this.canGrow = check(this);
@@ -104,4 +105,10 @@ function check(p){
     }
   }
   return true;
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }

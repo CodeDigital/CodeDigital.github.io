@@ -1,3 +1,5 @@
+
+p5.disableFriendlyErrors = true;
 var w = 1400;
 var h = 700;
 var playing = false;
@@ -44,9 +46,9 @@ function draw() {
     playing = true;
     audio.play();
     for (var i = 0; i < length; i++) {
-      append(colorsr,random(0,100));
-      append(colorsg,random(0,100));
-      append(colorsb,random(200,255));
+      append(colorsr,getRandomInt(0,100));
+      append(colorsg,getRandomInt(0,100));
+      append(colorsb,getRandomInt(200,255));
       //print(colorsr)
     }
   }
@@ -64,61 +66,67 @@ function draw() {
       stroke(255);
     }
     // if(i%2 == 0){
-      //   stroke(255);
-      // }else{
-      //   stroke(255,0,0,255)
-      // }
-      //var angle = map(i,0,amps.length - 1,-(Math.PI / 2),(3*Math.PI / 2));
-      if(amps[i] > 100){
-        var sizeY = map(amps[i],100,255,minY,maxY);
-      }else if(amps[i] > 50){
-        var sizeY = map(amps[i],50,255,minY,maxY);
-      }else{
-        var sizeY = map(amps[i],0,255,minY,maxY);
-      }
-      rotate(( 2*angle));
-      total = map(amp,0,1,170,200);
-      //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
-      //stroke(255);
-      strokeWeight(sizeX);
-      line(0,total,0,(sizeY + total));
+    //   stroke(255);
+    // }else{
+    //   stroke(255,0,0,255)
+    // }
+    //var angle = map(i,0,amps.length - 1,-(Math.PI / 2),(3*Math.PI / 2));
+    if(amps[i] > 100){
+      var sizeY = map(amps[i],100,255,minY,maxY);
+    }else if(amps[i] > 50){
+      var sizeY = map(amps[i],50,255,minY,maxY);
+    }else{
+      var sizeY = map(amps[i],0,255,minY,maxY);
     }
-    pop();
-    push();
-    //rotate(Math.PI + (2*angle));
-    for(var i = 0;i < length;i++){
-      if(playing){
-        stroke(colorsr[i],colorsg[i],colorsb[i],255);
-      }else{
-        stroke(255);
-      }
-      // if(i%2 == 0){
-      //   stroke(255);
-      // }else{
-      //   stroke(255,0,0,255)
-      // }
-      //var angle = map(i,0,amps.length - 1,-(Math.PI / 2),(3*Math.PI / 2));
-      if(amps[i] > 100){
-        var sizeY = map(amps[i],100,255,minY,maxY);
-      }else if(amps[i] > 50){
-        var sizeY = map(amps[i],50,255,minY,maxY);
-      }else{
-        var sizeY = map(amps[i],0,255,minY,maxY);
-      }
-      rotate(( 2*angle));
-      total = map(amp,0,1,170,200);
-      //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
-      //stroke(255);
-      strokeWeight(sizeX);
-      line(0,total,0,(sizeY + total));
-    }
-    //rotate(( -2*angle));
+    rotate(( 2*angle));
+    total = map(amp,0,1,170,200);
+    //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
     //stroke(255);
-    //line(0,total,0,(sizeY + total));
-    pop();
-    fill(255);
-    textAlign(CENTER);
-    //textSize(25);
-    textSize(map(amp,0,1,23,30));
-    text(name,-total + 10,-30,2*(total-10),60)
+    strokeWeight(sizeX);
+    line(0,total,0,(sizeY + total));
   }
+  pop();
+  push();
+  //rotate(Math.PI + (2*angle));
+  for(var i = 0;i < length;i++){
+    if(playing){
+      stroke(colorsr[i],colorsg[i],colorsb[i],255);
+    }else{
+      stroke(255);
+    }
+    // if(i%2 == 0){
+    //   stroke(255);
+    // }else{
+    //   stroke(255,0,0,255)
+    // }
+    //var angle = map(i,0,amps.length - 1,-(Math.PI / 2),(3*Math.PI / 2));
+    if(amps[i] > 100){
+      var sizeY = map(amps[i],100,255,minY,maxY);
+    }else if(amps[i] > 50){
+      var sizeY = map(amps[i],50,255,minY,maxY);
+    }else{
+      var sizeY = map(amps[i],0,255,minY,maxY);
+    }
+    rotate(( 2*angle));
+    total = map(amp,0,1,170,200);
+    //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
+    //stroke(255);
+    strokeWeight(sizeX);
+    line(0,total,0,(sizeY + total));
+  }
+  //rotate(( -2*angle));
+  //stroke(255);
+  //line(0,total,0,(sizeY + total));
+  pop();
+  fill(255);
+  textAlign(CENTER);
+  //textSize(25);
+  textSize(map(amp,0,1,23,30));
+  text(name,-total + 10,-30,2*(total-10),60)
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}

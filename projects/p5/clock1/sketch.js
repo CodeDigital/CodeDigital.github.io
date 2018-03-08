@@ -1,3 +1,4 @@
+p5.disableFriendlyErrors = true;
 var myFont
 function preload(){
   //myFont = loadFont('assets/modern_lcd-7.ttf');

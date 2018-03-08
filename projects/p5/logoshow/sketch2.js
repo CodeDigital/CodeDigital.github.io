@@ -1,3 +1,5 @@
+
+p5.disableFriendlyErrors = true;
 var img;
 var w = 500;
 var h = 500;
@@ -26,8 +28,8 @@ function draw() {
     for (var i = 0; i < 20; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
-      var newX = random((w/16),(w - (w/16)));
-      var newY = random((h/16),(h - (h/16)));
+      var newX = getRandomInt((w/16),(w - (w/16)));
+      var newY = getRandomInt((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
       points.push(newPoint);
       prevRad.push(0);
@@ -104,4 +106,10 @@ function check(p){
     }
   }
   return true;
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }

@@ -1,3 +1,4 @@
+p5.disableFriendlyErrors = true;
 var w =20;
 var cols, rows;
 var cells = [];
