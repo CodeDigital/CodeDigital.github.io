@@ -21,6 +21,6 @@ function draw() {
 function showResult()
 {
   var test = document.getElementById("stt");
-  test.insertBefore(foo.resultString);
+  test.insertBefore(foo.resultString,test.childNodes[0]);
   print(foo.resultString); // log the result
 }
