@@ -13,11 +13,12 @@ function setup() {
 
   function showResult()
   {
-    //var test = document.getElementById("stt");
-    //var txt = test.innerHTML;
+    var test = document.getElementById("stt");
+    var txt = test.innerHTML;
     //txt = foo.resultString + "<br>" + txt;
-    //test.innerHTML = txt;
-    createP(foo.resultString);
+    txt = foo.resultString;
+    test.innerHTML = txt;
+    //createP(foo.resultString);
     print(foo.resultString); // log the result
   }
 
