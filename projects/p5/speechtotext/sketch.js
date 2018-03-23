@@ -21,6 +21,7 @@ function draw() {
 function showResult()
 {
   var test = document.getElementById("stt");
-  test.insertBefore(foo.resultString,test.childNodes[0]);
+  var txt = test.innerHTML;
+  txt = txt + "<br>" + foo.resultString;
   print(foo.resultString); // log the result
 }
