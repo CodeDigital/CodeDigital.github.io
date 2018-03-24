@@ -20,7 +20,7 @@ var colorsb = [];
 function preload(){
   //audio = loadSound(sound);
   //setup();
-  loadFont('assets/open24.otf', drawText(font));
+  //loadFont('assets/open24.otf', drawText(font));
 }
 
 function setup() {
@@ -132,8 +132,8 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function drawText(font) {
-  //fill('#ED225D');
-  textFont(font);
-  //text('p5*js', 10, 50);
-}
+// function drawText(font) {
+//   //fill('#ED225D');
+//   textFont(font);
+//   //text('p5*js', 10, 50);
+// }
