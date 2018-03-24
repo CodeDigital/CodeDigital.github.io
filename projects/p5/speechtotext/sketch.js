@@ -12,8 +12,6 @@ function setup() {
 
   function showResult(){
     var test = document.getElementById("stt");
-    test.fontSize = '30px'
-    test.color = 'white';
     var txt = test.innerHTML;
     //txt = foo.resultString + "<br>" + txt;
     txt = foo.resultString;

@@ -17,10 +17,10 @@ var colorsr = [];
 var colorsg = [];
 var colorsb = [];
 
-
 function preload(){
   //audio = loadSound(sound);
   //setup();
+  loadFont('assets/open24.otf', drawText);
 }
 
 function setup() {
@@ -45,6 +45,7 @@ function draw() {
     ready = false;
     playing = true;
     audio.play();
+    audio.setVolume(0.5);
     for (var i = 0; i < length; i++) {
       append(colorsr,getRandomInt(0,100));
       append(colorsg,getRandomInt(0,100));
@@ -129,4 +130,10 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+function drawText(font) {
+  //fill('#ED225D');
+  textFont(font);
+  //text('p5*js', 10, 50);
 }
