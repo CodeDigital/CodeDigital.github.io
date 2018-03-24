@@ -20,7 +20,7 @@ var colorsb = [];
 function preload(){
   //audio = loadSound(sound);
   //setup();
-  loadFont('assets/open24.otf', drawText);
+  loadFont('assets/open24.otf', drawText(font));
 }
 
 function setup() {
