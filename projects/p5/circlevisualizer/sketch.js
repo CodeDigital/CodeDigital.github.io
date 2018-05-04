@@ -44,6 +44,7 @@ function draw() {
   if (audio && ready && !playing) {
     ready = false;
     playing = true;
+    audio.setVolume(0.2);
     audio.play();
     audio.setVolume(0.2);
     for (var i = 0; i < length; i++) {
