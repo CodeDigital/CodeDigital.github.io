@@ -45,7 +45,7 @@ function draw() {
     ready = false;
     playing = true;
     audio.play();
-    audio.setVolume(0.5);
+    audio.setVolume(0.2);
     for (var i = 0; i < length; i++) {
       append(colorsr,getRandomInt(0,100));
       append(colorsg,getRandomInt(0,100));
