@@ -21,6 +21,7 @@ var ccss = [];
 var ccsmin = 0.1;
 var ccs = 0.2;
 var ccsmax = 0.3;
+var total = 170;
 
 function preload() {
   //audio = loadSound(sound);
@@ -82,13 +83,16 @@ function draw() {
 
   //noStroke();
   translate(w / 2, h / 2);
-  push()
+  push();
   //rotate(Math.PI - (2*angle));
   rotate(Math.PI);
+  //beginShape();
+  vertex(-1 * total * sin(0), -1 * total * cos(0));
   for (var i = 0; i < length; i++) {
     //var ints = colors[i];
     if (playing) {
       stroke(colorsr[i], colorsg[i], colorsb[i], 255);
+      //fill(colorsr[i], colorsg[i], colorsb[i], 255);
     } else {
       stroke(255);
     }
@@ -107,12 +111,20 @@ function draw() {
     }
     rotate((2 * angle));
     total = map(amp, 0, 1, 170, 200);
-    //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
+    //noStroke();
+    //triangle(-1 * (sizeX/2),total,(sizeX/2),total,0,(sizeY+total));
     //stroke(255);
     strokeWeight(sizeX);
+    noFill();
     line(0, total, 0, (sizeY + total));
+    //quadraticVertex(-1 * (total + 1.5 * sizeY) * sin((i * -2 * angle) - 2 *angle), -1 * (total + 1.5 * sizeY) * cos((i * -2 * angle) - 2 *angle), -1 * total * sin((i * -2 * angle) - 3 * angle), -1 * total * cos((i * -2 * angle) - 3 * angle));
+    //bezier(-1 * (sizeX / 2), total, -1 * (sizeX / 2), (1.5 * sizeY + total), (sizeX / 2), (1.5 * sizeY + total), (sizeX / 2), total);
   }
+
+  //vertex(0, 0);
+  //endShape();
   pop();
+
   push();
   //rotate(Math.PI + (2*angle));
   for (var i = 0; i < length; i++) {
@@ -138,9 +150,13 @@ function draw() {
     total = map(amp, 0, 1, 170, 200);
     //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
     //stroke(255);
+    noFill();
     strokeWeight(sizeX);
     line(0, total, 0, (sizeY + total));
+    //quadraticVertex(-1 * (total + 1.5 * sizeY) * sin(PI + (i * -2 * angle) - 2 * angle), -1 * (total + 1.5 * sizeY) * cos(PI + (i * -2 * angle) - 2 *angle), -1 * total * sin(PI + (i * -2 * angle) - 3 * angle), -1 * total * cos(PI + (i * -2 * angle) - 3 * angle));
   }
+
+  //endShape();
   //rotate(( -2*angle));
   //stroke(255);
   //line(0,total,0,(sizeY + total));
