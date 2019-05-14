@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './assets/fonts/Abel-Regular.ttf';
+import './assets/fonts/Modak-Regular.ttf';
+import './assets/fonts/UnicaOne-Regular.ttf';
+import './assets/fonts/Righteous-Regular.ttf';
+import './assets/fonts/VT323-Regular.ttf';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

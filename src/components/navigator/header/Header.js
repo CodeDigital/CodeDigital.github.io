@@ -16,6 +16,7 @@ export default class Header extends Component {
             <Icon></Icon>
             <h1>&lt;Code&gt;Digital</h1>
         </div>
+        
       </div> 
     )
   }

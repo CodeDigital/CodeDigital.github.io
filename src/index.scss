@@ -2,6 +2,7 @@ $primary-color: #0F1108;
 $secondary-color: #393E41;
 $tertiary-color: #FF4D80;
 $primary-text-color: #FDFFFC;
+$title-font: Monospace;
 $body-font: Arial, Helvetica, sans-serif;
 
 
@@ -16,6 +17,7 @@ body {
 }
 
 .navigator {
+    font-family: $title-font;
     width: 100%;
     height: 110px;
 }
@@ -32,8 +34,9 @@ body {
 }
 
 .header h1 {
-    font-size: 45px;
-    margin: 15px;
+    font-size: 55px;
+    margin: 3px;
+    padding: 0;
 }
 
 .header img {
