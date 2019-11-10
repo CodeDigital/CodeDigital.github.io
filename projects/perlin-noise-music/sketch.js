@@ -62,7 +62,8 @@ function draw() {
   }
 
 
-  background(22);
+  var backC = color('#222222');
+  background(backC);
   translate(25,0);
   translate(-(w/2), -(h/6),-350);
   rotateX(PI/3);
@@ -111,21 +112,21 @@ function draw() {
     endShape();
 }
 
-  function newSong(songPath){
-    console.log('loading');
-    if(audio){
-      audio.stop();
-    }
-    audio = null;
-    try {
-      audio = loadSound(songPath, function(){
-        ready = true;
-    });
-    } catch (error) {
-      console.error(error);
-    }
-
+function newSong(songPath){
+  console.log('loading');
+  if(audio){
+    audio.stop();
   }
+  audio = null;
+  try {
+    audio = loadSound(songPath, function(){
+      ready = true;
+  });
+  } catch (error) {
+    console.error(error);
+  }
+
+}
 
 function windowResized() {
     let h = window.innerHeight - 290;
