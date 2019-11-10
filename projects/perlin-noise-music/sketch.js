@@ -62,7 +62,7 @@ function draw() {
   }
 
 
-  background(50);
+  background(22);
   translate(25,0);
   translate(-(w/2), -(h/6),-350);
   rotateX(PI/3);
