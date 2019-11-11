@@ -6,7 +6,7 @@ var amplitude;
 var fft;
 var sizeX = 15;
 var minY = 1;
-var maxY = 150;
+var maxY = 100;
 var length = 32;
 var angle = (Math.PI / (2 * length));
 var name = "";
@@ -20,7 +20,7 @@ var ccss = [];
 var ccsmin = 0.1;
 var ccs = 0.2;
 var ccsmax = 0.3;
-var total = 170;
+var total = 75;
 var w, h;
 
 function endSound(){
@@ -37,7 +37,7 @@ function preload() {
 function setup(){
     fft = new p5.FFT();
     amplitude = new p5.Amplitude();
-    h = window.innerHeight - 290;
+    h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas');
