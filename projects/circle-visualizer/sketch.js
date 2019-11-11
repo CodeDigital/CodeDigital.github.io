@@ -4,7 +4,7 @@ var playing = false;
 var audio, ready = false;
 var amplitude;
 var fft;
-var sizeX = 15;
+var sizeX = 5;
 var minY = 1;
 var maxY = 100;
 var length = 32;
@@ -112,7 +112,7 @@ function draw() {
         var sizeY = map(amps[i], 0, 255, minY, maxY);
       }
       rotate((2 * angle));
-      total = map(amp, 0, 1, 170, 200);
+      total = map(amp, 0, 1, 100, 150);
       //noStroke();
       //triangle(-1 * (sizeX/2),total,(sizeX/2),total,0,(sizeY+total));
       //stroke(255);
@@ -149,7 +149,7 @@ function draw() {
         var sizeY = map(amps[i], 0, 255, minY, maxY);
       }
       rotate((2 * angle));
-      total = map(amp, 0, 1, 170, 200);
+      total = map(amp, 0, 1, 100, 150);
       //triangle(-1 * sizeX,total,sizeX,total,0,(sizeY+total));
       //stroke(255);
       noFill();
@@ -168,7 +168,7 @@ function draw() {
     //textSize(25);
     textSize(map(amp, 0, 1, 23, 30));
     //text(name,-total + 10,-30,2*(total-10),60);
-    total = map(amp, 0, 1, 160, 190);
+    total = map(amp, 0, 1, 100, 150)-10;
     push();
     rotate(map(amp, 0, 1, (-PI / 32), (PI / 7)));
     translate(-total, -total);
