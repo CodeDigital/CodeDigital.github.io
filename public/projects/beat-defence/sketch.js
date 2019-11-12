@@ -455,7 +455,7 @@ function inTempo(curr){
   
 
 function windowResized() {
-    h = window.innerHeight - 290;
+    h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     var smallestMeasure = (h<w ? h:w);
     h = smallestMeasure;
