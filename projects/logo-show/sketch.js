@@ -1,8 +1,8 @@
 var cnv
 p5.disableFriendlyErrors = true;
 var img;
-var w = 800;
-var h = 800;
+var w = 500;
+var h = 500;
 var timer = new Date();
 var points = [];
 var prevRad = [];
@@ -118,8 +118,8 @@ function getRandomInt(min, max) {
 }
 
 
-function windowResized() {
-    let h = window.innerHeight - 290;
-    let w = window.innerWidth-20;
-    resizeCanvas(w,h);
-}
+// function windowResized() {
+//     let h = window.innerHeight - 290;
+//     let w = window.innerWidth-20;
+//     resizeCanvas(w,h);
+// }

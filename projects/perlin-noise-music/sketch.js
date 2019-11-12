@@ -15,7 +15,7 @@ var countdown = false;
 var cnv
 
 function setup(){
-    h = window.innerHeight - 290;
+    h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h, WEBGL);
     cnv.parent('p5-canvas');
@@ -129,7 +129,7 @@ function newSong(songPath){
 }
 
 function windowResized() {
-    let h = window.innerHeight - 290;
-    let w = window.innerWidth-20;
+    h = window.innerHeight - 245;
+    w = window.innerWidth-20;
     resizeCanvas(w,h);
 }

@@ -8,7 +8,7 @@ var runRate = 200;
 var cnv
 
 function setup(){
-    let h = window.innerHeight - 290;
+    let h = window.innerHeight - 245;
     let w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas');
@@ -205,7 +205,17 @@ function keyPressed(){
 
 
 function windowResized() {
-    let h = window.innerHeight - 290;
+    start = false;
+    let h = window.innerHeight - 245;
     let w = window.innerWidth-20;
     resizeCanvas(w,h);
+    cols = floor(width/size);
+    rows = floor(height/size);
+  
+    for (var a = 0; a < rows; a++) {
+      for (var b = 0; b < cols; b++) {
+        var cell = new Cell(b,a);
+        cells.push(cell);
+      }
+    }
 }

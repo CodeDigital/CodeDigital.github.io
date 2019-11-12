@@ -2,7 +2,7 @@ p5.disableFriendlyErrors = true;
 var dir = "D"
 var w;
 var h;
-var scl = 35;
+var scl = 30;
 var fps = 20;
 var cols,rows;
 var cells = [];
@@ -10,7 +10,7 @@ var snake;
 var cnv
 
 function setup(){
-    h = window.innerHeight - 290;
+    h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas');
@@ -219,7 +219,7 @@ function keyPressed() {
 }
 
 function windowResized() {
-    let h = window.innerHeight - 290;
+    let h = window.innerHeight - 245;
     let w = window.innerWidth-20;
     resizeCanvas(w,h);
 }

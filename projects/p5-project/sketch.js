@@ -1,8 +1,8 @@
 var cnv
+var w, h;
 
 function setup(){
-    let h = window.innerHeight - 290;
-    let w = window.innerWidth - 20;
+    setWidthHeight();
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas');
 }
@@ -11,9 +11,13 @@ function draw() {
 }
 
 function windowResized() {
-    let h = window.innerHeight - 245;
-    let w = window.innerWidth-20;
+    setWidthHeight();
     resizeCanvas(w,h);
+}
+
+function setWidthHeight(){
+    h = window.innerHeight - 245;
+    w = window.innerWidth-20;
 }
 
 function unmountScript(){
