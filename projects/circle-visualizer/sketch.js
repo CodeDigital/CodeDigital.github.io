@@ -44,7 +44,7 @@ function setup(){
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas');
     console.log(cnv);
-    totalMin = min(h,w) * (0.4);
+    totalMin = min(h,w) * (0.2);
     totalMax = totalMin + (totalMin/4);
     total = totalMin;
 }
@@ -283,7 +283,7 @@ function windowResized() {
     h = window.innerHeight - 245;
     w = window.innerWidth-20;
     resizeCanvas(w,h);
-    totalMin = min(h,w) * (0.4);
+    totalMin = min(h,w) * (0.2);
     totalMax = totalMin + (totalMin/4);
     total = totalMin;
 }
