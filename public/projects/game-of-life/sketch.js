@@ -7,6 +7,10 @@ var rate = 400;
 var runRate = 200;
 var cnv
 
+function unmountScript(){
+  remove();
+}
+
 function setup(){
     let h = window.innerHeight - 245;
     let w = window.innerWidth - 20;

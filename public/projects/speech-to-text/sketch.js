@@ -30,6 +30,6 @@ function setup(){
 }
 
 function unmountScript(){
-	console.log('unmoutned');
+	//console.log('unmoutned');
 	foo = null;
 }

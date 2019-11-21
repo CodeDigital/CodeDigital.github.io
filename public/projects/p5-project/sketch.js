@@ -1,6 +1,10 @@
 var cnv
 var w, h;
 
+function unmountScript(){
+    remove();
+  }
+
 function setup(){
     setWidthHeight();
     cnv = createCanvas(w, h);

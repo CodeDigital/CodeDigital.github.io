@@ -9,6 +9,10 @@ var cells = [];
 var snake;
 var cnv
 
+function unmountScript(){
+  remove();
+}
+
 function setup(){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
