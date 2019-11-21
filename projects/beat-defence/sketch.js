@@ -29,6 +29,10 @@ var shieldDist = 70;
 var cnv
 
 
+function unmountScript(){
+  remove();
+}
+
 function endSound(){
     if(audio){
         audio.stop();

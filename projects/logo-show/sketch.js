@@ -8,6 +8,10 @@ var points = [];
 var prevRad = [];
 var stillGrowing = true;
 
+function unmountScript(){
+  remove();
+}
+
 function preload(){
   img = loadImage("projects/logo-show/assets/icon.png");
 }

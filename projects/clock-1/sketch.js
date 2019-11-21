@@ -1,4 +1,9 @@
 var cnv
+console.log('loaded');
+
+function unmountScript(){
+  remove();
+}
 
 function setup(){
     let h = window.innerHeight - 245;

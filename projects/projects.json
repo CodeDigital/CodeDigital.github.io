@@ -18,7 +18,7 @@
 		"name":"Amazing Clock #1",
 		"description":"Just messing around with the time values that you can find in the p5 library.",
 		"tags":["clock","time","js","code","p5"],
-		"scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+		"scripts":["p5/p5.min.js"]
 	},
 	{
 		"dir":"game-of-life",

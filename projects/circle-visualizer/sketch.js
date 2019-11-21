@@ -25,6 +25,10 @@ var totalMin = 100;
 var totalMax = 150
 var w, h;
 
+function unmountScript(){
+  remove();
+}
+
 function endSound(){
   if(audio){
       audio.stop();

@@ -14,6 +14,11 @@ var timer = 100;
 var countdown = false;
 var cnv
 
+function unmountScript(){
+  console.log('cleared');
+  remove();
+}
+
 function setup(){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;

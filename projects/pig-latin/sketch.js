@@ -3,6 +3,7 @@ var vowels = ['a','e','i','o','u'];
 var en,pl;
 
 function setup(){
+  noCanvas();
  enName = createP("English");
   en = createInput('Enter the English here.');
   space1 = createP("<br>");
@@ -15,6 +16,10 @@ function setup(){
 
   en.size(1000, 70);
   pl.size(1000, 70);
+
+  en.style('width','90%');
+  pl.style('width','90%');
+  pl.style('height',"100%");
 
   en.style('font-size','30px');
   //en.style('margin-left','auto');
