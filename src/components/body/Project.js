@@ -44,7 +44,8 @@ export class Project extends Component {
         var newS = document.createElement('script');
         newS.type = 'text/javascript';
         newS.async = false;
-        newS.innerHTML = "try{unmountScript()}catch{console.log('no Unmount Script');}"
+        newS.innerHTML = "try{remove();}catch{console.log('P5 Sketch not removed');}"
+        +"try{unmountScript()}catch{console.log('no Unmount Script');}"
         + "endSound();";
         newS.onload = function() {
             document.getElementById('projectHTMLContainer').innerHTML = '';

@@ -2,9 +2,13 @@ p5.disableFriendlyErrors = true;
 var vowels = ['a','e','i','o','u'];
 var en,pl;
 
+function unmountScript(){
+  console.log('cleared');
+  remove();
+}
+
 function setup(){
-  noCanvas();
- enName = createP("English");
+  enName = createP("English");
   en = createInput('Enter the English here.');
   space1 = createP("<br>");
   space2 = createP("<hr>");
@@ -70,6 +74,8 @@ function setup(){
 	space3.parent('#p5-canvas');
 	plName.parent('#p5-canvas');
     pl.parent('#p5-canvas');
+    noCanvas();
+
 }
   
 function enpl() {
