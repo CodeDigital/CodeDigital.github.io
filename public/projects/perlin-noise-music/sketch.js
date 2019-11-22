@@ -14,18 +14,53 @@ var waveAmp = 600;
 var amplitude;
 var timer = 100;
 var countdown = false;
-var cnv
+var cnv;
+var webGLon = true;
+var songPath;
+var changed = false;
 
 function unmountScript(){
   console.log('cleared');
+  webGLon = false;
   remove();
 }
 
+
+function newSong(songPath){
+  console.log('loading');
+  if(audio){
+    audio.stop();
+  }
+  audio = null;
+  try {
+    audio = loadSound(songPath, function(){
+      ready = true;
+  });
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+function preload(){
+  var script = document.createElement('script');
+  script.src = "assets/p5/addons/p5.sound.js";
+  script.async = false;
+script.defer = true;
+  script.onload = function (s) {
+      console.log(' - Script Loaded');
+  };
+
+  //document.getElementById('scripts').appendChild(script);
+}
+
 function setup(){
+
+  if(webGLon){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h, WEBGL);
-    cnv.parent('p5-canvas');
+    cnv.parent('#p5-canvas');
 	
 	cols = floor(w / scl);
 	rows = floor(h / scl);
@@ -37,7 +72,8 @@ function setup(){
 	//c.drop(gotFile);
 	//fft = new p5.FFT();
 	amplitude = new p5.Amplitude();
-	//amplitude.setInput(audio);
+  //amplitude.setInput(audio);
+  }
 }
 
 function itWorked(){
@@ -46,6 +82,16 @@ function itWorked(){
 }
   
 function draw() {
+
+  if(typeof loadSound === 'function'){
+    console.log('loadSound');
+    if(changed){
+      changed = false;
+      audio = loadSound(songPath, function(){
+        ready = true;
+      });
+    }
+  }
 
   if (audio && ready && !playing) {
 	ready = false;
@@ -72,7 +118,7 @@ function draw() {
   var backC = color('#222222');
   background(backC);
   translate(25,0);
-  translate(-(w/2), -(h/6),-350);
+  translate(-(w/2), -(h/5),-350);
   rotateX(PI/3);
   beginShape(TRIANGLE_STRIP);
 
@@ -117,22 +163,6 @@ function draw() {
     }
     vertex(-10000,10000,0);
     endShape();
-}
-
-function newSong(songPath){
-  console.log('loading');
-  if(audio){
-    audio.stop();
-  }
-  audio = null;
-  try {
-    audio = loadSound(songPath, function(){
-      ready = true;
-  });
-  } catch (error) {
-    console.error(error);
-  }
-
 }
 
 function windowResized() {

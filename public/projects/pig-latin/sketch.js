@@ -1,13 +1,23 @@
+/*eslint-disable*/
+
 p5.disableFriendlyErrors = true;
 var vowels = ['a','e','i','o','u'];
-var en,pl;
+var en,pl,enName,plName,space1,space2,space3;
+var work;
 
 function unmountScript(){
   console.log('cleared');
+  work = null;
   remove();
 }
 
-function setup(){
+function setup() {
+  if(work){
+    work();
+  }
+}
+
+work = function(){
   enName = createP("English");
   en = createInput('Enter the English here.');
   space1 = createP("<br>");
@@ -67,14 +77,13 @@ function setup(){
 
   //pl.input(plen);
   en.input(enpl);
-	enName.parent('#p5-canvas');
-    en.parent('#p5-canvas');
-	space1.parent('#p5-canvas');
-	space2.parent('#p5-canvas');
-	space3.parent('#p5-canvas');
-	plName.parent('#p5-canvas');
-    pl.parent('#p5-canvas');
-    noCanvas();
+	enName.parent('#pig-latin');
+    en.parent('#pig-latin');
+	space1.parent('#pig-latin');
+	space2.parent('#pig-latin');
+	space3.parent('#pig-latin');
+	plName.parent('#pig-latin');
+    pl.parent('#pig-latin');
 
 }
   
@@ -145,3 +154,5 @@ function isVowel(str){
   }
   return false;
 }
+
+

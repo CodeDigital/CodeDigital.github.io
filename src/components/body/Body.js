@@ -103,11 +103,13 @@ export class Body extends Component {
                     {this.projectPages()}
                     <Route key={this.state.projectList.length} path="/about"><Project project={{
                         "name": "About",
-                        "dir":"about"
+                        "dir":"about",
+                        "scripts":[]
                     }}></Project></Route>
                     <Route key={this.state.projectList.length+1} path="/contact"><Project project={{
                         "name":"Contact",
-                        "dir":"contact"
+                        "dir":"contact",
+                        "scripts":[]
                     }}></Project></Route>
                     <Route exact path="/">
                         <Navigator show={this.state.isSearching} onSearch={this.startSearching}></Navigator>

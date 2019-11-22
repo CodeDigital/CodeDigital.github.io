@@ -102,8 +102,10 @@ export class Project extends Component {
                 var script = document.createElement('script');
                 script.src = "assets/" + src;
                 script.async = false;
+                script.defer = true;
+
                 script.onload = function (s) {
-                   // console.log('Script Loaded');
+                    console.log(src + ' - Script Loaded');
                     //var node = domNode;
                     //loadNew(node);
                 };
@@ -131,6 +133,7 @@ export class Project extends Component {
                 var script = document.createElement('script');
                 script.src = "assets/" + src;
                 script.async = false;
+                script.defer = true;
                 script.onload = function (s) {
                     console.log(src + ' - Script Loaded');
                     //var node = domNode;
