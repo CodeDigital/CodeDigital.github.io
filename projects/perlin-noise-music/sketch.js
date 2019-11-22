@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 p5.disableFriendlyErrors = true;
 var cols, rows;
 var scl = 50;
