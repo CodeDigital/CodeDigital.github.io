@@ -1,3 +1,5 @@
+p5.disableFriendlyErrors = true;
+
 var cnv
 console.log('loaded');
 
@@ -9,7 +11,7 @@ function setup(){
     let h = window.innerHeight - 245;
     let w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-clock-1');
     background(105);
     angleMode(DEGREES);
 }

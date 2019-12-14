@@ -2,14 +2,16 @@
     {
         "dir":"circle-visualizer",
         "name":"Circle Visualizer",
-        "description":"A simple, but elegant way to see your music.",
+		"description":"A simple, but elegant way to see your music.",
+		"disabled": false,
         "tags":["music", "js", "code", "p5","visualizer"],
         "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
     },
     {
         "dir":"beat-defence",
         "name":"Beat Defence",
-        "description":"My first game with an original idea. Defend Earth from music tempo missiles. Creative Ideation: Jack Barnell",
+		"description":"My first game with an original idea. Defend Earth from music tempo missiles. Creative Ideation: Jack Barnell",
+		"disabled": false,
         "tags":["music", "js", "code", "p5","game"],
         "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
     },
@@ -17,6 +19,7 @@
 		"dir":"clock-1",
 		"name":"Amazing Clock #1",
 		"description":"Just messing around with the time values that you can find in the p5 library.",
+		"disabled": false,
 		"tags":["clock","time","js","code","p5"],
 		"scripts":["p5/p5.min.js"]
 	},
@@ -24,13 +27,15 @@
 		"dir":"game-of-life",
 		"name":"The Game of Life",
 		"description":"I coded the Game of Life Cellular Automaton in p5.js (This was before I knew Coding Train did so as well).",
+		"disabled": false,
 		"tags":["game","life","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
 	},
 	{
 		"dir":"logo-show",
 		"name":"Website Logo",
-		"description":"How does this look so good???",
+		"description":"How does this look so good???",		
+		"disabled": false,
 		"tags":["art","logo","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
 	},
@@ -38,20 +43,23 @@
         "dir":"perlin-noise-music",
         "name":"Perlin Noise Music Visualizer",
         "description":"When Daniel Shiffman from the Coding Train made the perlin noise terrain generator, I followed along. This already looked cool, but I later added a music twist to it!",
-        "tags":["music", "js", "code", "p5","visualizer","perlin"],
+		"disabled": false,
+		"tags":["music", "js", "code", "p5","visualizer","perlin"],
         "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
     },
     {
         "dir":"pig-latin",
         "name":"Pig Latin Translator",
         "description":"This one is pretty self explanatory... If you want to confuse your friends, use this thing, I guess.",
-        "tags":["pig", "latin", "js", "code", "p5","visualizer"],
+		"disabled": false,
+		"tags":["pig", "latin", "js", "code", "p5","visualizer"],
         "scripts":["p5/p5.min.js"]
 	},	
 	{
 		"dir":"snake-game",
 		"name":"Snake Game",
 		"description":"Ever since I wrote my first line of code, I have wanted to make a game. So I present my first proper game: Snake. This is all my code, not Daniel Shiffman's, by the way. (But Snake was not my original idea).",
+		"disabled": false,
 		"tags":["game","snake","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
 	},	
@@ -59,6 +67,7 @@
 		"dir":"speech-to-text",
 		"name":"Speech to Text",
 		"description":"Exploring the speech analyzer.",
+		"disabled": false,
 		"tags":["speech","text","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.speech.js"]
 	}

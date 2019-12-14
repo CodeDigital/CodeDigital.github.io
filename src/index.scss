@@ -118,6 +118,10 @@ code {
     overflow-y: auto;
 }
 
+.link-disabled {
+    display: none;
+}
+
 .project-thumbnail {
     text-decoration:none;
     background-size: cover;

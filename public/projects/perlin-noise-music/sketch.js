@@ -18,9 +18,14 @@ var cnv;
 var webGLon = true;
 var songPath;
 var changed = false;
+var font;
 
 function unmountScript(){
   console.log('cleared');
+  if(audio){
+    audio.stop();
+    audio = null;
+  }
   webGLon = false;
   remove();
 }
@@ -32,35 +37,29 @@ function newSong(songPath){
     audio.stop();
   }
   audio = null;
-  try {
-    audio = loadSound(songPath, function(){
-      ready = true;
-  });
-  } catch (error) {
-    console.error(error);
+  var getAudio = function(p){
+    p.preload = function(){
+      amplitude = new p5.Amplitude();
+      amplitude.setInput(audio);
+      audio = p.loadSound(songPath, function(){
+        ready = true;
+      });
+    }
   }
 
+  let myp5 = new p5(getAudio);
 }
 
-function preload(){
-  var script = document.createElement('script');
-  script.src = "assets/p5/addons/p5.sound.js";
-  script.async = false;
-script.defer = true;
-  script.onload = function (s) {
-      console.log(' - Script Loaded');
-  };
-
-  //document.getElementById('scripts').appendChild(script);
+function preload() {
+  font = loadFont('projects/perlin-noise-music/assets/Montserrat-Black.otf');
 }
 
 function setup(){
-
   if(webGLon){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h, WEBGL);
-    cnv.parent('#p5-canvas');
+    cnv.parent('p5-canvas-perlin-noise-music');
 	
 	cols = floor(w / scl);
 	rows = floor(h / scl);
@@ -70,10 +69,11 @@ function setup(){
 		terrain[x] = [];
 	}
 	//c.drop(gotFile);
-	//fft = new p5.FFT();
-	amplitude = new p5.Amplitude();
-  //amplitude.setInput(audio);
+
+  console.log(typeof loadSound);
   }
+
+
 }
 
 function itWorked(){
@@ -83,23 +83,17 @@ function itWorked(){
   
 function draw() {
 
-  if(typeof loadSound === 'function'){
-    console.log('loadSound');
-    if(changed){
-      changed = false;
-      audio = loadSound(songPath, function(){
-        ready = true;
-      });
-    }
-  }
+
 
   if (audio && ready && !playing) {
 	ready = false;
     playing = true;
+    audio.setVolume(0.5);
     audio.play();
   }
 
 
+  if(playing){
   flying -= 0.04;
   var yoff = flying;
   for (var y = 0; y < rows; y++) {
@@ -163,6 +157,13 @@ function draw() {
     }
     vertex(-10000,10000,0);
     endShape();
+  }else{
+    textFont(font);
+    stroke(255)
+    textSize(30);
+    textAlign(CENTER);
+    text("Upload a song to start",0,-20);
+  }
 }
 
 function windowResized() {

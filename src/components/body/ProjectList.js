@@ -7,7 +7,11 @@ const ProjectList = (props) => {
     const showList = props.showList;
 
     const toShow = showList.map((t,i) => {
-        return <Thumbnail key={i} project={t}></Thumbnail>
+        if(t.disabled){
+            return null;
+        }else{
+            return <Thumbnail key={i} project={t}></Thumbnail>
+        }
     });
 
     return (

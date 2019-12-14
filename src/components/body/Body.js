@@ -57,7 +57,8 @@ export class Body extends Component {
         console.log('ran showlist');
 
         return this.state.projectList.map((pr,i) => {
-            return <Route key={i} path={"/" + pr.dir}><Project project={pr}></Project></Route>;
+                return <Route key={i} path={"/" + pr.dir}><Project project={pr}></Project></Route>;
+
         });
     }
 

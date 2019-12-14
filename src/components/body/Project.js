@@ -34,7 +34,7 @@ export class Project extends Component {
     }
 
     componentDidMount(){
-        console.log('mounted')
+        console.log('mounted');
         //this.addScripts();
     }
 
@@ -44,14 +44,17 @@ export class Project extends Component {
         var newS = document.createElement('script');
         newS.type = 'text/javascript';
         newS.async = false;
+        newS.defer = true;
         newS.innerHTML = "try{remove();}catch{console.log('P5 Sketch not removed');}"
         +"try{unmountScript()}catch{console.log('no Unmount Script');}"
         + "endSound();";
         newS.onload = function() {
             document.getElementById('projectHTMLContainer').innerHTML = '';
-            document.getElementById('scripts').innerHTML = '';
+            //document.getElementById('scripts').innerHTML = '';
         }
        this.instance.appendChild(newS);
+       this.instance.removeChild(newS);
+
 
     }
 
@@ -61,7 +64,7 @@ export class Project extends Component {
         }).then((html) => {
             this.setState({'html': html})
             htmlContent = html;
-            console.log(htmlContent);
+            //console.log(htmlContent);
             this.addScripts();
         
         });
@@ -106,11 +109,11 @@ export class Project extends Component {
 
                 script.onload = function (s) {
                     console.log(src + ' - Script Loaded');
-                    //var node = domNode;
-                    //loadNew(node);
+                                    document.getElementById('scripts').removeChild(script);
                 };
     
                 document.getElementById('scripts').appendChild(script);
+
             });
 
             console.log(scripts)
@@ -119,29 +122,35 @@ export class Project extends Component {
                 var script = document.createElement('script');
                 script.src = src;
                 script.async = false;
+                script.defer = true;
+
                 script.onload = function (s) {
                     console.log(src + ' - Script Loaded');
+                    document.getElementById('scripts').removeChild(script);
                     //var node = domNode;
                     //loadNew(node);
                 };
 
     
                 document.getElementById('scripts').appendChild(script);
+
             });
 
             this.props.project.scripts.forEach(src => {
                 var script = document.createElement('script');
+                script.name = src;
                 script.src = "assets/" + src;
                 script.async = false;
                 script.defer = true;
                 script.onload = function (s) {
                     console.log(src + ' - Script Loaded');
-                    //var node = domNode;
-                    //loadNew(node);
+                    document.getElementById('scripts').removeChild(script);
                 };
     
                 document.getElementById('scripts').appendChild(script);
+
             });
+
         }
     }
 

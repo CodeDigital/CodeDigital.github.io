@@ -14,6 +14,7 @@ function unmountScript(){
 }
 
 function setup(){
+  fps = 20;
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
