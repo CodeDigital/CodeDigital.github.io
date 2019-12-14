@@ -14,18 +14,52 @@ var waveAmp = 600;
 var amplitude;
 var timer = 100;
 var countdown = false;
-var cnv
+var cnv;
+var webGLon = true;
+var songPath;
+var changed = false;
+var font;
 
 function unmountScript(){
   console.log('cleared');
+  if(audio){
+    audio.stop();
+    audio = null;
+  }
+  webGLon = false;
   remove();
 }
 
+
+function newSong(songPath){
+  console.log('loading');
+  if(audio){
+    audio.stop();
+  }
+  audio = null;
+  var getAudio = function(p){
+    p.preload = function(){
+      amplitude = new p5.Amplitude();
+      amplitude.setInput(audio);
+      audio = p.loadSound(songPath, function(){
+        ready = true;
+      });
+    }
+  }
+
+  let myp5 = new p5(getAudio);
+}
+
+function preload() {
+  font = loadFont('projects/perlin-noise-music/assets/Montserrat-Black.otf');
+}
+
 function setup(){
+  if(webGLon){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h, WEBGL);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-perlin-noise-music');
 	
 	cols = floor(w / scl);
 	rows = floor(h / scl);
@@ -35,9 +69,11 @@ function setup(){
 		terrain[x] = [];
 	}
 	//c.drop(gotFile);
-	//fft = new p5.FFT();
-	amplitude = new p5.Amplitude();
-	//amplitude.setInput(audio);
+
+  console.log(typeof loadSound);
+  }
+
+
 }
 
 function itWorked(){
@@ -47,13 +83,17 @@ function itWorked(){
   
 function draw() {
 
+
+
   if (audio && ready && !playing) {
 	ready = false;
     playing = true;
+    audio.setVolume(0.5);
     audio.play();
   }
 
 
+  if(playing){
   flying -= 0.04;
   var yoff = flying;
   for (var y = 0; y < rows; y++) {
@@ -72,7 +112,7 @@ function draw() {
   var backC = color('#222222');
   background(backC);
   translate(25,0);
-  translate(-(w/2), -(h/6),-350);
+  translate(-(w/2), -(h/5),-350);
   rotateX(PI/3);
   beginShape(TRIANGLE_STRIP);
 
@@ -117,22 +157,13 @@ function draw() {
     }
     vertex(-10000,10000,0);
     endShape();
-}
-
-function newSong(songPath){
-  console.log('loading');
-  if(audio){
-    audio.stop();
+  }else{
+    textFont(font);
+    stroke(255)
+    textSize(30);
+    textAlign(CENTER);
+    text("Upload a song to start",0,-20);
   }
-  audio = null;
-  try {
-    audio = loadSound(songPath, function(){
-      ready = true;
-  });
-  } catch (error) {
-    console.error(error);
-  }
-
 }
 
 function windowResized() {

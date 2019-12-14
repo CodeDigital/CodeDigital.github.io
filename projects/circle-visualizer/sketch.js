@@ -51,6 +51,8 @@ function setup(){
     totalMin = min(h,w) * (0.2);
     totalMax = totalMin + (totalMin/4);
     total = totalMin;
+    console.log(typeof loadSound)
+
 }
  
 function draw() {

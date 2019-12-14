@@ -60,7 +60,7 @@ function setup(){
     h = smallestMeasure;
     w = smallestMeasure;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-beat-defence');
     fft = new p5.FFT();
     amp = new p5.Amplitude();
     peakDetect = new p5.PeakDetect(20,20000,0.2,20);
