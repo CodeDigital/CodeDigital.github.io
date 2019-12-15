@@ -15,7 +15,7 @@ function setup(){
     let h = window.innerHeight - 245;
     let w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-game-of-life');
 	cols = floor(width/size);
 	rows = floor(height/size);
 

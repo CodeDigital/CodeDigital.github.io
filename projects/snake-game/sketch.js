@@ -18,7 +18,7 @@ function setup(){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-snake-game');
 	cols = floor(w/scl);
 	rows = floor(h/scl) - ceil(50/scl);
 

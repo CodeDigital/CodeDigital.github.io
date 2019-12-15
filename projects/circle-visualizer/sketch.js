@@ -46,7 +46,7 @@ function setup(){
     h = window.innerHeight - 245;
     w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-circle-visualizer');
     console.log(cnv);
     totalMin = min(h,w) * (0.2);
     totalMax = totalMin + (totalMin/4);
