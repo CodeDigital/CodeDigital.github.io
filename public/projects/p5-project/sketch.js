@@ -8,7 +8,7 @@ function unmountScript(){
 function setup(){
     setWidthHeight();
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-project');
 }
   
 function draw() {

@@ -10,7 +10,7 @@ const Footer = (props) => {
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             <a rel="noopener noreferrer" href="https://github.com/CodeDigital" target="_blank">Github</a>
-            <p className="copyright">&copy; Copyright {d.getFullYear()}, Code Digital</p>
+            <p className="copyright">&copy; Copyright {d.getFullYear()}, CodeDigital</p>
         </div>
     );
 };

@@ -20,7 +20,7 @@ function setup(){
     //h = window.innerHeight - 290;
     //w = window.innerWidth - 20;
     cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas');
+    cnv.parent('p5-canvas-logo-show');
 	imageMode(CENTER);
 	img.loadPixels();
 }

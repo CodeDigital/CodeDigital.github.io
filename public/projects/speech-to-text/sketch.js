@@ -16,7 +16,7 @@ function setup(){
     test.innerHTML = txt;
     //createP(foo.resultString);
     console.log(foo.resultString); // log the result
-	var canvas = document.getElementById("p5-canvas");
+	var canvas = document.getElementById("p5-canvas-speech-to-text");
 	canvas.prepend(test);
 	}catch{
 		
