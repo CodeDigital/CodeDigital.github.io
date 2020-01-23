@@ -52,7 +52,7 @@
         "name":"Pig Latin Translator",
         "description":"This one is pretty self explanatory... If you want to confuse your friends, use this thing, I guess.",
 		"disabled": false,
-		"tags":["pig", "latin", "js", "code", "p5","visualizer"],
+		"tags":["pig", "latin", "js", "code", "p5", "translator"],
         "scripts":["p5/p5.min.js"]
 	},	
 	{
@@ -70,5 +70,13 @@
 		"disabled": false,
 		"tags":["speech","text","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.speech.js"]
+	},
+    {
+        "dir":"collision-detector",
+        "name":"Collision Detector",
+        "description":"An idea I had whilst trying to fall asleep at 2AM for a collision system for a project I'm working on.",
+		"disabled": false,
+		"tags":["code", "p5","collision", "game design"],
+        "scripts":["p5/p5.min.js"]
 	}
 ]
