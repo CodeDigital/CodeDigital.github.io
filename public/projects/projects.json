@@ -70,13 +70,5 @@
 		"disabled": false,
 		"tags":["speech","text","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.speech.js"]
-	},
-    {
-        "dir":"collision-detector",
-        "name":"Collision Detector",
-        "description":"An idea I had whilst trying to fall asleep at 2AM for a collision system for a project I'm working on.",
-		"disabled": false,
-		"tags":["code", "p5","collision", "game design"],
-        "scripts":["p5/p5.min.js"]
 	}
 ]

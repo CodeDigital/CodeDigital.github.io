@@ -59,15 +59,27 @@ export class Project extends Component {
     }
 
     fetchProject() {
-        fetch('projects/' + this.props.project.dir + '/page.html').then((r) => {
-            return (r.text());
-        }).then((html) => {
-            this.setState({'html': html})
-            htmlContent = html;
-            //console.log(htmlContent);
-            this.addScripts();
-        
-        });
+        if(this.props.weblog){
+            fetch('weblog/' + this.props.project.dir + '/page.html').then((r) => {
+                return (r.text());
+            }).then((html) => {
+                this.setState({'html': html})
+                htmlContent = html;
+                //console.log(htmlContent);
+                this.addScripts();
+            
+            });
+        }else{
+            fetch('projects/' + this.props.project.dir + '/page.html').then((r) => {
+                return (r.text());
+            }).then((html) => {
+                this.setState({'html': html})
+                htmlContent = html;
+                //console.log(htmlContent);
+                this.addScripts();
+            
+            });
+        }
     }
 
     addScripts(){
@@ -100,41 +112,41 @@ export class Project extends Component {
                     index ++;
                 }
             }
+                if(this.props.project.scripts){
+                this.props.project.scripts.forEach(src => {
+                    var script = document.createElement('script');
+                    script.src = "assets/" + src;
+                    script.async = false;
+                    script.defer = true;
 
-            this.props.project.scripts.forEach(src => {
-                var script = document.createElement('script');
-                script.src = "assets/" + src;
-                script.async = false;
-                script.defer = true;
+                    script.onload = function (s) {
+                        console.log(src + ' - Script Loaded');
+                                        document.getElementById('scripts').removeChild(script);
+                    };
+        
+                    document.getElementById('scripts').appendChild(script);
 
-                script.onload = function (s) {
-                    console.log(src + ' - Script Loaded');
-                                    document.getElementById('scripts').removeChild(script);
-                };
-    
-                document.getElementById('scripts').appendChild(script);
-
-            });
+                });
+            }
 
             console.log(scripts)
 
-            scripts.forEach((src, i) => {
-                var script = document.createElement('script');
-                script.src = src;
-                script.async = false;
-                script.defer = true;
+            if(scripts){
+                scripts.forEach((src, i) => {
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.async = false;
+                    script.defer = true;
 
-                script.onload = function (s) {
-                    console.log(src + ' - Script Loaded');
-                    document.getElementById('scripts').removeChild(script);
-                    //var node = domNode;
-                    //loadNew(node);
-                };
-
-    
-                document.getElementById('scripts').appendChild(script);
-
-            });
+                    script.onload = function (s) {
+                        console.log(src + ' - Script Loaded');
+                        document.getElementById('scripts').removeChild(script);
+                        //var node = domNode;
+                        //loadNew(node);
+                    };
+                    document.getElementById('scripts').appendChild(script);
+                });
+            }
 
             this.props.project.scripts.forEach(src => {
                 var script = document.createElement('script');

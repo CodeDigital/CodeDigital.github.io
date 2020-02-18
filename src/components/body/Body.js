@@ -17,84 +17,139 @@ export class Body extends Component {
         super();
 
         this.state = {
+            weblog: false,
             isSearching: true,
+            searchValue: "",
             projectList: [],
+            postList: [],
             showList: []
         };
 
         this.startSearching = this.startSearching.bind(this);
         this.loadList = this.loadList.bind(this);
         this.projectPages = this.projectPages.bind(this);
+        this.weblogMode = this.weblogMode.bind(this);
     };
 
     componentDidMount(){
         this.loadList();
-
     }
 
     loadList(){
+        let projects, posts;
+
         fetch('projects/projects.json').then((r) => {
             return r.json();
         }).then((json) => {
-            console.log(json);
-            this.setState({
-                isSearching:this.state.isSearching,
-                projectList:json,
-                showList:json.sort((a,b)=>{
-                    if ( a.name < b.name ){
-                      return -1;
-                    }
-                    if ( a.name > b.name ){
-                      return 1;
-                    }
-                    return 0;
-                  })
+            projects = json;
+            fetch('weblog/posts.json').then((r) => {
+                return r.json();
+            }).then((json) => {
+                //console.log(json);
+                posts = json;
+                this.setState({
+                    projectList:projects,
+                    postList:posts
+                }, ()=>{
+                    this.startSearching(this.state.searchValue);
+                });
             });
+    
         });
     }
 
     projectPages(){
-        console.log('ran showlist');
+        //console.log('ran showlist');
 
         return this.state.projectList.map((pr,i) => {
-                return <Route key={i} path={"/" + pr.dir}><Project project={pr}></Project></Route>;
+                return <Route key={i} path={"/" + pr.dir}><Project project={pr} weblog={false}></Project></Route>;
 
         });
     }
 
-    startSearching(value) {
+    postPages(){
+        return this.state.postList.map((pr,i) => {
+            return <Route key={i} path={"/weblog/" + pr.dir}><Project project={pr} weblog={true}></Project></Route>;
+
+        });
+    }
+
+    weblogMode(value){
         console.log(value);
+
+            this.setState({
+                weblog: value
+            }, () => {
+                this.startSearching(this.state.searchValue);
+            });
+
+        console.log(this.state.weblog);
+
+    }
+
+    startSearching(value) {
+        //console.log(value);
         let newShow = [];
-        this.state.projectList.forEach((p)=>{
-            if(p.name.toLowerCase().includes(value.toLowerCase())){
-            
-                newShow.push(p);
-            }else{
-                var tagFound = false;
-                p.tags.forEach((t) => {
-                    if(t.toLowerCase().includes(value.toLowerCase())){
-                        tagFound = true;
+        console.log(this.state.weblog);
+        if(this.state.weblog){
+                this.state.postList.forEach((p)=>{
+                    if(p.name.toLowerCase().includes(value.toLowerCase())){
+                    
+                        newShow.push(p);
+                    }else{
+                        var tagFound = false;
+                        p.tags.forEach((t) => {
+                            if(t.toLowerCase().includes(value.toLowerCase())){
+                                tagFound = true;
+                            }
+                        });
+                        if(tagFound){
+                            newShow.push(p);
+                        }
                     }
                 });
-                if(tagFound){
-                    newShow.push(p);
+            newShow.sort((a,b)=>{
+                if ( a.date > b.date ){
+                return -1;
                 }
-            }
-        });
-        newShow.sort((a,b)=>{
-            if ( a.name < b.name ){
-              return -1;
-            }
-            if ( a.name > b.name ){
-              return 1;
-            }
-            return 0;
-          });
+                if ( a.date < b.date ){
+                return 1;
+                }
+                return 0;
+            });
+        }else{
+                this.state.projectList.forEach((p)=>{
+                    if(p.name.toLowerCase().includes(value.toLowerCase())){
+                    
+                        newShow.push(p);
+                    }else{
+                        var tagFound = false;
+                        p.tags.forEach((t) => {
+                            if(t.toLowerCase().includes(value.toLowerCase())){
+                                tagFound = true;
+                            }
+                        });
+                        if(tagFound){
+                            newShow.push(p);
+                        }
+                    }
+                });
+            newShow.sort((a,b)=>{
+                if ( a.name < b.name ){
+                return -1;
+                }
+                if ( a.name > b.name ){
+                return 1;
+                }
+                return 0;
+            });
+        }
+        console.log(newShow);
         this.setState({
-            isSearching:this.state.isSearching,
-            projectList:this.state.projectList,
-            showList:newShow
+            showList:newShow,
+            searchValue:value
         });
+
     };
 
     render() {
@@ -102,6 +157,7 @@ export class Body extends Component {
             <div id="scripts"></div>
                 <Switch>
                     {this.projectPages()}
+                    {this.postPages()}
                     <Route key={this.state.projectList.length} path="/about"><Project project={{
                         "name": "About",
                         "dir":"about",
@@ -113,8 +169,8 @@ export class Body extends Component {
                         "scripts":[]
                     }}></Project></Route>
                     <Route exact path="/">
-                        <Navigator show={this.state.isSearching} onSearch={this.startSearching}></Navigator>
-                        <ProjectList openPage={this.openPage} showList={this.state.showList}></ProjectList>
+                        <Navigator show={this.state.isSearching} onSearch={this.startSearching} onWeblog={this.weblogMode} weblog={this.state.weblog}></Navigator>
+                        <ProjectList openPage={this.openPage} weblog={this.state.weblog} showList={this.state.showList}></ProjectList>
                     </Route>
                 </Switch>
                 <Footer></Footer>
