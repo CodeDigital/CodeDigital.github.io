@@ -52,7 +52,7 @@
         "name":"Pig Latin Translator",
         "description":"This one is pretty self explanatory... If you want to confuse your friends, use this thing, I guess.",
 		"disabled": false,
-		"tags":["pig", "latin", "js", "code", "p5","visualizer"],
+		"tags":["pig", "latin", "js", "code", "p5", "translator"],
         "scripts":["p5/p5.min.js"]
 	},	
 	{
