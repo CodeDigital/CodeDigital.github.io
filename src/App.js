@@ -9,7 +9,6 @@ function App() {
     <Router basename='/'>
       <Header></Header>
       <Body></Body>
-      {/* <Footer></Footer> */}
     </Router>
   );
 }

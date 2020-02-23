@@ -7,6 +7,7 @@ import {
     Route
   } from "react-router-dom";
 
+import Popup from  './Popup';
 import Navigator from './Navigator';
 import ProjectList from './ProjectList';
 import Footer from './Footer';
@@ -90,7 +91,6 @@ export class Body extends Component {
     startSearching(value) {
         //console.log(value);
         let newShow = [];
-        console.log(this.state.weblog);
         if(this.state.weblog){
                 this.state.postList.forEach((p)=>{
                     if(p.name.toLowerCase().includes(value.toLowerCase())){
@@ -144,7 +144,6 @@ export class Body extends Component {
                 return 0;
             });
         }
-        console.log(newShow);
         this.setState({
             showList:newShow,
             searchValue:value
@@ -154,6 +153,7 @@ export class Body extends Component {
 
     render() {
         return ( <div className="main-body">
+            {/* <Popup></Popup> */}
             <div id="scripts"></div>
                 <Switch>
                     {this.projectPages()}

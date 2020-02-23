@@ -75,6 +75,51 @@ code {
     height: calc(100% - #{$header-height});
 }
 
+.popup{
+    display: block;
+    position: fixed;
+    z-index: 101;
+    border:none;
+    top: $header-height;
+    height: calc(100vh - #{$header-height} - #{$bottom-height});
+    background:rgb(0,0,0);
+    background: transparent\9;
+    background:rgba(0,0,0,0.8);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22000000,endColorstr=#22000000);
+    zoom: 1;
+    width:100%;
+    padding:250px;
+}
+
+.popup div {
+    font-size: larger;
+    text-align: justify;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 100px;
+    color:$primary-text-color;
+    background-color: $primary-color;
+    padding: 20px 50px;
+}
+
+.popup h1 {
+    text-align: center;
+}
+
+.popup code {
+    border-radius: 0;
+    background-color: $tertiary-color;
+    -moz-box-shadow:    inset 0 0 10px $secondary-color;
+    -webkit-box-shadow: inset 0 0 10px $secondary-color;
+    box-shadow:         inset 0 0 10px $secondary-color;
+}
+
+.popup > div > small {
+    text-align: center;
+    display: block;
+    color: $tertiary-text-color;
+    margin-top:20px;
+}
+
 .navigator {
     background-color: $tertiary-color;
     height: $search-height;
@@ -389,6 +434,10 @@ code {
         // bottom: 3px;
     }
 
+    .popup{
+        height: calc(100% - #{$header-height} - #{$bottom-height});
+    }
+
     .navigator img {
         display: block;
     }
@@ -502,6 +551,12 @@ code {
     .header img {
         height: 30px;
         float: left;
+    }
+
+    .popup{
+        display:none;
+        top: $header-height;
+        height: calc(100vh - #{$header-height} - #{$bottom-height});
     }
 
     .navigator img {
