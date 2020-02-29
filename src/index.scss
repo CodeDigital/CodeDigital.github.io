@@ -5,16 +5,19 @@ $primary-text-color: #FDFFFC;
 $secondary-text-color: #393E41;
 $tertiary-text-color: #FF2277;
 $title-font: Monospace;
-$body-font: Arial, Helvetica, sans-serif;
+// $body-font: Arial, Helvetica, sans-serif;
+$body-font: Monospace;
 $header-height: 75px;
 $search-height: 35px;
 $thumbnail-size: 250px;
 $bottom-height: 70px;
 $regular-font-size: 14px;
 $p5-info-height: 80px;
+$thumbnail-transition: 0.2s;
 
 * {
   margin: 0;
+  font-family: $body-font;
 }
 
 body {
@@ -156,16 +159,24 @@ code {
 }
 
 .navigator button {
+    transition: 0.2s;
     color: $primary-text-color;
     display: block;
     position: absolute;
-    // height: $search-height - 20;
+    height: $search-height - 5px;
+    box-shadow: $secondary-color 7.5px 2.5px;
     background-color: $primary-color;
-    margin: 2px;
-    right: $search-height+5px;
+    margin: 1.25px;
+    right: $search-height+10px;
     border:none;
     padding: 8px 12px;
-    border-radius: 100px;
+    border-radius: 5px;
+    transform: rotateX(5deg) rotateY(-15deg) rotateZ(1deg);
+}
+
+.navigator button:hover{
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    box-shadow: $secondary-color 5px 2.5px;
 }
 
 .navigator button input{
@@ -202,27 +213,35 @@ code {
     text-decoration:none;
     background-size: cover;
     background-repeat:no-repeat;
-    box-shadow:inset 0 0 $thumbnail-size 75px #111111, 10px 10px 1px 0px $tertiary-color;
-    border-radius: $thumbnail-size/10;
+    // box-shadow:inset 0 0 $thumbnail-size 75px #101010, 5px 5px 1px 0px $secondary-color;
+    box-shadow:inset 0 0 $thumbnail-size 75px #101010,10px 7.5px 1px 0px $tertiary-color;
+    border-radius: 5px;
     height: $thumbnail-size;
     width: $thumbnail-size;
     display: inline-table;
-    text-align: center;
-    position:relative;
+    text-align: right;
+    position: relative;
     padding: 0;
     margin: 30px;
+    transition:$thumbnail-transition;
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .project-thumbnail:hover {
-    transition:0.15s;
-    box-shadow:inset 0 0 $thumbnail-size 100px black,10px 10px 1px 0px $tertiary-color;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition:$thumbnail-transition;
+    // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
+        box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
+    text-shadow: none;
 }
 
 .project-thumbnail:last-of-type {
+    transition:$thumbnail-transition;
     margin-bottom: 50px;
 }
 
 .project-thumbnail div {
+    transition:$thumbnail-transition;
     // display:table;
     text-align: center;
     width:$thumbnail-size;
@@ -235,18 +254,28 @@ code {
 }
 
 .project-thumbnail div *{
+    transition:$thumbnail-transition;
     padding: 0px 20px;
 }
 
 .project-thumbnail div p {
+    transition:$thumbnail-transition;
     margin-top: 10px;
+    text-align: left;
+
 }
 
 .project-thumbnail small {
+    text-align: right;
+    transition:$thumbnail-transition;
     display: block;
     position: absolute;
     margin: 10px;
-    overflow-x:hidden;
+    max-width: $thumbnail-size - 20px;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    right: 0;
     bottom: 0;
 }
 
@@ -254,20 +283,26 @@ code {
     text-decoration:none;
     background-size: cover;
     background-repeat:no-repeat;
-    box-shadow:inset 0 0 $thumbnail-size 75px #111111, 10px 10px 1px 0px $tertiary-color;
-    border-radius: $thumbnail-size/10;
+    // box-shadow:inset 0 0 $thumbnail-size 75px #101010, 5px 5px 1px 0px $secondary-color;
+    box-shadow:inset 0 0 $thumbnail-size 75px #101010,10px 7.5px 1px 0px $tertiary-color;
+    border-radius: 5px;
     height: $thumbnail-size;
     width: $thumbnail-size;
     display: inline-table;
-    text-align: center;
-    position:relative;
+    text-align: right;
+    position: relative;
     padding: 0;
     margin: 30px;
+    transition:$thumbnail-transition;
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .post-thumbnail:hover {
-    transition:0.15s;
-    box-shadow:inset 0 0 $thumbnail-size 100px black,10px 10px 1px 0px $tertiary-color;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition:$thumbnail-transition;
+    // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
+        box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
+    text-shadow: none;
 }
 
 .post-thumbnail:last-of-type {
@@ -295,10 +330,16 @@ code {
 }
 
 .post-thumbnail small {
+    text-align: right;
+    transition:$thumbnail-transition;
     display: block;
     position: absolute;
     margin: 10px;
-    overflow-x:hidden;
+    max-width: $thumbnail-size - 20px;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    right: 0;
     bottom: 0;
 }
 
@@ -321,10 +362,22 @@ code {
 }
 
 .close-icon {
+    transition: 0.2s;
     height: 40px;
     margin: 5px;
     position:fixed;
     right: 25px;
+    margin-top: 20px;
+    transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
+    -webkit-filter: drop-shadow(6px 5px 5px $tertiary-color);
+    filter: drop-shadow(6px 5px 5px $tertiary-color);
+}
+
+.close-icon:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
+    filter: drop-shadow(4px 2px 0px $secondary-color);
+    //text-shadow: 10px 10px 0px #FF2277;
 }
 
 .about-h1{
@@ -443,7 +496,7 @@ code {
     }
 
     .navigator button{
-        right:$search-height+5px;
+        right:$search-height+10px;
     }
 
     .project-list {
@@ -453,21 +506,34 @@ code {
     }
 
     .project-thumbnail {
+        transition:$thumbnail-transition;
         height:$thumbnail-size;
         width: $thumbnail-size;
     }
 
     .post-thumbnail {
+        transition:$thumbnail-transition;
         height:$thumbnail-size;
         width: $thumbnail-size;
     }
     
     .project-thumbnail p {
+        transition:$thumbnail-transition;
         display: none;
     }
 
     .project-thumbnail:hover p {
+        transition:$thumbnail-transition;
         display: block;
+    }
+
+    .project-thumbnail:hover small{
+        transition:$thumbnail-transition;
+        display: none;
+    }
+
+    .project-thumbnail:hover div{
+        transition:$thumbnail-transition;
     }
 
     .project-page{
@@ -564,20 +630,22 @@ code {
     }
 
     .navigator button{
-        right:0px;
+        right:5px;
     }
 
     .project-thumbnail{
         height:$thumbnail-size;
         width: $thumbnail-size;
         margin: 10px;
-        box-shadow:inset 0 0 $thumbnail-size 50px #111111, 10px 10px 1px 0px $tertiary-color;
+        box-shadow:inset 0 0 $thumbnail-size 50px black, 10px 10px 1px 0px $tertiary-color;
     }
 
     
     .post-thumbnail {
         height:$thumbnail-size;
         width: $thumbnail-size;
+        margin: 10px;
+        box-shadow:inset 0 0 $thumbnail-size 50px black, 10px 10px 1px 0px $tertiary-color;
     }
 
     .project-thumbnail p {
