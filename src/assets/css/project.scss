@@ -1,0 +1,93 @@
+.project-page {
+    margin:0;
+    padding:0;
+    height: calc(100vh - #{$header-height} - #{$bottom-height});
+    width:100%;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.project-page h1:first-of-type{
+    padding-top: 10px;
+}
+
+.project-page p:first-of-type{
+    padding: 7.5px;
+    padding-top: 0px;
+}
+
+.close-icon {
+    transition: ease-in 0.2s;
+    height: 40px;
+    margin: 5px;
+    position:fixed;
+    right: 25px;
+    margin-top: 20px;
+    transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
+    -webkit-filter: drop-shadow(6px 5px 5px $tertiary-color);
+    filter: drop-shadow(6px 5px 5px $tertiary-color);
+}
+
+.close-icon:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
+    filter: drop-shadow(4px 2px 0px $secondary-color);
+    //text-shadow: 10px 10px 0px #FF2277;
+}
+
+.about-h1{
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.about-h2{
+    margin: 5px;
+    margin-top:30px;
+}
+
+.about-p{
+    text-align: justify;
+}
+
+.about-me{
+    margin-top: 15px;
+    background-color: $tertiary-color;
+    border-radius: 10px;
+    box-shadow: black 1px 1px 10px;
+    padding: 15px;
+}
+
+.about-me img{
+    border-radius: 10px;
+    box-shadow: black 1px 1px 10px;
+    height: inherit;
+}
+
+.p5-info {
+    text-align: center;
+}
+
+.p5-info h1{
+    font-size: 3 * $regular-font-size;
+}
+
+.p5-info input {
+    background-color: $tertiary-color;
+    margin: 10px;
+    position: absolute;
+    top:$header-height+10px;
+    left: 0;
+}
+
+.p5-canvas{
+    overflow-x: auto;
+    max-height: calc(100vh - #{$header-height} - #{$bottom-height} - #{$p5-info-height});
+}
+
+.weblog-signature{
+    text-shadow: black 1px 1px 5px;
+    padding-left: 30px;
+    color:$tertiary-text-color;
+    font-weight: normal;
+}
