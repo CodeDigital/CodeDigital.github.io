@@ -13,7 +13,7 @@
 }
 
 .project-page p:first-of-type{
-    padding: 7.5px;
+    padding: 10px;
     padding-top: 0px;
 }
 
@@ -90,4 +90,43 @@
     padding-left: 30px;
     color:$tertiary-text-color;
     font-weight: normal;
+}
+
+.music-release-banner{
+    background: url('../img/music-banner.jpg');
+    background-position:0% 20%;
+    background-size: cover;
+    background-blend-mode: darken;
+    border-bottom:1px solid white;
+    text-align: center;
+    padding: 15px;
+}
+
+.music-release-banner p,.music-release-banner h1,.music-release-banner h2,.music-release-banner h3 {
+    display: block;
+    width: max-content;
+    height: max-content;
+    margin: 0 auto;
+    padding: 0;
+    text-shadow: 1px 1px 5px black;
+}
+
+.submergence-hover{
+    transition: ease-out 0.2s;
+    -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
+    filter: drop-shadow(4px 2px 0px $secondary-color);
+}
+
+.submergence-hover img{
+    transition: ease-out 0.2s;
+}
+
+.submergence-hover:hover{
+    transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
+    -webkit-filter: drop-shadow(6px 5px 0px $tertiary-color);
+    filter: drop-shadow(6px 5px 0px $tertiary-color);
+}
+
+.submergence-hover:hover img {
+    transform: translateX(1px) translateY(20px);
 }

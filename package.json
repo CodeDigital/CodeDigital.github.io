@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "note-on-deploy": "in deploy add '-m' to add the commit name",
+    "deploy": "gh-pages -b master -d build -m",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

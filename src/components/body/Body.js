@@ -99,7 +99,7 @@ export class Body extends Component {
                     }else{
                         var tagFound = false;
                         p.tags.forEach((t) => {
-                            if(t.toLowerCase().includes(value.toLowerCase())){
+                            if(t.toLowerCase().includes(value.toLowerCase()) || value.toLowerCase().includes(t.toLowerCase())){
                                 tagFound = true;
                             }
                         });
@@ -125,7 +125,7 @@ export class Body extends Component {
                     }else{
                         var tagFound = false;
                         p.tags.forEach((t) => {
-                            if(t.toLowerCase().includes(value.toLowerCase())){
+                            if(t.toLowerCase().includes(value.toLowerCase()) || value.toLowerCase().includes(t.toLowerCase())){
                                 tagFound = true;
                             }
                         });

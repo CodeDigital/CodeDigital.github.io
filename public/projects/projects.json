@@ -70,5 +70,13 @@
 		"disabled": false,
 		"tags":["speech","text","js","code","p5"],
 		"scripts":["p5/p5.min.js", "p5/addons/p5.speech.js"]
+	},
+	{
+		"dir":"submergence",
+		"name":"Submergence",
+		"description":"A programmer releases an exploration of the music genre of synthwave.",
+		"disabled": false,
+		"tags":["music","synth","wave","neo sen", "release"],
+		"scripts":[]
 	}
 ]
