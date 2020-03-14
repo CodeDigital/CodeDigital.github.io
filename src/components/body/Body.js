@@ -158,12 +158,12 @@ export class Body extends Component {
                 <Switch>
                     {this.projectPages()}
                     {this.postPages()}
-                    <Route key={this.state.projectList.length} path="/about"><Project project={{
+                    <Route key={this.state.projectList.length} path="/about"><Project weblog={false} project={{
                         "name": "About",
                         "dir":"about",
                         "scripts":[]
                     }}></Project></Route>
-                    <Route key={this.state.projectList.length+1} path="/contact"><Project project={{
+                    <Route key={this.state.projectList.length+1} path="/contact"><Project weblog={false} project={{
                         "name":"Contact",
                         "dir":"contact",
                         "scripts":[]
