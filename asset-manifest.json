@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.c7da945c.chunk.css",
-    "main.js": "/static/js/main.79fc270d.chunk.js",
-    "main.js.map": "/static/js/main.79fc270d.chunk.js.map",
+    "main.js": "/static/js/main.c40ce7e8.chunk.js",
+    "main.js.map": "/static/js/main.c40ce7e8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cabc51da.js",
     "runtime-main.js.map": "/static/js/runtime-main.cabc51da.js.map",
     "static/js/2.3a4496ee.chunk.js": "/static/js/2.3a4496ee.chunk.js",
     "static/js/2.3a4496ee.chunk.js.map": "/static/js/2.3a4496ee.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.ccd9d2861039a73065aec8679ce53d8d.js": "/precache-manifest.ccd9d2861039a73065aec8679ce53d8d.js",
+    "precache-manifest.60673f48c9fead917aaa39f263e6245b.js": "/precache-manifest.60673f48c9fead917aaa39f263e6245b.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.c7da945c.chunk.css.map": "/static/css/main.c7da945c.chunk.css.map",
     "static/media/closeIcon.png": "/static/media/closeIcon.7ec78b4a.png",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.cabc51da.js",
     "static/js/2.3a4496ee.chunk.js",
     "static/css/main.c7da945c.chunk.css",
-    "static/js/main.79fc270d.chunk.js"
+    "static/js/main.c40ce7e8.chunk.js"
   ]
 }
