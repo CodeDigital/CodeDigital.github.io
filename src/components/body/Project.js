@@ -190,27 +190,6 @@ export class Project extends Component {
                     {/* {this.props.project.scripts.map((s, i) => {
                         return <script key={i} src={"assets/" + s} type="text/javascript" />
                     })} */}
-                    <meta name="title" content={this.props.project.name + " | Code Digital"}/> 
-                    <meta charset="UTF-8"/> 
-                    <meta name="description" content={this.props.project.description}/> 
-                    <meta name="keywords" content={this.props.project.tags.join(", ")}/> 
-                    <meta name="author" content="Xavier Travers"/> 
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-
-{/* OG/Facebook */}
-                    <meta property="og:type" content="website"/> 
-                    <meta property="og:url" content={window.location.href}/> 
-                    <meta property="og:title" content={this.props.project.name + " | Code Digital"}/> 
-                    <meta property="og:description" content={this.props.project.description}/> 
-                    <meta property="og:image" content={"https://github.com/CodeDigital/CodeDigital.github.io/blob/master/" + (this.props.weblog ? "weblog/":"pojects/") + this.props.project.dir + "thumbnail.png"}/> 
-
-{/* Twitter */}
-                    <meta property="twitter:card" content="summary_large_image"/> 
-                    <meta property="twitter:url" content={window.location.href}/> 
-                    <meta property="twitter:title" content={this.props.project.name + " | Code Digital"}/> 
-                    <meta property="twitter:description" content={this.props.project.description}/> 
-                    <meta property="twitter:image" content={"https://github.com/CodeDigital/CodeDigital.github.io/blob/master/" + (this.props.weblog ? "weblog/":"pojects/") + this.props.project.dir  + "thumbnail.png"}/>            
-
                 </Helmet>
                 {/* <div ref={el => (this.instance = el)} onLoad={el => this.addScripts(el)}> */}
                 <div id="projectHTMLContainer" ref={el => (this.instance = el)}>

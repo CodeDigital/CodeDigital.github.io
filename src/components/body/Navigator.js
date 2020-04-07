@@ -2,13 +2,31 @@ import React, {Component} from 'react';
 
 import searchIcon from '../../assets/img/searchIcon.png';
 
+const SEARCHPARAM = "?search=";
+const WEBLOGPARAM = "&weblog=";
+function checkURLSearch(){
+    let lsearch = window.location.search;
+    //let query = lsearch.substr(lsearch.indexOf(SEARCHPARAM)+SEARCHPARAM.length,lsearch.indexOf(WEBLOGPARAM));
+    if(lsearch){
+        let query = lsearch.substring(lsearch.indexOf(SEARCHPARAM)+SEARCHPARAM.length,(lsearch.includes(WEBLOGPARAM) ? lsearch.indexOf(WEBLOGPARAM):lsearch.length-1));
+        let weblog = lsearch.substring(lsearch.indexOf(WEBLOGPARAM)+WEBLOGPARAM.length);
+        let isWeblog = (weblog.includes("true") ? true:false);
+        return {
+            search:query,
+            weblog:isWeblog
+        };
+    }else{
+        return false;
+    }
+}
+
 export class Navigator extends Component {
     onSearch;
     constructor(props) {
         super(props);
         this.state = {
-            value:'',
-            weblog:this.props.weblog,
+            value:(props.searchValue.length > 0 ? props.searchValue:""),
+            weblog: props.weblog,
             onSearch : props.onSearch,
             onWeblog : props.onWeblog
         };
@@ -17,6 +35,30 @@ export class Navigator extends Component {
         this.weblogMode = this.weblogMode.bind(this);
         this.weblogButton = this.weblogButton.bind(this);
     }
+
+    // componentDidMount(){
+    //     var urlSearch = checkURLSearch();
+
+    //     if(urlSearch != false){
+    //         if(urlSearch.search.length > 0){
+    //             this.handleSearch({
+    //                 target:{
+    //                     value:urlSearch.search}
+    //             });
+    //         }
+    //         if(urlSearch.weblog){
+    //             this.weblogMode({
+    //                 target: {
+    //                     checked:urlSearch.weblog
+    //                 }
+    //             });
+        
+    //             this.setState({
+    //                 weblog:urlSearch.weblog
+    //             });
+    //         }
+    //     }
+    // }
 
     handleSearch(event){
         this.setState({

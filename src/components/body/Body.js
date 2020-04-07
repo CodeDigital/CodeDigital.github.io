@@ -169,7 +169,11 @@ export class Body extends Component {
                         "scripts":[]
                     }}></Project></Route>
                     <Route exact path="/">
-                        <Navigator show={this.state.isSearching} onSearch={this.startSearching} onWeblog={this.weblogMode} weblog={this.state.weblog}></Navigator>
+                        <Navigator show={this.state.isSearching} onSearch={this.startSearching} onWeblog={this.weblogMode} weblog={this.state.weblog} searchValue={this.state.searchValue}></Navigator>
+                        <ProjectList openPage={this.openPage} weblog={this.state.weblog} showList={this.state.showList}></ProjectList>
+                    </Route>
+                    <Route path="*">
+                        <Navigator show={this.state.isSearching} onSearch={this.startSearching} onWeblog={this.weblogMode} weblog={this.state.weblog} searchValue={this.state.searchValue}></Navigator>
                         <ProjectList openPage={this.openPage} weblog={this.state.weblog} showList={this.state.showList}></ProjectList>
                     </Route>
                 </Switch>
