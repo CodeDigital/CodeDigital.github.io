@@ -39,19 +39,23 @@
     display: block;
     position: absolute;
     height: $search-height - 5px;
-    box-shadow: $secondary-color 7.5px 2.5px;
     background-color: $primary-color;
     margin: 1.25px;
     right: $search-height+10px;
     border:none;
     padding: 8px 12px;
     border-radius: 5px;
-    transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    // transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    // box-shadow: $secondary-color 7.5px 2.5px;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    box-shadow: $secondary-color 5px 2.5px;
 }
 
 .navigator button:hover{
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    box-shadow: $secondary-color 5px 2.5px;
+    transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    box-shadow: $secondary-color 7.5px 2.5px;
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // box-shadow: $secondary-color 5px 2.5px;
 }
 
 .navigator button input{

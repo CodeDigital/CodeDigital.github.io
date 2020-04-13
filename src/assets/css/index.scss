@@ -92,10 +92,10 @@ code {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.header h1:hover {
-    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-}
+// .header h1:hover {
+//     // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+//     // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+// }
 
 .main-body{
     top: $header-height;

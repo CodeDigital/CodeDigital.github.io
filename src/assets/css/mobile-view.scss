@@ -72,6 +72,39 @@
         height: calc(100vh - #{$header-height} - #{$bottom-height});
     }
 
+    .contact-container {
+        width: calc(100vw - 100px);
+        text-align: center;
+        padding: 30px 50px;
+    }
+
+    .contact-left {
+        width: calc(100% - 60px);
+        text-align: center;
+        float: none;
+        padding: 0 30px;
+        margin-left: -25px;
+    }
+    
+    .contact-right {
+        float: none;
+        left: 0px;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .contact-right h1{
+        margin-bottom: 20px;
+    }
+
+    .contact-thumbnail div{
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+
     .about{
         margin: 0 20px;
     }
