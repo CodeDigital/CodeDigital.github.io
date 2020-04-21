@@ -72,6 +72,10 @@
         height: calc(100vh - #{$header-height} - #{$bottom-height});
     }
 
+    .share-icon {
+        display: none;
+    }
+
     .contact-container {
         width: calc(100vw - 100px);
         text-align: center;
@@ -123,6 +127,10 @@
     
     .about-me p {
         display: block;
+    }
+
+    .about-me div{
+        margin-top: 20px;
     }
 
     .p5-info input {

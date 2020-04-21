@@ -12,7 +12,7 @@ import shareIcon from '../../assets/img/shareIcon.png';
 
 var htmlContent;
 
-export class Project extends Component {
+export class Weblog extends Component {
 
     constructor(props) {
         super(props);
@@ -21,19 +21,18 @@ export class Project extends Component {
         this.onShareClick = this.onShareClick.bind(this);
         this.onShareClose = this.onShareClose.bind(this);
 
+
         this.state = {
             'html': '',
             'share':false
         };
 
         this.fetchProject();
-        //this.addScripts();
         if(this.props.project.scripts !== undefined){
             this.props.project.scripts.forEach((s) => {
                 var newS = document.createElement('script');
                 newS.src = "assets/" + s;
                 newS.async = false;
-                //document.getElementById('scripts').appendChild(newS)
             });
         }
 
@@ -41,7 +40,6 @@ export class Project extends Component {
 
     componentDidMount(){
         console.log('mounted');
-        //this.addScripts();
     }
 
     componentWillUnmount() {
@@ -56,7 +54,6 @@ export class Project extends Component {
         + "endSound();";
         newS.onload = function() {
             document.getElementById('projectHTMLContainer').innerHTML = '';
-            //document.getElementById('scripts').innerHTML = '';
         }
        this.instance.appendChild(newS);
        this.instance.removeChild(newS);
@@ -65,27 +62,14 @@ export class Project extends Component {
     }
 
     fetchProject() {
-        // if(this.props.weblog){
-        //     fetch('weblog/' + this.props.project.dir + '/page.html').then((r) => {
-        //         return (r.text());
-        //     }).then((html) => {
-        //         this.setState({'html': html})
-        //         htmlContent = html;
-        //         //console.log(htmlContent);
-        //         this.addScripts();
-            
-        //     });
-        // }else{
-            fetch('projects/' + this.props.project.dir + '/page.html').then((r) => {
-                return (r.text());
-            }).then((html) => {
-                this.setState({'html': html})
-                htmlContent = html;
-                //console.log(htmlContent);
-                this.addScripts();
-            
-            });
-        // }
+        fetch('weblog/' + this.props.project.dir + '/page.html').then((r) => {
+            return (r.text());
+        }).then((html) => {
+            this.setState({'html': html})
+            htmlContent = html;
+            this.addScripts();
+        
+        });
     }
 
     addScripts(){
@@ -147,8 +131,6 @@ export class Project extends Component {
                     script.onload = function (s) {
                         console.log(src + ' - Script Loaded');
                         document.getElementById('scripts').removeChild(script);
-                        //var node = domNode;
-                        //loadNew(node);
                     };
                     document.getElementById('scripts').appendChild(script);
                 });
@@ -193,11 +175,8 @@ export class Project extends Component {
                 <img onClick={this.onShareClick} src={shareIcon} alt="" className="share-icon"/>
                 <Helmet ref={helm => (this.helm = helm)}>
                     <title>{this.props.project.name + " | Code Digital"}</title>
-                    {/* {this.props.project.scripts.map((s, i) => {
-                        return <script key={i} src={"assets/" + s} type="text/javascript" />
-                    })} */}
                 </Helmet>
-                {/* <div ref={el => (this.instance = el)} onLoad={el => this.addScripts(el)}> */}
+
                 <div id="projectHTMLContainer" ref={el => (this.instance = el)}>
                     {parse(this.state.html)}
                 </div>
@@ -208,4 +187,4 @@ export class Project extends Component {
     }
 }
 
-export default Project
+export default Weblog

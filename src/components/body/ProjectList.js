@@ -7,7 +7,6 @@ const ProjectList = (props) => {
 
     const showList = props.showList;
     const isWeblog = props.weblog;
-    var helm;
     const toShow = showList.map((t,i) => {
         if(t.disabled){
             return null;
@@ -22,7 +21,7 @@ const ProjectList = (props) => {
 
     return (
         <div className="project-list">
-                <Helmet ref={helm => (helm = helm)}>
+                <Helmet>
                     <title>Code Digital</title>        
                 </Helmet>
 

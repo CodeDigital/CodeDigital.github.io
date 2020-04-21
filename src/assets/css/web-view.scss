@@ -118,6 +118,7 @@
     .about-me div {
         width: 50%;
         padding: 0 10px;
+        align-self: center;
     }
 
     .about-me div p {
@@ -126,6 +127,10 @@
 
     .about-me:last-child{
         padding-bottom: 20px;
+    }
+
+    .p5-info{
+        height: $p5-info-height;
     }
 
     .p5-info input {

@@ -12,6 +12,7 @@ import Navigator from './Navigator';
 import ProjectList from './ProjectList';
 import Footer from './Footer';
 import Project from './Project';
+import Weblog from './Weblog';
 
 export class Body extends Component {
     constructor() {;
@@ -70,8 +71,7 @@ export class Body extends Component {
 
     postPages(){
         return this.state.postList.map((pr,i) => {
-            return <Route key={i} path={"/weblog/" + pr.dir}><Project project={pr} weblog={true}></Project></Route>;
-
+            return <Route key={i} path={"/weblog/" + pr.dir}><Weblog project={pr} weblog={true}></Weblog></Route>;
         });
     }
 
