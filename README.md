@@ -2,7 +2,7 @@
 My official portfolio website!
 Check it out [here](https://codedigital.github.io/)
 
-# Phoenix Branch
+## Phoenix Branch
 Information regarding the transition to the `phoenix` branch can be found in the article here.
 
 ## Important Note
