@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-//update to latest date onloy if popup is updated.
+//update to latest date only if popup is updated.
 const popupVersion = '23/02/2020';
 
 export class Popup extends Component {
