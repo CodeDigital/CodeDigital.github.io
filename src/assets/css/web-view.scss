@@ -1,0 +1,162 @@
+@media only screen and (min-width: 768px){
+    $header-height:75px;
+    $thumbnail-size: 250px;
+    $bottom-height: 70px;
+
+    body{
+        overflow: hidden;
+    }
+
+    .header {
+        height:$header-height;
+    }
+
+    .header h1, .header img {
+        float: left;
+        font-size: $header-height - 20;
+    }
+
+    .header h1 {
+        margin-top: 3px;
+        // margin-right: 10px;
+        // float: right;
+        padding: 0;
+        // bottom: 3px;
+    }
+
+    .popup{
+        height: calc(100% - #{$header-height} - #{$bottom-height});
+    }
+
+    .navigator img {
+        display: block;
+    }
+
+    .navigator button{
+        right:$search-height+10px;
+    }
+
+    .project-list {
+        margin:0;
+        height: calc(100vh - #{$search-height} - #{$header-height} - #{$bottom-height});
+        padding: 0px 50px;
+    }
+
+    .project-thumbnail {
+        transition:$thumbnail-transition;
+        height:$thumbnail-size;
+        width: $thumbnail-size;
+    }
+
+    .post-thumbnail {
+        transition:$thumbnail-transition;
+        height:$thumbnail-size;
+        width: $thumbnail-size;
+    }
+    
+    .project-thumbnail p {
+        transition:$thumbnail-transition;
+        display: none;
+    }
+
+    .project-thumbnail:hover p {
+        transition:$thumbnail-transition;
+        display: block;
+    }
+
+    .project-thumbnail:hover small{
+        transition:$thumbnail-transition;
+        display: none;
+    }
+
+    .project-thumbnail:hover div{
+        transition:$thumbnail-transition;
+    }
+
+    .project-page{
+        height: calc(100vh - #{$header-height} - #{$bottom-height});
+    }
+
+    .contact-left {
+        float: left;
+        width: $contact-left;
+        text-align: center;
+    
+    }
+    
+    .contact-right {
+        float: right;
+        left: calc(0.4 * (100vw));
+        text-align: center;
+        position: fixed;
+        width: calc(0.6 * (100vw) - 100px);
+        margin-left: 10px;
+        padding: 0px 50px;
+    }
+    
+    .contact-right h1{
+        margin-bottom: 20px;
+    }
+    
+
+    .about{
+        margin: 0 20%;
+        margin-bottom: 40px;
+    }
+
+    .about-me{
+        display: flex;
+    }
+
+    .about-me img{
+        width: 50%;
+        height: auto;
+        display: inline-block;
+        align-self: center;
+    }
+    
+    .about-me div {
+        width: 50%;
+        padding: 0 10px;
+        align-self: center;
+    }
+
+    .about-me div p {
+        width: 100%;
+    }
+
+    .about-me:last-child{
+        padding-bottom: 20px;
+    }
+
+    .p5-info{
+        height: $p5-info-height;
+    }
+
+    .p5-info input {
+        position: absolute;
+        top:$header-height+10px;
+    }
+
+    .weblog-post{
+        padding: 0 200px;
+        text-align: center;
+    }
+
+    .weblog-post p {
+        text-align: left;
+        line-height: 25px;
+    }
+
+    .footer {
+        position: fixed;
+        background-color: $secondary-color;
+        height: $bottom-height;
+    }
+
+    .footer button, .footer a {
+        display: inline-block;
+        margin: 5px 15px;
+        margin-top: 15px;
+    }
+}

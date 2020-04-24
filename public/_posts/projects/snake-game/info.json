@@ -1,0 +1,8 @@
+{
+    "dir":"snake-game",
+    "name":"Snake Game",
+    "description":"Ever since I wrote my first line of code, I have wanted to make a game. So I present my first proper game: Snake. This is all my code, not Daniel Shiffman's, by the way. (But Snake was not my original idea).",
+    "disabled": false,
+    "tags":["game","snake","js","code","p5"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}

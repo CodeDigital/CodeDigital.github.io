@@ -1,0 +1,8 @@
+{
+    "dir":"submergence",
+    "name":"Submergence",
+    "description":"A programmer releases an exploration of the music genre of synthwave.",
+    "disabled": false,
+    "tags":["music","synth","wave","neo sen", "release"],
+    "scripts":[]
+}

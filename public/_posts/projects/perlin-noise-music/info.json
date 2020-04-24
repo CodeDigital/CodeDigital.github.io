@@ -1,0 +1,8 @@
+{
+    "dir":"perlin-noise-music",
+    "name":"Perlin Noise Music Visualizer",
+    "description":"When Daniel Shiffman from the Coding Train made the perlin noise terrain generator, I followed along. This already looked cool, but I later added a music twist to it!",
+    "disabled": false,
+    "tags":["music", "js", "code", "p5","visualizer","perlin"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}

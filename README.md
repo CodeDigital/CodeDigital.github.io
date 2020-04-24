@@ -10,13 +10,14 @@ This website is made in React, using `create-react-app`. Currently project hosti
 
 ### Technologies Used
 #### Development
-- Create React App
+- NextJS
 - NodeJS
 - ReactJS
   - ReactDOM
-  - React Helmet
   - HTML React Parser
-  - React Router
+  - PrismJS
+- SCSS
+  - React Static Plugin Sass
 
 #### Projects/Deployment
 - Github Pages

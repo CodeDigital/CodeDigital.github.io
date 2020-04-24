@@ -1,0 +1,18 @@
+<div>
+    <script src="/assets/js/p5/p5.min.js"></script>
+    <script defer src="/assets/js/p5/addons/p5.sound.js"></script>
+    <script defer src="/assets/js/p5/addons/p5.speech.js"></script>
+    <script defer src="/assets/js/jquery.min.js"></script>
+    <script>
+        const sketchWidth = function() {return window.innerWidth - 20}
+        const sketchHeight = function() {return window.innerHeight - 270}
+        console.log('test');
+        function endSound() {
+            try {
+                getAudioContext().close();
+            } catch (e) {
+                console.log('No Audio Context to close')
+            };
+        }
+    </script>
+</div>

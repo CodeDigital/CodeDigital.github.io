@@ -1,0 +1,8 @@
+{
+    "dir":"circle-visualizer",
+    "name":"Circle Visualizer",
+    "description":"A simple, but elegant way to see your music.",
+    "disabled": false,
+    "tags":["music", "js", "code", "p5","visualizer"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}
