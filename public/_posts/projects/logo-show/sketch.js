@@ -5,6 +5,7 @@ var timer = new Date();
 var points = [];
 var prevRad = [];
 var stillGrowing = true;
+var maxPoints = 3000;
 
 function unmountScript(){
   remove();
@@ -30,7 +31,7 @@ var backC = color("#222222");
   background(backC);
   frameRate(60);
 
-  if(points.length < 2000){
+  if(points.length < maxPoints){
     //var now = new Date();
     for (var i = 0; i < 30; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){
