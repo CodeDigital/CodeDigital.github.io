@@ -9,7 +9,7 @@
     "static": "next build && next export -o build/",
     "predeploy": "npm run static",
     "note-on-deploy": "in deploy add '-m' to add the commit name",
-    "deploy": "gh-pages -b master -d build -m"
+    "deploy": "gh-pages --dotfiles -b master -d build -m"
   },
   "dependencies": {
     "html-react-parser": "^0.10.3",
@@ -23,6 +23,7 @@
     "sass": "^1.26.5"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "react-social-icons": "^4.1.0"
   }
 }
