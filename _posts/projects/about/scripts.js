@@ -10,7 +10,7 @@ age = Math.floor(age);
 document.getElementById('about-age').innerText = age;
 
 var aboutAgeInterval = setInterval(function(){
-    if(document.getElementById('about-age')){
+    if(document.getElementById('about-age').innerText != age){
         document.getElementById('about-age').innerText = age;
     }
 },100);
