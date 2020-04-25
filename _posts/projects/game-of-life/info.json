@@ -1,0 +1,8 @@
+{
+    "dir":"game-of-life",
+    "name":"The Game of Life",
+    "description":"I coded the Game of Life Cellular Automaton in p5.js (This was before I knew Coding Train did so as well).",
+    "disabled": false,
+    "tags":["game","life","js","code","p5"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}

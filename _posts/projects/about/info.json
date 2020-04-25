@@ -1,0 +1,7 @@
+{
+    "name":"About",
+    "description":"About CodeDigital and the guy behind it.",
+    "disabled": true,
+    "tags":["about", "codedigital"],
+    "scripts":[]
+}

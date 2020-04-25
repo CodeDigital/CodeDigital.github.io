@@ -1,0 +1,8 @@
+{
+    "dir":"speech-to-text",
+    "name":"Speech to Text",
+    "description":"Exploring the speech analyzer.",
+    "disabled": false,
+    "tags":["speech","text","js","code","p5"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.speech.js"]
+}

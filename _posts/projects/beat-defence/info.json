@@ -1,0 +1,8 @@
+{
+    "dir":"beat-defence",
+    "name":"Beat Defence",
+    "description":"My first game with an original idea. Defend Earth from music tempo missiles. Creative Ideation: Jack Barnell",
+    "disabled": false,
+    "tags":["music", "js", "code", "p5","game"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}

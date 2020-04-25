@@ -1,0 +1,133 @@
+.project-thumbnail {
+    text-decoration:none;
+    background-size: cover;
+    background-repeat:no-repeat;
+    // box-shadow:inset 0 0 $thumbnail-size 75px #101010, 5px 5px 1px 0px $secondary-color;
+    box-shadow:inset 0 0 $thumbnail-size 75px #101010,10px 7.5px 1px 0px $tertiary-color;
+    border-radius: 0px;
+    height: $thumbnail-size;
+    width: $thumbnail-size;
+    display: inline-table;
+    text-align: right;
+    position: relative;
+    padding: 0;
+    margin: 30px;
+    transition:$thumbnail-transition;
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+}
+
+.project-thumbnail:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition:$thumbnail-transition;
+    // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
+        box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
+    text-shadow: none;
+}
+
+.project-thumbnail:last-of-type {
+    transition:$thumbnail-transition;
+    margin-bottom: 50px;
+}
+
+.project-thumbnail div {
+    transition:$thumbnail-transition;
+    // display:table;
+    text-align: center;
+    width:$thumbnail-size;
+    //height: 100%;
+    // margin-top: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.project-thumbnail div *{
+    transition:$thumbnail-transition;
+    padding: 0px 20px;
+}
+
+.project-thumbnail div p {
+    transition:$thumbnail-transition;
+    margin-top: 10px;
+    text-align: left;
+
+}
+
+.project-thumbnail small {
+    text-align: right;
+    transition:$thumbnail-transition;
+    display: block;
+    position: absolute;
+    margin: 10px;
+    max-width: $thumbnail-size - 20px;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    right: 0;
+    bottom: 0;
+}
+
+.post-thumbnail {
+    text-decoration:none;
+    background-size: cover;
+    background-repeat:no-repeat;
+    // box-shadow:inset 0 0 $thumbnail-size 75px #101010, 5px 5px 1px 0px $secondary-color;
+    box-shadow:inset 0 0 $thumbnail-size 75px #101010,10px 7.5px 1px 0px $tertiary-color;
+    border-radius: 5px;
+    height: $thumbnail-size;
+    width: $thumbnail-size;
+    display: inline-table;
+    text-align: right;
+    position: relative;
+    padding: 0;
+    margin: 30px;
+    transition:$thumbnail-transition;
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+}
+
+.post-thumbnail:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition:$thumbnail-transition;
+    // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
+        box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
+    text-shadow: none;
+}
+
+.post-thumbnail:last-of-type {
+    margin-bottom: 50px;
+}
+
+.post-thumbnail div {
+    // display:table;
+    text-align: center;
+    width:$thumbnail-size;
+    //height: 100%;
+    // margin-top: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.post-thumbnail div *{
+    padding: 0px 20px;
+}
+
+.post-thumbnail div p {
+    margin-top: 10px;
+}
+
+.post-thumbnail small {
+    text-align: right;
+    transition:$thumbnail-transition;
+    display: block;
+    position: absolute;
+    margin: 10px;
+    max-width: $thumbnail-size - 20px;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    right: 0;
+    bottom: 0;
+}

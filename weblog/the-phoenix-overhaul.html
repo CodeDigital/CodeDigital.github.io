@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>The Phoenix Overhaul | Code Digital Weblog</title><link rel="icon" href="/favicon.ico"/><meta name="title" content="The Phoenix Overhaul | Code Digital Weblog"/><meta name="description" content="Detailing CodeDigital&#x27;s transition to Nextjs and a whole new source branch."/><meta property="og:type" content="website"/><meta property="og:url" content="https://codedigital.github.io/weblog/the-phoenix-overhaul"/><meta property="og:title" content="The Phoenix Overhaul | Code Digital Weblog"/><meta property="og:description" content="Detailing CodeDigital&#x27;s transition to Nextjs and a whole new source branch."/><meta property="og:image" content="https://codedigital.github.io/_posts/weblog/the-phoenix-overhaul/thumbnail.png"/><meta property="twitter:card" content="summary_large_image"/><meta property="twitter:url" content="https://codedigital.github.io/weblog/the-phoenix-overhaul"/><meta property="twitter:title" content="The Phoenix Overhaul | Code Digital Weblog"/><meta property="twitter:description" content="Detailing CodeDigital&#x27;s transition to Nextjs and a whole new source branch."/><meta property="twitter:image" content="https://codedigital.github.io/_posts/weblog/the-phoenix-overhaul/thumbnail.png"/><meta name="next-head-count" content="16"/><link rel="preload" href="/_next/static/css/d5d308eed1b8773863d8.css" as="style"/><link rel="stylesheet" href="/_next/static/css/d5d308eed1b8773863d8.css"/><link rel="preload" href="/_next/static/mKrPqzpzWYlp6jE12zx-8/pages/weblog/%5Bweblog%5D.js" as="script"/><link rel="preload" href="/_next/static/mKrPqzpzWYlp6jE12zx-8/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.98c1b221acb34aa9927b.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.d3a5cad3addbd9214ed4.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-e0bd383e41250329b51a.js" as="script"/><link rel="preload" href="/_next/static/chunks/663f3f4c76939104dbc2307c41cfe491c977250f.57e6ec9bd063bbbbc86c.js" as="script"/><link rel="preload" href="/_next/static/chunks/49b1b81b6ad98404aa5fd385a98972d1686a6cf4.6613c889b67f23f440a5.js" as="script"/></head><body><div id="__next"><div class="main-body"><div class="header"><a href="/"><img alt="N/A" src="/assets/img/phoenixIcon.png"/></a><h1 class=" phoenix">&lt;Code&gt;Digital</h1></div><div class="project-page" id="project-page"><div>
+    <script src="/assets/js/p5/p5.min.js"></script>
+    <script defer="" src="/assets/js/p5/addons/p5.sound.js"></script>
+    <script defer="" src="/assets/js/p5/addons/p5.speech.js"></script>
+    <script defer="" src="/assets/js/jquery.min.js"></script>
+    <script>
+        const sketchWidth = function() {return window.innerWidth - 20}
+        const sketchHeight = function() {return window.innerHeight - 270}
+        console.log('test');
+        function endSound() {
+            try {
+                getAudioContext().close();
+            } catch (e) {
+                console.log('No Audio Context to close')
+            };
+        }
+    </script>
+</div><img class="close-icon" alt="Close" src="/assets/img/closeIcon.png"/><img src="/assets/img/shareIcon.png" alt="" class="share-icon"/><div id="projectHTMLContainer"><div class="weblog-post">
+    <style>
+        @media only screen and (min-width: 768px){
+            .weblog-phoenix-img {
+                width:500px;
+            }
+        }
+
+        @media only screen and (max-width: 768px){
+            .weblog-phoenix-img {
+                width:250px;
+            }
+        }
+    </style>
+    <h1>Code Digital is officially moving to <b class="phoenix">Phoenix</b> Branch!</h1>
+    <small>25th April 2020</small>
+    <br/><br/>
+    <hr/>
+    <br/>
+    <p>You might be a little confused as to what is happening. A week ago I started working on a new version of Code Digital. I was checking out <a href="jmswrnr.com" target="_blank">jmswrnr.com</a> and looked at his stack (It&#x27;s really impressive and I highly recommend you check it out). Anyways, I asked him whether he recommended the stack he was using (and noticed that his meta tags for social media worked) and got a resounding &quot;DO IT&quot;.
+        <br/><br/>Long story short, I spent the past week working really hard to convert the CodeDigital code so it worked on the NEXT.js platform. I&#x27;ve been hard at work trying to get all of the features working. 
+        Even to the point of 4am sleep-times on some days.
+        Now, though, after this rollercoaster of a refactor, I believe I&#x27;m ready to start updating the master branch from this NEXT.js version.
+        Given that this update to the website feels like it&#x27;s &quot;new, but still the same&quot; (and because I enjoy theatrics), I&#x27;ve called this new branch <b class="phoenix">Phoenix</b>. 
+        I&#x27;ve even drawn up a nice icon to represent the shift.
+    </p>
+    <!-- -->
+<img class="weblog-phoenix-img" src="/_posts/weblog/the-phoenix-overhaul/thumbnail.png" alt="Phoenix Icon"/>
+<br/>
+<blockquote style="text-align:center">&quot;One Step Backward, Two Steps Forward&quot;</blockquote>
+<br/>
+        <p>
+            NEXT.js doesn&#x27;t come without its weaknesses, but in many ways it works much better for the style of website I am looking to create. 
+            I had to sacrifice the lagless loading when you click on a project, and I&#x27;ll sorely miss the single page style. 
+            On the other hand, in my rewrite of the site, I discovered that the way in which scripts (specifically P5.js scripts) load very nicely, without the need for the solution I used before. 
+            This may not seem like a big deal, but my project-loading code was janky, to say the least. CodeDigital was vulnerable to XSS attacks and overall prone to bugs. 
+            An added bonus is the ability for me to now have meta-tags for social media (which didn&#x27;t work with a single page app).
+            Hash router links no longer redirect to the projects and weblogs (they bring you to the homepage).
+            Find a full list of new features below.
+            <br/><br/>
+            </p><h2><b class="phoenix">Phoenix</b> Branch Features</h2>
+            <hr/>
+        <p></p>
+            <ul style="text-align:left;line-height:30px">
+                <li>Simpler project and weblog loading.</li>
+                <li>Cleaner script loading.</li>
+                <li>Code syntax highlighting with PRISM.js</li>
+                <li>Meta Tags work for social media.</li>
+                <li>Search query and weblog state saved in session storage.</li>
+                <li>Link navigation no longer works on hash router.</li>
+                <li>Hash router links are now deprecated.</li>
+                <li>[Upcoming] Share button.</li>
+                <li>[Upcoming] Working 404 page.</li>
+            </ul>
+            <p>
+            <br/>
+            Hopefully you haven&#x27;t noticed too much of a difference. That would mean I did a good job. If you&#x27;re curious what is to come for the future of this website, expect more updates with cool new features.
+            After this release, I&#x27;ll be focusing my efforts on adding a working share button for all the posts and projects. 
+            You will have noticed it&#x27;s already there, but with no functionality yet. Don&#x27;t worry I&#x27;ll get on that next.
+<br/><br/>
+In the meantime, see you all in the next one!
+        </p>
+
+
+    <!-- -->
+
+    <div class="weblog-signature">
+        <p>Cheers,</p>
+        <p>Xavier Travers (DigitalData)</p>
+    </div>
+</div></div><div></div></div><div class="footer"><a href="/about">About</a><a href="/contact">Contact</a><a rel="noopener noreferrer" href="https://github.com/CodeDigital" target="_blank">Github</a><p class="copyright">© Copyright <!-- -->2020<!-- -->, CodeDigital</p></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"scripts":"\u003cdiv\u003e\r\n    \u003cscript src=\"/assets/js/p5/p5.min.js\"\u003e\u003c/script\u003e\r\n    \u003cscript defer src=\"/assets/js/p5/addons/p5.sound.js\"\u003e\u003c/script\u003e\r\n    \u003cscript defer src=\"/assets/js/p5/addons/p5.speech.js\"\u003e\u003c/script\u003e\r\n    \u003cscript defer src=\"/assets/js/jquery.min.js\"\u003e\u003c/script\u003e\r\n    \u003cscript\u003e\r\n        const sketchWidth = function() {return window.innerWidth - 20}\r\n        const sketchHeight = function() {return window.innerHeight - 270}\r\n        console.log('test');\r\n        function endSound() {\r\n            try {\r\n                getAudioContext().close();\r\n            } catch (e) {\r\n                console.log('No Audio Context to close')\r\n            };\r\n        }\r\n    \u003c/script\u003e\r\n\u003c/div\u003e","weblog":{"name":"The Phoenix Overhaul","description":"Detailing CodeDigital's transition to Nextjs and a whole new source branch.","date":"2020-04-25","disabled":false,"tags":["overhaul","new","rebuild"],"scripts":[],"html":"\u003cdiv class=\"weblog-post\" \u003e\r\n    \u003cstyle\u003e\r\n        @media only screen and (min-width: 768px){\r\n            .weblog-phoenix-img {\r\n                width:500px;\r\n            }\r\n        }\r\n\r\n        @media only screen and (max-width: 768px){\r\n            .weblog-phoenix-img {\r\n                width:250px;\r\n            }\r\n        }\r\n    \u003c/style\u003e\r\n    \u003ch1\u003eCode Digital is officially moving to \u003cb class=\"phoenix\"\u003ePhoenix\u003c/b\u003e Branch!\u003c/h1\u003e\r\n    \u003csmall\u003e25th April 2020\u003c/small\u003e\r\n    \u003cbr\u003e\u003cbr\u003e\r\n    \u003chr\u003e\r\n    \u003cbr\u003e\r\n    \u003cp\u003eYou might be a little confused as to what is happening. A week ago I started working on a new version of Code Digital. I was checking out \u003ca href=\"jmswrnr.com\" target=\"_blank\"\u003ejmswrnr.com\u003c/a\u003e and looked at his stack (It's really impressive and I highly recommend you check it out). Anyways, I asked him whether he recommended the stack he was using (and noticed that his meta tags for social media worked) and got a resounding \"DO IT\".\r\n        \u003cbr\u003e\u003cbr\u003eLong story short, I spent the past week working really hard to convert the CodeDigital code so it worked on the NEXT.js platform. I've been hard at work trying to get all of the features working. \r\n        Even to the point of 4am sleep-times on some days.\r\n        Now, though, after this rollercoaster of a refactor, I believe I'm ready to start updating the master branch from this NEXT.js version.\r\n        Given that this update to the website feels like it's \"new, but still the same\" (and because I enjoy theatrics), I've called this new branch \u003cb class=\"phoenix\"\u003ePhoenix\u003c/b\u003e. \r\n        I've even drawn up a nice icon to represent the shift.\r\n    \u003c/p\u003e\r\n    \u003c!-- style=\"margin-right:10px;display: block;\" --\u003e\r\n\u003cimg class=\"weblog-phoenix-img\" src=\"/_posts/weblog/the-phoenix-overhaul/thumbnail.png\" alt=\"Phoenix Icon\"/\u003e\r\n\u003cbr\u003e\r\n\u003cblockquote style=\"text-align: center;\"\u003e\"One Step Backward, Two Steps Forward\"\u003c/blockquote\u003e\r\n\u003cbr\u003e\r\n        \u003cp\u003e\r\n            NEXT.js doesn't come without its weaknesses, but in many ways it works much better for the style of website I am looking to create. \r\n            I had to sacrifice the lagless loading when you click on a project, and I'll sorely miss the single page style. \r\n            On the other hand, in my rewrite of the site, I discovered that the way in which scripts (specifically P5.js scripts) load very nicely, without the need for the solution I used before. \r\n            This may not seem like a big deal, but my project-loading code was janky, to say the least. CodeDigital was vulnerable to XSS attacks and overall prone to bugs. \r\n            An added bonus is the ability for me to now have meta-tags for social media (which didn't work with a single page app).\r\n            Hash router links no longer redirect to the projects and weblogs (they bring you to the homepage).\r\n            Find a full list of new features below.\r\n            \u003cbr\u003e\u003cbr\u003e\r\n            \u003ch2\u003e\u003cb class=\"phoenix\"\u003ePhoenix\u003c/b\u003e Branch Features\u003c/h2\u003e\r\n            \u003chr\u003e\r\n        \u003c/p\u003e\r\n            \u003cul style=\"text-align: left;line-height: 30px;\"\u003e\r\n                \u003cli\u003eSimpler project and weblog loading.\u003c/li\u003e\r\n                \u003cli\u003eCleaner script loading.\u003c/li\u003e\r\n                \u003cli\u003eCode syntax highlighting with PRISM.js\u003c/li\u003e\r\n                \u003cli\u003eMeta Tags work for social media.\u003c/li\u003e\r\n                \u003cli\u003eSearch query and weblog state saved in session storage.\u003c/li\u003e\r\n                \u003cli\u003eLink navigation no longer works on hash router.\u003c/li\u003e\r\n                \u003cli\u003eHash router links are now deprecated.\u003c/li\u003e\r\n                \u003cli\u003e[Upcoming] Share button.\u003c/li\u003e\r\n                \u003cli\u003e[Upcoming] Working 404 page.\u003c/li\u003e\r\n            \u003c/ul\u003e\r\n            \u003cp\u003e\r\n            \u003cbr\u003e\r\n            Hopefully you haven't noticed too much of a difference. That would mean I did a good job. If you're curious what is to come for the future of this website, expect more updates with cool new features.\r\n            After this release, I'll be focusing my efforts on adding a working share button for all the posts and projects. \r\n            You will have noticed it's already there, but with no functionality yet. Don't worry I'll get on that next.\r\n\u003cbr\u003e\u003cbr\u003e\r\nIn the meantime, see you all in the next one!\r\n        \u003c/p\u003e\r\n\r\n\r\n    \u003c!-- \u003cpre class=\"line-numbers match-braces\"\u003e\u003ccode class=\"language-javascript\"\u003e\r\n        // Isn't it nice to have working code highlighting with Prism.js?\r\n    \u003c/code\u003e\u003c/pre\u003e --\u003e\r\n\r\n    \u003cdiv class=\"weblog-signature\"\u003e\r\n        \u003cp\u003eCheers,\u003c/p\u003e\r\n        \u003cp\u003eXavier Travers (DigitalData)\u003c/p\u003e\r\n    \u003c/div\u003e\r\n\u003c/div\u003e"}},"__N_SSG":true},"page":"/weblog/[weblog]","query":{"weblog":"the-phoenix-overhaul"},"buildId":"mKrPqzpzWYlp6jE12zx-8","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/runtime/polyfills-ac8b02fa82de57111615.js"></script><script async="" data-next-page="/weblog/[weblog]" src="/_next/static/mKrPqzpzWYlp6jE12zx-8/pages/weblog/%5Bweblog%5D.js"></script><script async="" data-next-page="/_app" src="/_next/static/mKrPqzpzWYlp6jE12zx-8/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.98c1b221acb34aa9927b.js" async=""></script><script src="/_next/static/chunks/commons.d3a5cad3addbd9214ed4.js" async=""></script><script src="/_next/static/runtime/main-e0bd383e41250329b51a.js" async=""></script><script src="/_next/static/chunks/663f3f4c76939104dbc2307c41cfe491c977250f.57e6ec9bd063bbbbc86c.js" async=""></script><script src="/_next/static/chunks/49b1b81b6ad98404aa5fd385a98972d1686a6cf4.6613c889b67f23f440a5.js" async=""></script><script src="/_next/static/mKrPqzpzWYlp6jE12zx-8/_buildManifest.js" async=""></script><script src="/_next/static/mKrPqzpzWYlp6jE12zx-8/_ssgManifest.js" async=""></script></body></html>

@@ -1,0 +1,8 @@
+{
+    "name":"Welcome to the weblog",
+    "description":"So this is where I'll be spilling my thoughts from now on.",
+    "date":"2020-02-18",
+    "disabled":false,
+    "tags":["fun","introduction","log"],
+    "scripts":[]
+}

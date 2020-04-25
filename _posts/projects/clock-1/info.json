@@ -1,0 +1,8 @@
+{
+    "dir":"clock-1",
+    "name":"Amazing Clock #1",
+    "description":"Just messing around with the time values that you can find in the p5 library.",
+    "disabled": false,
+    "tags":["clock","time","js","code","p5"],
+    "scripts":["p5/p5.min.js"]
+}
