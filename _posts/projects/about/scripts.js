@@ -9,7 +9,7 @@ age = Math.floor(age);
 
 document.getElementById('about-age').innerText = age;
 
-var aboutAgeInterval = setInterval(function(){
+setInterval(function(){
     
     var age = new Date().getTime() - birthday.getTime();
     age /= 1000 * 60 * 60 * 24 * 365.25;
@@ -17,5 +17,6 @@ var aboutAgeInterval = setInterval(function(){
 
     if(document.getElementById('about-age').innerText != age){
         document.getElementById('about-age').innerText = age;
+        console.log('Age set to: ' + age);
     }
 },100);
