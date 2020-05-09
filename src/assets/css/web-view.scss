@@ -109,15 +109,21 @@
     }
 
     .about-me img{
-        width: 50%;
-        height: auto;
+        width: calc(50% - 42.5px);
+        // margin-right: 5px;
+        // height: auto;
         display: inline-block;
+        right: 0;
         align-self: center;
     }
     
     .about-me div {
         width: 50%;
-        padding: 0 10px;
+        // margin-right: 20px;
+        // margin-left: 0px;
+        // padding: 0;
+        // padding: 0 10px;
+        padding-right: 37.5px;
         align-self: center;
     }
 

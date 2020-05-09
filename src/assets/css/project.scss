@@ -44,44 +44,68 @@
     right: 75px;
     margin-top: 20px;
     transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
-    -webkit-filter: drop-shadow(6px 5px 5px $tertiary-color);
-    filter: drop-shadow(6px 5px 5px $tertiary-color);
+    -webkit-filter: drop-shadow(6px 5px 2px $tertiary-color);
+    filter: drop-shadow(6px 5px 2px $tertiary-color);
 }
 
 .share-icon:hover {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
-    filter: drop-shadow(4px 2px 0px $secondary-color);
+    -webkit-filter: drop-shadow(5px 2.5px 0px $secondary-color);
+    filter: drop-shadow(5px 2.5px 0px $secondary-color);
+    // -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
+    // filter: drop-shadow(4px 2px 0px $secondary-color);
     //text-shadow: 10px 10px 0px #FF2277;
 }
 
 .about-h1{
     margin: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .about-h2{
-    margin: 5px;
-    margin-top:30px;
+    margin: 10px;
+    // margin-top:30px;
+    margin-bottom: -5px;
+    text-align: left;
+    // padding: 10px;
+    // background-color: $tertiary-color;
+    // background-color: $secondary-color;
+    // border-radius: 10px;
+    // box-shadow: black 1px 1px 10px;
+    // box-shadow:10px 7.5px 1px 0px $tertiary-color;
+    // box-shadow:10px 7.5px 1px 0px $secondary-color;
 }
 
 .about-p{
     text-align: left;
-    margin-bottom: -5px;
+    // text-align: justify;
+    margin-bottom: -7.5px;
 }
 
 .about-me{
-    margin-top: 15px;
+    margin-top: 10px;
+    // border-radius: 10px;
     background-color: $tertiary-color;
-    border-radius: 10px;
-    box-shadow: black 1px 1px 10px;
+    // background-color: $secondary-color;
+    // border-radius: 10px;
+    // box-shadow: black 1px 1px 10px;
+    // box-shadow:10px 7.5px 1px 0px $tertiary-color;
+    box-shadow:10px 7.5px 1px 0px $secondary-color;
     padding: 15px;
+    // padding-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .about-me img{
-    border-radius: 10px;
-    box-shadow: black 1px 1px 10px;
-    height: inherit;
+    // border-radius: 10px;
+    // background-color: $tertiary-color;
+    // background-color: $secondary-color;
+    // border-radius: 10px;
+    box-shadow: $primary-color 1px 1px 10px;
+    // box-shadow: 10px 7.5px 1px 0px $primary-color;
+    // box-shadow:10px 7.5px 1px 0px $secondary-color;
+    // height: 20px;
+    // width: 10px;
 }
 
 .contact-container {
@@ -104,8 +128,11 @@ $contact-left: 40%;
 
 .contact-p{
     background-color: $tertiary-color;
-    border-radius: 10px;
-    box-shadow: black 1px 1px 10px;
+    // background-color: $secondary-color;
+    // border-radius: 10px;
+    // box-shadow: black 1px 1px 10px;
+    // box-shadow:10px 7.5px 1px 0px $tertiary-color;
+    box-shadow:10px 7.5px 1px 0px $secondary-color;
     padding: 20px;
     text-align: justify;
 }
@@ -199,6 +226,7 @@ $contact-left: 40%;
     border-bottom:1px solid white;
     text-align: center;
     padding: 15px;
+    padding-top: 0px;
 }
 
 
