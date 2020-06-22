@@ -67,7 +67,7 @@ const Project = (props) => {
             <div id="projectHTMLContainer">
                 {parse(props.project.html)}
             </div>
-            <Sharing project={props.project} disp={share} onClose={onShareClose}></Sharing>
+            <Sharing url={getFullURL(router.asPath)} project={props.project} disp={share} onClose={onShareClose}></Sharing>
 
         </div>
         </Body>

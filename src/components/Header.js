@@ -12,9 +12,9 @@ function checkAnniversary(){
 
 const Header = () =>
     <div className="header">
-    {/* <a href="/"><img alt="N/A" src="/assets/img/codeArrowIcon.png"></img></a> */}
-        <a href="/"><img alt="N/A" src="/assets/img/phoenixIcon.png"></img></a>
-    <h1 className={checkAnniversary() + ' phoenix'}>&lt;Code&gt;Digital</h1>
+    <a href="/"><img alt="N/A" src="/assets/img/codeArrowIcon.png"></img></a>
+        {/* <a href="/"><img alt="N/A" src="/assets/img/phoenixIcon.png"></img></a> */}
+    <h1 className={checkAnniversary() + ' '}>&lt;Code&gt;Digital</h1>
     </div>
 
 export default Header;

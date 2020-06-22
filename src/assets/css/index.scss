@@ -8,8 +8,8 @@ $phoenix-primary-color: #C52437;
 $phoenix-secondary-color: #F08843;
 $phoenix-tertiary-color: #F7E27C;
 
-$tertiary-color: $phoenix-primary-color;
-$tertiary-text-color: $phoenix-secondary-color;
+// $tertiary-color: $phoenix-primary-color;
+// $tertiary-text-color: $phoenix-secondary-color;
 
 $title-font: Monospace;
 // $body-font: Arial, Helvetica, sans-serif;
@@ -187,16 +187,18 @@ code {
 .popup-div {
     display: block;
     font-size: larger;
-    text-align: justify;
+    text-align: center;
     margin-left: auto;
     margin-right:auto;
     // margin-top:50px;
     width: 500px;
-    box-shadow: 10px 10px 10px black;
-    border-radius: 100px;
+    // box-shadow: 10px 10px 10px black;
+    box-shadow: 10px 10px 0px $tertiary-color;
+    // border-radius: 100px;
     color:$primary-text-color;
     background-color: $primary-color;
     padding: 20px 50px;
+    pointer-events: all;
 }
 
 .popup h1 {
@@ -216,6 +218,38 @@ code {
     display: block;
     color: $tertiary-text-color;
     margin-top:20px;
+}
+
+.share-button-div{
+    text-align: center;
+}
+
+.share-button-div > *{
+    margin: 5px;
+    transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    transition: ease-in 0.3s;
+}
+
+.share-button-div > *:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+    .share-button-icon{
+        box-shadow:$tertiary-color 3px 2px;
+    }
+}
+
+.share-button-icon{
+    border-radius: 1000px;
+    box-shadow: $secondary-color 5px 2.5px;
+}
+
+.share-count-wrapper > *{
+    margin-left: -20px;
+    margin-top: -5px;
+    padding: 3px 6px;
+    background-color: $secondary-color;
+    color: $primary-text-color;
+    border-radius: 8px;
 }
 
 @import './navigation.scss';

@@ -68,7 +68,7 @@ const Weblog = (props) => {
             <div id="projectHTMLContainer">
                 {parse(props.weblog.html)}
             </div>
-            <Sharing project={props.weblog} disp={share} onClose={onShareClose}></Sharing>
+            <Sharing url={getFullURL(router.asPath)} project={props.weblog} disp={share} onClose={onShareClose}></Sharing>
 
         </div>
         </Body>
