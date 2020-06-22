@@ -5082,20 +5082,20 @@ var Header = function Header() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 9
+      lineNumber: 15,
+      columnNumber: 5
     }
   }, __jsx("img", {
     alt: "N/A",
-    src: "/assets/img/phoenixIcon.png",
+    src: "/assets/img/codeArrowIcon.png",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 21
+      lineNumber: 15,
+      columnNumber: 17
     }
   })), __jsx("h1", {
-    className: checkAnniversary() + ' phoenix',
+    className: checkAnniversary() + ' ',
     __self: _this,
     __source: {
       fileName: _jsxFileName,
