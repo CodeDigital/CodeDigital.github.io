@@ -11462,12 +11462,19 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
             lineNumber: 52,
             columnNumber: 21
           }
-        }, "Select one of the buttons below to share!"), __jsx("div", {
-          className: "share-button-div",
+        }, "Select one of the buttons below to share!"), __jsx("br", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 53,
+            columnNumber: 21
+          }
+        }), __jsx("div", {
+          className: "share-button-div",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54,
             columnNumber: 21
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["EmailShareButton"], {
@@ -11476,7 +11483,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54,
+            lineNumber: 55,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["EmailIcon"], {
@@ -11485,7 +11492,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57,
+            lineNumber: 58,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["FacebookShareButton"], {
@@ -11495,7 +11502,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59,
+            lineNumber: 60,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["FacebookIcon"], {
@@ -11504,7 +11511,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63,
+            lineNumber: 64,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["FacebookMessengerShareButton"], {
@@ -11513,7 +11520,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71,
+            lineNumber: 72,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["FacebookMessengerIcon"], {
@@ -11522,7 +11529,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72,
+            lineNumber: 73,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["LineShareButton"], {
@@ -11531,7 +11538,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74,
+            lineNumber: 75,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["LineIcon"], {
@@ -11540,7 +11547,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77,
+            lineNumber: 78,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["LinkedinShareButton"], {
@@ -11550,7 +11557,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79,
+            lineNumber: 80,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["LinkedinIcon"], {
@@ -11559,7 +11566,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83,
+            lineNumber: 84,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["RedditShareButton"], {
@@ -11568,7 +11575,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97,
+            lineNumber: 98,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["RedditIcon"], {
@@ -11577,7 +11584,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98,
+            lineNumber: 99,
             columnNumber: 29
           }
         }), __jsx("span", {
@@ -11585,7 +11592,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99,
+            lineNumber: 100,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["TumblrShareButton"], {
@@ -11596,7 +11603,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105,
+            lineNumber: 106,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["TumblrIcon"], {
@@ -11605,7 +11612,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111,
+            lineNumber: 112,
             columnNumber: 29
           }
         }), __jsx("span", {
@@ -11613,7 +11620,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112,
+            lineNumber: 113,
             columnNumber: 29
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["TumblrShareCount"], {
@@ -11621,7 +11628,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 114,
             columnNumber: 33
           }
         }, function (count) {
@@ -11634,7 +11641,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118,
+            lineNumber: 119,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["TwitterIcon"], {
@@ -11643,7 +11650,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 124,
             columnNumber: 29
           }
         })), __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["WhatsappShareButton"], {
@@ -11652,7 +11659,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125,
+            lineNumber: 126,
             columnNumber: 25
           }
         }, __jsx(react_share__WEBPACK_IMPORTED_MODULE_7__["WhatsappIcon"], {
@@ -11661,14 +11668,21 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128,
+            lineNumber: 129,
             columnNumber: 29
           }
-        }))), __jsx("small", {
+        }))), __jsx("br", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131,
+            lineNumber: 132,
+            columnNumber: 21
+          }
+        }), __jsx("small", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133,
             columnNumber: 21
           }
         }, "Click anywhere outside of this popup to return."))));
@@ -11677,7 +11691,7 @@ var Sharing = /*#__PURE__*/function (_React$Component) {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 138,
+            lineNumber: 140,
             columnNumber: 20
           }
         });
