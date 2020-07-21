@@ -198,6 +198,17 @@ $contact-left: 40%;
     left: 0;
 }
 
+.p5-info button {
+    background-color: $tertiary-color;
+    color: $primary-text-color;
+    padding: 5px;
+    margin: 10px;
+    position: absolute;
+    top:$header-height+10px;
+    left: 0;
+    color: $primary-text-color;
+}
+
 .p5-canvas{
     margin-left: 5px;
     width: calc(100vw - 5px);

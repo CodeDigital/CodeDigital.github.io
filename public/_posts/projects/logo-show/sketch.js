@@ -18,12 +18,14 @@ function preload(){
 function setup(){
     h = sketchHeight();
     w = sketchWidth();
-    // var size = min(w,h,500);
-    var size = 500;
+    //var size = min(w,h,500);
+    var size = 550;
     cnv = createCanvas(size,size);
     cnv.parent('p5-canvas-logo-show');
 	imageMode(CENTER);
-	img.loadPixels();
+  img.loadPixels();
+  h = img.height;
+  w = img.width;
 }
   
 function draw() {
@@ -33,7 +35,7 @@ var backC = color("#222222");
 
   if(points.length < maxPoints){
     //var now = new Date();
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 20; i++) {
       //if((now.getTime() - timer.getTime()) >= 50){
       //timer = new Date();
       var newX = getRandomInt((w/16),(w - (w/16)));
@@ -97,7 +99,7 @@ function Point(x,y){
     //this.color = random(0,255);
     fill(this.color);
     noStroke();
-    ellipse(this.x,this.y,this.rad * 2);
+    ellipse(this.x + 25,this.y + 25,this.rad * 2);
   }
 }
 

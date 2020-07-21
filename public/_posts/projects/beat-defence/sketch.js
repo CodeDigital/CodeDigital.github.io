@@ -441,15 +441,19 @@ function inTempo(curr){
       var newMissile = new Missile(newSpeed,newX,newY,newDir);
       append(missiles,newMissile);
     }
-    if(key === "R"){
+    if(key === "r"){
       missiles = [];
       print("restarted")
-      //tint(255,0,0);
-      audio.stop();
-      ready = true;
+      if(playing){
+        audio.stop();
+        backing.stop();
+      }
+      score = 0;
+      health = maxH;
       playing = false;
       health = maxH;
       score = 0;
+      ready = true;
     }
   }
   

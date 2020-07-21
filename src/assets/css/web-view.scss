@@ -145,13 +145,22 @@
     }
 
     .weblog-post{
-        padding: 0 200px;
+        padding: 10px 30px;
         text-align: center;
+    }
+
+    .weblog-post * {
+        max-width: 750px;
+        margin: 5px auto;
     }
 
     .weblog-post p {
         text-align: left;
         line-height: 25px;
+    }
+
+    .weblog-post h1 {
+        max-width: calc(100vw - 250px);
     }
 
     .footer {

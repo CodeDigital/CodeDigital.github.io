@@ -37,7 +37,7 @@ function draw() {
 
   //strokeWeight(10);
   //Hours Clock
-  hourEnd = map(hr,0,24,0,360);
+  hourEnd = map(hr,0,23,0.1,360);
   noFill();
   var hrC = color(255,102,204);
   stroke(hrC);
@@ -47,7 +47,7 @@ function draw() {
 
 
   //Minutes Clock
-  minuteEnd = map(mn,0,60,0,360);
+  minuteEnd = map(mn,0,59,0.1,360);
   noFill();
   var mnC = color(204,255,102);
   stroke(mnC);
@@ -56,7 +56,7 @@ function draw() {
 //  arc(0,0,size - 40,size - 40,0,minuteEnd,PIE);
 
   //Seconds Clock
-  secondEnd = map(sc,0,60,0,360);
+  secondEnd = map(sc,0,59,0.1,360);
   noFill();
   var scC = color(102,204,255);
   stroke(scC);
