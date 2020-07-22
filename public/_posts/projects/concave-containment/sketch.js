@@ -254,13 +254,13 @@ function isInside(poly, point){
             }
             polyCopy = newpCopy;
 
-            let pv = concaveSet[concaveSet.length - 1]
-            concaveSet.forEach(function(p, i){
-                stroke(color(redLevel,0,0));
-                line(pv.x, pv.y, p.x, p.y);
-                ellipse(p.x, p.y, 20);
-                pv = p;
-            });
+            // let pv = concaveSet[concaveSet.length - 1]
+            // concaveSet.forEach(function(p, i){
+            //     stroke(color(redLevel,0,0));
+            //     line(pv.x, pv.y, p.x, p.y);
+            //     ellipse(p.x, p.y, 20);
+            //     pv = p;
+            // });
 
             if(isInside(concaveSet, point)){
                 return false;
