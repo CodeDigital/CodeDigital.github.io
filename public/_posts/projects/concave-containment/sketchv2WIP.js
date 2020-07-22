@@ -14,7 +14,6 @@ function setup(){
     setWidthHeight();
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas-concave-containment');
-    console.log('script v1 latest')
 }
   
 function draw() {
@@ -176,7 +175,7 @@ function isInside(poly, point){
     // It's concave if there are both clockwise and counterclockwise points along its edge path.
     if(cPoints.length > 0 && ccPoints.length > 0){
 
-        redLevel -= 1;
+        redLevel -= 30;
 
         let polyCopy = [...poly];
 
@@ -190,62 +189,23 @@ function isInside(poly, point){
 
             // create a set of points that contain a concave area.
             let concaveSet = [p];
-            // set points before the found concave point.
-            let fpIndex = (polyIndex == 0 ? poly.length:polyIndex) - 1;
-            let fp = poly[fpIndex];
-            concaveSet.unshift(fp);
-            let previousIndex = fpIndex;
 
             // set points after found concave point.
-            fpIndex = (polyIndex == poly.length - 1 ? -1:polyIndex) + 1;
+            // let fpIndex = (polyIndex == poly.length - 1 ? -1:polyIndex) + 1;
+            let fpIndex = (polyIndex == 0 ? poly.length:polyIndex) - 1;
+            let fp = poly[fpIndex];
+            concaveSet.push(fp);
+
+            // fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
+            // fpIndex = (fpIndex == 0 ? poly.length - 1)
             fp = poly[fpIndex];
             concaveSet.push(fp);
 
-            let addInside = false;
-            let addSet = [];
-            fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-            let v = poly[fpIndex];
-
-            while(fpIndex != previousIndex){
-                if(addInside){
-                    addSet.push(v);
-                    fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-                    v = poly[fpIndex];
-                    continue;
-                }
-
-                if(isInside(concaveSet, v)){
-                    addSet.push(v);
-                    addInside = true;
-                }
-
-                fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-                v = poly[fpIndex];
-            }
-
-            // for(let i = 0; i < polyCopy.length; i++){
-            //     let v = polyCopy[i];
-            //     if(!concaveSet.includes(v)){
-            //         if(addInside){
-            //             addSet.push(v);
-            //             continue;
-            //         }
-            //         if(isInside(concaveSet, v)){
-            //             addSet.push(v);
-            //             addInside = true;
-            //         }
-            //     }else{
-
-            //     }
-            // }
-
-            concaveSet.unshift(...addSet);
-
             let newpCopy = []
-
             for(let i = 0; i < polyCopy.length; i++){
                 let v = polyCopy[i];
                 if(concaveSet.includes(v)){
+                    // if(!compareVectors(firstVertex, v) && concaveSet.indexOf(v) < concaveSet.length - 1){
                     if(concaveSet.indexOf(v) > 0 && concaveSet.indexOf(v) < concaveSet.length - 1){
                         continue;
                     }
@@ -262,8 +222,9 @@ function isInside(poly, point){
                 pv = p;
             });
 
+
             if(isInside(concaveSet, point)){
-                return false;
+                return true;
             }
 
             return isInside(polyCopy, point);
@@ -275,58 +236,17 @@ function isInside(poly, point){
 
             // create a set of points that contain a concave area.
             let concaveSet = [p];
-            // set points before the found concave point.
-            let fpIndex = (polyIndex == 0 ? poly.length:polyIndex) - 1;
-            let fp = poly[fpIndex];
-            concaveSet.unshift(fp);
-            let previousIndex = fpIndex;
 
             // set points after found concave point.
-            fpIndex = (polyIndex == poly.length - 1 ? -1:polyIndex) + 1;
-            fp = poly[fpIndex];
+            let fpIndex = (polyIndex == poly.length - 1 ? -1:polyIndex) + 1;
+            let fp = poly[fpIndex];
             concaveSet.push(fp);
 
-            let addInside = false;
-            let addSet = [];
             fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-            let v = poly[fpIndex];
-
-            while(fpIndex != previousIndex){
-                if(addInside){
-                    addSet.push(v);
-                    fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-                    v = poly[fpIndex];
-                    continue;
-                }
-
-                if(isInside(concaveSet, v)){
-                    addSet.push(v);
-                    addInside = true;
-                }
-
-                fpIndex = (fpIndex == poly.length - 1 ? -1:fpIndex) + 1;
-                v = poly[fpIndex];
-            }
-            
-            // for(let i = 0; i < polyCopy.length; i++){
-            //     let v = polyCopy[i];
-            //     if(!concaveSet.includes(v)){
-            //         //console.log('is not in array: ', v)
-            //         if(addInside){
-            //             addSet.push(v);
-            //             continue;
-            //         }
-            //         if(isInside(concaveSet, v)){
-            //             addSet.push(v);
-            //             addInside = true;
-            //         }
-            //     }
-            // }
-
-            concaveSet.unshift(...addSet);
-
+            fp = poly[fpIndex];
+            concaveSet.push(fp);
+          
             let newpCopy = []
-
             for(let i = 0; i < polyCopy.length; i++){
                 let v = polyCopy[i];
                 if(concaveSet.includes(v)){
@@ -338,17 +258,17 @@ function isInside(poly, point){
                 newpCopy.push(v);
             }
             polyCopy = newpCopy;
-
-            // let pv = concaveSet[concaveSet.length - 1]
-            // concaveSet.forEach(function(p, i){
-            //     stroke(color(redLevel,0,0));
-            //     line(pv.x, pv.y, p.x, p.y);
-            //     ellipse(p.x, p.y, 20);
-            //     pv = p;
-            // });
+            
+            let pv = concaveSet[concaveSet.length - 1]
+            concaveSet.forEach(function(p, i){
+                stroke(color(redLevel,0,0));
+                line(pv.x, pv.y, p.x, p.y);
+                ellipse(p.x, p.y, 20);
+                pv = p;
+            });
 
             if(isInside(concaveSet, point)){
-                return false;
+                return true;
             }
 
             return isInside(polyCopy, point)
