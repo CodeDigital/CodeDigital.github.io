@@ -15,7 +15,7 @@ function setup(){
     txt = foo.resultString;
     test.innerHTML = txt;
     //createP(foo.resultString);
-    console.log(foo.resultString); // log the result
+    //console.log(foo.resultString); // log the result
 	var canvas = document.getElementById("p5-canvas-speech-to-text");
 	canvas.prepend(test);
 	}catch{
@@ -31,5 +31,9 @@ function setup(){
 
 function unmountScript(){
 	//console.log('unmoutned');
+	foo = new p5.SpeechRec();
+	foo.start(false, false);
+	foo.cancel();
+	foo.stop(0);
 	foo = null;
 }
