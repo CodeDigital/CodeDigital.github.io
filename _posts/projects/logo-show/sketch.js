@@ -5,7 +5,8 @@ var timer = new Date();
 var points = [];
 var prevRad = [];
 var stillGrowing = true;
-var maxPoints = 3000;
+var maxPoints = 1000;
+let minDimension;
 
 function unmountScript(){
   remove();
@@ -19,7 +20,8 @@ function setup(){
     h = sketchHeight();
     w = sketchWidth();
     //var size = min(w,h,500);
-    var size = 550;
+    let size = 550;
+    minDimension = Math.min(size, w, h);
     cnv = createCanvas(size,size);
     cnv.parent('p5-canvas-logo-show');
 	imageMode(CENTER);
@@ -41,6 +43,11 @@ var backC = color("#222222");
       var newX = getRandomInt((w/16),(w - (w/16)));
       var newY = getRandomInt((h/16),(h - (h/16)));
       var newPoint = new Point(newX,newY);
+      while(!check(newPoint)){
+        newX = getRandomInt((w/16),(w - (w/16)));
+        newY = getRandomInt((h/16),(h - (h/16)));
+        newPoint = new Point(newX,newY);
+      }
       points.push(newPoint);
       prevRad.push(0);
       //print('1');
@@ -99,7 +106,9 @@ function Point(x,y){
     //this.color = random(0,255);
     fill(this.color);
     noStroke();
-    ellipse(this.x + 25,this.y + 25,this.rad * 2);
+    let newX = ((this.x + 25)/width)*minDimension;
+    let newY = ((this.y + 25)/width)*minDimension;
+    ellipse(newX, newY, this.rad * 2);
   }
 }
 
@@ -107,11 +116,15 @@ function check(p){
   for (var i = 0; i < points.length; i++) {
     if(points[i].x != p.x && points[i].y != p.y){
       //var dist = int(dist(points[i].x,points[i].y,p.x,p.y));
-      var d = (dist(points[i].x,points[i].y,p.x,p.y));
-      //print(d);
+      var d = (dist(
+        ((points[i].x + 25)/width)*minDimension,
+        ((points[i].y + 25)/width)*minDimension,
+        ((p.x + 25)/width)*minDimension,
+        ((p.y + 25)/width)*minDimension
+        ));
+      //print(d);((this.x + 25)/width)*minDimension
       if(d < (points[i].rad + p.rad)){
         return false;
-        break;
       }
     }
   }
