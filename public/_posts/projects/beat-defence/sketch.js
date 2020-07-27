@@ -26,7 +26,8 @@ var bpm;
 var previousAngle = Math.PI;
 var missileTimer = 0;
 var shieldDist = 70;
-var cnv
+var cnv;
+let ppm;
 
 
 function unmountScript(){
@@ -56,9 +57,13 @@ function preload(){
 function setup(){
     h = sketchHeight();
     w = sketchWidth();
-    var smallestMeasure = (h<w ? h:w);
+    var smallestMeasure = Math.min(h, w);
     h = smallestMeasure;
     w = smallestMeasure;
+    ppm = smallestMeasure / 20;
+    thick = ppm / 5;
+    shieldDist = 1.5*ppm;
+    missileSpeed = 0.35 * ppm;
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas-beat-defence');
     fft = new p5.FFT();
@@ -124,7 +129,7 @@ function draw() {
     //playing = true;
     ready = false;
     //backing = audio;
-    earlySpawn = ((w/2) - 60) / (missileSpeed);
+    earlySpawn = ((w/2) - (shieldDist + (thick/2))) / (missileSpeed);
     loop = true;
     fft.setInput(backing);
     //backing.setVolume(0);
@@ -150,9 +155,9 @@ function draw() {
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
   if(isHit){
-    image(earthHit,w/2 - 45,h/2 - 45,90,90);
+    image(earthHit,w/2 - ppm,h/2 - ppm,2 * ppm, 2 * ppm);
   }else{
-    image(earth,w/2 - 45,h/2 - 45,90,90);
+    image(earth,w/2 - ppm,h/2 - ppm, 2 * ppm, 2 * ppm);
   }
   //image(earth,w/2 - 45,h/2 - 45,90,90);
 
@@ -176,7 +181,7 @@ function draw() {
   //Checks if the rockets need to be deleted. Checks for health loss as well.
   for (var i = 0; i < missiles.length; i++) {
     //if distance from earth is in between thickness of arc.
-    if(missiles[i].cDist() < 40 + (thick/2)){
+    if(missiles[i].cDist() < ppm + (thick/2)){
       missiles.splice(i,1);
       isHit = true;
       health = health - 1;
@@ -235,41 +240,44 @@ function draw() {
   stroke(33,33,33,255);
   strokeWeight(10);
   fill(255,0,0,255);
-  rect(20,50,map((health/maxH),0,1,0,200),20);
+  // rect(20,50,map((health/maxH),0,1,0,200),20);
   noFill();
   stroke(33,33,33,255);
   strokeWeight(10);
-  rect(20,50,200,20);
+  // rect(20,50,200,20);
 
   fill(0,255,0,255);
   if(playing){
-    rect(w - 220,50,map((audio.currentTime()/audio.duration()),0,0.99,0,200),20);
+    // rect(w - 220,50,map((audio.currentTime()/audio.duration()),0,0.99,0,200),20);
   }else{
-    rect(w - 220,50,200,20);
+    // rect(w - 220,50,200,20);
   }
   noFill();
   stroke(33,33,33,255);
   strokeWeight(10);
-  rect(w - 220,50,200,20);
+  // rect(w - 220,50,200,20);
 
   fill(0,100,255,255);
   fill(255);
   noStroke();
-  textSize(20);
-  strokeWeight(2);
-  stroke(0,0,255);
+  textSize(w / 30);
+  // strokeWeight(2);
+  // stroke(0,0,255);
 
-  textAlign(CENTER);
+  textAlign(LEFT);
   text(("HEALTH: " + health),10,20,200,40);
-  textSize(25);
+  textSize(w / 30);
+  textAlign(CENTER);
   text(("SCORE: " + score),w/2-100,20,200,40)
-  textSize(20);
+  textSize(w / 30);
+  textAlign(RIGHT);
   if(playing == true){
     //text(("TIME LEFT: " + floor(audio.duration() - audio.currentTime())),w-210,20,200,40);
     text(("TIME: " + floor(audio.currentTime())),w-210,20,200,40);
   }else{
     text(("TIME LEFT: NA"),w-210,20,200,40);
-    textSize(40);
+    textSize(w / 20);
+    textAlign(CENTER);
     text(("UPLOAD A SONG TO START!"),w/2 - 300,h/2 + 50,600,40);
   }
   if(health <= 0){
@@ -277,12 +285,9 @@ function draw() {
     tint(255,0,0);
     audio.stop();
     playing = false;
-    textSize(40);
-    text(("FINAL SCORE: " + score),w/2 - 300,h/2 - 90,600,40);
-    text(("EARTH BLEW UP!"),w/2 - 300,h/2 - 140,600,40);
-    textSize(20);
-    //text(("Reload the page to TRY AGAIN."),w/2 - 300,h/2 + 90,600,40);
-
+    textSize(w / 20);
+    text(("FINAL SCORE: " + score),w/2 - 300,w/5,600,40);
+    text(("EARTH BLEW UP!"),w/2 - 300,w/5 + w/10 ,600,40);
   }
 
   if (isHit) {
@@ -357,7 +362,7 @@ function inTempo(curr){
     this.dir = mDir;
     //print(this.dir);
     this.speed = mSpeed;
-    this.len = 30;
+    this.len = ppm;
   
     this.getDir = function(){
       var angle;
@@ -393,9 +398,9 @@ function inTempo(curr){
       var dX = this.x + (this.len * Math.cos(showAngle));
       var dY = this.y - (this.len * Math.sin(showAngle));
       stroke(255,50,0);
-      strokeWeight(4);
+      strokeWeight(ppm/10);
       line(this.x,this.y,this.sX,this.sY);
-      strokeWeight(8);
+      strokeWeight(ppm/5);
       stroke(255);
       line(this.x,this.y,dX,dY);
       //line(this.x,this.y,this.sX,this.sY);
@@ -430,6 +435,7 @@ function inTempo(curr){
   
   function keyPressed(){
     if(keyCode === ENTER || key === " "){
+      
       //var angles = fft.analyze();
       //print("Index of: " + angles.indexOf(findMax(angles)));
       var startAngle = -1 * findAngle(mouseX,mouseY);
@@ -442,18 +448,33 @@ function inTempo(curr){
       append(missiles,newMissile);
     }
     if(key === "r"){
+      if(typeof src == "undefined"){
+        return;
+      }
+
+      fft = new p5.FFT();
+      amp = new p5.Amplitude();
+      peakDetect = new p5.PeakDetect(20,20000,0.2,20);
       missiles = [];
-      print("restarted")
       if(playing){
         audio.stop();
         backing.stop();
       }
+      audio = null;
+      backing = null;
       score = 0;
       health = maxH;
-      playing = false;
-      health = maxH;
-      score = 0;
-      ready = true;
+      ready = false;
+      playing = false;     
+  
+      audio = loadSound(src,function(){
+        backing = loadSound(src,function(){
+          health = maxH;
+          score = 0;
+          ready = true;
+        });
+      });
+      print("restarted");
     }
   }
   
