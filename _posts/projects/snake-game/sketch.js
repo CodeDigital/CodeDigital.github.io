@@ -23,11 +23,13 @@ function setup(){
   w = sketchWidth();
   cnv = createCanvas(w, h);
   if(w < 750){
-    scl = 10;
+    scl = 20;
+    fps = 15;
+    dt = 1/fps;
   }
   cnv.parent('p5-canvas-snake-game');
 	cols = floor(w/scl) - 1;
-  rows = floor(h/scl) - ceil(50/scl) - 1;
+  rows = floor(h/scl) - ceil(50/scl);
 
 	for (var j = 0; j < rows; j++) {
 		for (var i = 0; i < cols; i++) {
@@ -44,9 +46,9 @@ function draw() {
   clear();
   push();
   if(rumble){
-    translate((scl/2) + (snake.len - 5)*(Math.random()-0.5), (scl/2) + (snake.len - 5)*(Math.random()-0.5));
+    translate((scl/2) + (snake.len - 5)*(Math.random()-0.5), (snake.len - 5)*(Math.random()-0.5));
   }else{
-    translate((scl/2), (scl/2));
+    translate((scl/2), 0);
   }
   // rotate((Math.random()-0.5)/(5*Math.PI));
   currentTime = currentDate().getTime();

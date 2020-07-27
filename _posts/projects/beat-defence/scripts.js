@@ -1,3 +1,5 @@
+let src;
+
 var input = document.getElementById('input');
 input.onchange = function(e){
     var arrayBufferr;
@@ -162,7 +164,6 @@ input.onchange = function(e){
     }
 
     //var song = document.getElementById('sound');
-    var src;
     if(playing){
       audio.stop();
       backing.stop();
@@ -172,8 +173,7 @@ input.onchange = function(e){
     ready = false;
     playing = false;
     src = URL.createObjectURL(this.files[0]);
-   
-
+  
     audio = loadSound(src,function(){
       backing = loadSound(src,function(){
         health = maxH;
