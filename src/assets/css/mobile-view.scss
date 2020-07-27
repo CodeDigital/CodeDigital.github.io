@@ -72,6 +72,10 @@
         height: calc(100vh - #{$header-height} - #{$bottom-height});
     }
 
+    .p5-canvas{
+        height: calc(100vh - #{$header-height} - #{$bottom-height} - #{$p5-info-height} - 20px);
+    }
+
     .share-icon {
         display: none;
     }

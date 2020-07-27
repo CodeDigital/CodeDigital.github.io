@@ -210,8 +210,8 @@ $contact-left: 40%;
 }
 
 .p5-canvas{
-    margin-left: 5px;
-    width: calc(100vw - 5px);
+    // margin-left: 5px;
+    width: calc(100vw);
     overflow-x: auto;
     overflow-y: hidden;
     // border: white 2px solid;
