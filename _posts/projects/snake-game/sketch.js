@@ -3,24 +3,31 @@ var dir = "D"
 var w;
 var h;
 var scl = 30;
-var fps = 20;
+var fps = 30;
 var cols,rows;
 var cells = [];
 var snake;
 var cnv
+let newStyle = false;
+let dt = 1/fps;
+let prevTime;
+let rumble = false;
+let touchX, touchY;
 
 function unmountScript(){
   remove();
 }
 
 function setup(){
-  fps = 20;
-    h = sketchHeight();
-    w = sketchWidth();
-    cnv = createCanvas(w, h);
-    cnv.parent('p5-canvas-snake-game');
-	cols = floor(w/scl);
-	rows = floor(h/scl) - ceil(50/scl);
+  h = sketchHeight();
+  w = sketchWidth();
+  cnv = createCanvas(w, h);
+  if(w < 750){
+    scl = 10;
+  }
+  cnv.parent('p5-canvas-snake-game');
+	cols = floor(w/scl) - 1;
+  rows = floor(h/scl) - ceil(50/scl) - 1;
 
 	for (var j = 0; j < rows; j++) {
 		for (var i = 0; i < cols; i++) {
@@ -29,21 +36,52 @@ function setup(){
 		}
 	}
 	snake = new Snake(0,0,5);
-	newFruit(snake);
+  newFruit(snake);
+  prevTime = currentDate().getTime();
 }
   
 function draw() {
-  frameRate(fps);
-  var backC = color("#222222");
-  background(backC);
+  clear();
+  push();
+  if(rumble){
+    translate((scl/2) + (snake.len - 5)*(Math.random()-0.5), (scl/2) + (snake.len - 5)*(Math.random()-0.5));
+  }else{
+    translate((scl/2), (scl/2));
+  }
+  // rotate((Math.random()-0.5)/(5*Math.PI));
+  currentTime = currentDate().getTime();
+  let elapsedTime = (currentTime - prevTime) / 1000;
+  // frameRate(fps);
+  // var backC = color("#222222");
+  background(11);
   for (var i = 0; i < cells.length; i++) {
     cells[i].show();
   }
-  snake.move(dir);
-  snake.checkHead(cells);
+
+  // for (var i = 0; i < cells.length; i++) {
+  //   cells[i].show();
+  // }
+
+  // if(elapsedTime > dt){
+  while(elapsedTime > dt){
+    snake.move(dir);
+    snake.checkHead(cells);
+    elapsedTime -= dt;
+    prevTime = currentTime;
+  }
+  pop();
+  drawingContext.shadowBlur = 20;
+    drawingContext.shadowColor = "white";
   fill(255);
-  textSize(32);
-  text(("Snake Length: " + snake.len),0,0,w,50);
+  if(w < 750){
+    textSize(16);
+  }else{
+    textSize(32);
+  }
+  textAlign(LEFT);
+  text(("Snake Length: " + snake.len),10,10,w,50);
+  textAlign(RIGHT);
+  text(("Rumble is " + (rumble ? "ON":"OFF")),0,10,w,50)
   //text('je',0,0,w,scl);
 }
 
@@ -128,6 +166,7 @@ function resetGame(){
   for (var i = 0; i < cells.length; i++) {
     cells[i].fruit = false;
     cells[i].snake = false;
+    cells[i].snakePercent = -1;
   }
   snake = new Snake(0,0,5);
   newFruit(snake);
@@ -138,9 +177,11 @@ function updateCells(snakeX,snakeY){
     if(cells[i].fruit != true){
       cells[i].snake = false;
     }
+    cells[i].snakePercent = -1;
   }
   for (var i = 0; i < snakeX.length; i++) {
     cells[((snakeY[i] * cols) + snakeX[i])].snake = true;
+    cells[((snakeY[i] * cols) + snakeX[i])].snakePercent = (i+1)/snakeX.length;
   }
 }
 
@@ -171,35 +212,106 @@ function Cell(i,j) {
   var y = j*scl + 50;
   this.fruit = false;
   this.snake = false;
+  this.snakePercent = -1;
   this.show = function(){
+
+    if(!this.snake && !this.fruit){
+      return;
+    }
+
     //noFill();
     fill(11);
     //stroke(22);
     noStroke();
+    // rect(x,y, scl, scl);
+    let cellColor;
+    let edgeRadius = 0;
     if(this.fruit){
-      fill(240,50,0);
+      cellColor = color(240,50,0);
+      edgeRadius = 10;
     }
     if (this.snake) {
-      fill(0,255,100);
+      cellColor = color(0,255,100);
     }
-    rect(x,y,scl,scl);
+    let sizeFunction = 1;
+    if(this.snakePercent > 0 && newStyle){
+      sizeFunction = (sigmoid(this.snakePercent, 3, 0.5) + 0.2 > 1 ? 1:sigmoid(this.snakePercent, 3, 0.5) + 0.2);
+    }
+    let offset = scl * (1 - sizeFunction) / 2;
+    drawingContext.shadowBlur = 20;
+    drawingContext.shadowColor = cellColor.toString('#rrggbb');
+    // if(!this.fruit){
+    //   blendMode(LIGHTEST);
+    // }
+    // let shaderReach = 10;
+    // let shaderColor = color(red(cellColor), green(cellColor), blue(cellColor), 20);
+    // noFill();
+    // stroke(shaderColor);
+    // for(let i = shaderReach; i > 0; i--){
+    //   strokeWeight(50 * (i+1)/shaderReach);
+    //   rect(offset + x,offset + y,sizeFunction * scl, sizeFunction * scl, edgeRadius);  
+    // }
+
+    // blendMode(BLEND);
+    noStroke();
+    // stroke(0);
+    // strokeWeight(0.5);
+    fill(cellColor);
+    rect(offset + x,offset + y,sizeFunction * scl, sizeFunction * scl, edgeRadius);
+
+  }
+}
+
+function touchStarted(){
+  touchX = mouseX;
+  touchY = mouseY;
+}
+
+function touchEnded(){
+  let dx = mouseX - touchX;
+  let dy = mouseY - touchY;
+
+  if(dx + dy == 0){
+    return;
+  }
+
+  if(Math.abs(dx) > Math.abs(dy)){
+    if(dx > 0){
+      if(dir != "L"){
+        dir = "R";
+      }
+    }else{
+      if(dir != "R"){
+        dir = "L";
+      }
+    }
+  }else{
+    if(dy > 0){
+      if(dir != "U"){
+        dir = "D";
+      }
+    }else{
+      if(dir != "D"){
+        dir = "U";
+      }
+    }
   }
 }
 
 function keyPressed() {
-  if (key === 'A') {
+  if (key === 'a') {
     if(dir != "R"){
       dir = "L";
     }
-  } else if (key === 'D') {
+  } else if (key === 'd') {
     if(dir != "L"){
       dir = "R";
     }
-  } else if (key === 'W') {
+  } else if (key === 'w') {
     if(dir != "D"){
       dir = "U";
     }
-  } else if (key === 'S') {
+  } else if (key === 's') {
     if(dir != "U"){
       dir = "D";
     }
@@ -228,3 +340,17 @@ function windowResized() {
   w = sketchWidth();
   resizeCanvas(w,h);
 }
+
+function sigmoid(x, a, b){
+  return 1 / (1 + Math.exp(-a * (x - b)));
+}
+
+function currentDate(){
+  return new Date();
+}
+
+function toggleRumble(){
+  rumble = !rumble;
+}
+
+document.getElementById('snake-game-rumble').onclick = toggleRumble;

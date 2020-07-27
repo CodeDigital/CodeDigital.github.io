@@ -12,6 +12,8 @@ function setup(){
 }
   
 function draw() {
+    background(22);
+
 }
 
 function windowResized() {
