@@ -2,6 +2,6 @@
     "name":"Double Pendulum",
     "description":"It's back and better than ever! A double pendulum which doesn't fly off the screen.",		
     "disabled": false,
-    "tags":[],
+    "tags":["mathematics", "physics", "euler", "rk4", "ib"],
     "scripts":["p5/p5.min.js"]
 }
