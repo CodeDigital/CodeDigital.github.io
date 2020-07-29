@@ -19,7 +19,8 @@ function setup(){
 function draw() {
 	var backC = color("#222222");
   background(backC);
-  var size = min(height,width) - 50;
+  // background(1);
+  var size = Math.min(h,w) - 100;
   var thickness = size / 8;
   var hr = hour();
   var mn = minute();

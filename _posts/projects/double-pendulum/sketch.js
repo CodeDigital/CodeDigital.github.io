@@ -64,9 +64,10 @@ function draw() {
     frameRate(fps);
 
     background(34, 100);
+    // background(0);
 
     if(w < 750){
-        translate(w/2, h/2);
+        translate(w/2, h/3);
     }else{
         translate(w/2, h/4);
     }
