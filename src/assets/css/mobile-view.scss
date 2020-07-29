@@ -7,10 +7,29 @@
 
     body {
         font-size:$regular-font-size;
+        height: 100%;
+    }
+
+    html{
+        height: 100%;
     }
 
     code{
         padding: 0px 4px;
+    }
+
+    h1 {
+        // text-shadow: greenyellow -1px 1px 0px, cyan 0px -1px 0px, red 1px 1px 0px;
+        text-shadow: $vhs-shadows-m;
+    }
+    
+    h2 {
+        // text-shadow: greenyellow -1px 1px 0px, cyan 0px -1px 0px, red 1px 1px 0px;
+        text-shadow: $vhs-shadows-s;
+    }
+
+    .main-body{
+        height: 100%;
     }
 
     .header {
@@ -34,7 +53,7 @@
     .popup{
         display:none;
         top: $header-height;
-        height: calc(100vh - #{$header-height} - #{$bottom-height});
+        height: calc(100% - #{$header-height} - #{$bottom-height});
     }
 
     .navigator img {
@@ -43,6 +62,12 @@
 
     .navigator button{
         right:5px;
+        font-size: $regular-font-size;
+    }
+
+    .navigator input{
+        font-size: $regular-font-size;
+        width: calc(100% - 45px);
     }
 
     .project-thumbnail{
@@ -52,12 +77,26 @@
         box-shadow:inset 0 0 $thumbnail-size 50px black, 10px 10px 1px 0px $tertiary-color;
     }
 
+    .project-thumbnail:first-of-type{
+        margin-top: 20px;
+    }
+    .project-thumbnail:last-of-type{
+        margin-bottom: 100px;
+    }
     
     .post-thumbnail {
         height:$thumbnail-size;
         width: $thumbnail-size;
         margin: 10px;
         box-shadow:inset 0 0 $thumbnail-size 50px black, 10px 10px 1px 0px $tertiary-color;
+    }
+
+    .post-thumbnail:last-of-type{
+        margin-bottom: 100px;
+    }
+
+    .post-thumbnail:first-of-type{
+        margin-top: 20px;
     }
 
     .project-thumbnail p {
@@ -70,8 +109,12 @@
 
     .project-list {
         margin-top:2px;
-        height: calc(100vh - #{$search-height} - #{$header-height} - #{$bottom-height});
+        height: calc(100% - (#{$search-height} + #{$header-height} + #{$bottom-height}));
+        // height: 100%;
+        // max-height: 10px;
+        overflow-y: auto;
         padding: 0px 10px;
+        position: absolute;
     }
 
     .close-icon {
@@ -80,13 +123,15 @@
     }
 
     .project-page{
-        height: calc(100vh - #{$header-height} - #{$bottom-height});
+        height: calc(100% - (#{$header-height} + #{$bottom-height}));
+        position: absolute;
+
     }
 
     .p5-canvas{
-        height: calc(100vh - #{$header-height} - #{$bottom-height} - #{$p5-info-height});
-        margin-bottom: -20px;
-        // padding: 0;
+        height: calc(100% - #{$p5-info-height});
+        // margin-bottom: -20px;
+        padding: 0;
         // margin: 0;
     }
 
@@ -192,21 +237,27 @@
     }
 
     .footer {
+        width: 100%;
         height:$bottom-height;
-        background-color: none;
-        position: relative;
+        // background-color: none;
+        background-color: $secondary-color;
+        // position: relative;
+        position: fixed;
         //position: fixed;
+        // background-color: blue;
     }
 
     .footer button, .footer a {
         // display: block;
         display: inline-block;
         // margin: 15px auto;
-        margin: 10px 20px;
+        margin: 7.5px 20px;
+        margin-top:15px;
+        // text-shadow: $vhs-shadows-s;
+        // text-shadow: $vhs-shadows-s;
     }
 
-    .copyright {
-        margin-bottom:15px;
+    .copyright{
+        // text-shadow: $vhs-shadows-s;
     }
-
 }

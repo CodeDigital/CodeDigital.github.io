@@ -27,6 +27,8 @@
     transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
     -webkit-filter: drop-shadow(6px 5px 5px $tertiary-color);
     filter: drop-shadow(6px 5px 5px $tertiary-color);
+    -webkit-filter: $vhs-shadows-drop-l;
+    filter: $vhs-shadows-drop-l;
 }
 
 .close-icon:hover {
@@ -34,6 +36,8 @@
     -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
     filter: drop-shadow(4px 2px 0px $secondary-color);
     //text-shadow: 10px 10px 0px #FF2277;
+    -webkit-filter: $vhs-shadows-drop-m;
+    filter: $vhs-shadows-drop-m;
 }
 
 .share-icon {
@@ -46,6 +50,8 @@
     transform: rotateX(15deg) rotateY(-20deg) rotateZ(1deg);
     -webkit-filter: drop-shadow(6px 5px 2px $tertiary-color);
     filter: drop-shadow(6px 5px 2px $tertiary-color);
+    -webkit-filter: $vhs-shadows-drop-l;
+    filter: $vhs-shadows-drop-l;
 }
 
 .share-icon:hover {
@@ -55,6 +61,8 @@
     // -webkit-filter: drop-shadow(4px 2px 0px $secondary-color);
     // filter: drop-shadow(4px 2px 0px $secondary-color);
     //text-shadow: 10px 10px 0px #FF2277;
+    -webkit-filter: $vhs-shadows-drop-s;
+    filter: $vhs-shadows-drop-s;
 }
 
 .about-h1{

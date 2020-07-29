@@ -108,7 +108,7 @@ const Navigator = (props) => {
                 <img alt="n/a" src='assets/img/searchIcon.png'></img>
                 <button onClick={weblogButton}><input type="checkbox" id="webLogMode" name="webLogMode" checked={weblog} onChange={weblogMode}></input>
                 <label>Weblog</label></button>
-                <input autoComplete="on" placeholder="Search projects by name or tag" type="search" value={searchValue} onChange={handleSearch}></input>
+                <input autoComplete="on" placeholder="Search projects by name or tag" type="text" value={searchValue} onChange={handleSearch}></input>
             </div>
             );
 }

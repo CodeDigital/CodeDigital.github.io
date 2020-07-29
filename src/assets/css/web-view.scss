@@ -7,6 +7,14 @@
         overflow: hidden;
     }
 
+    h1 {
+        text-shadow: $vhs-shadows-l;
+    }
+    
+    h2 {
+        text-shadow: $vhs-shadows-s;
+    }
+
     .header {
         height:$header-height;
     }
@@ -22,6 +30,12 @@
         // float: right;
         padding: 0;
         // bottom: 3px;
+    }
+
+    .header img {
+        // greenyellow -5px 0px 0px, cyan 0.5px -5px 0px, red 3.5px 3px 0px;
+        // -webkit-filter: $vhs-shadows-drop-s;
+        // filter: $vhs-shadows-drop-s;
     }
 
     .popup{
@@ -52,6 +66,14 @@
         transition:$thumbnail-transition;
         height:$thumbnail-size;
         width: $thumbnail-size;
+    }
+
+    .project-thumbnail:first-of-type, .post-thumbnail:first-of-type{
+        margin-top: 50px;
+    }
+
+    .project-thumbnail:last-of-type, .post-thumbnail:last-of-type{
+        margin-bottom: 200px;
     }
     
     .project-thumbnail p {
@@ -136,7 +158,9 @@
     }
 
     .p5-info{
-        padding: 0 200px;
+        // padding: 0 200px;
+        max-width: 750px;
+        margin: 0 auto;
         padding-top: 10px;
         height: $p5-info-height;
     }
@@ -144,6 +168,12 @@
     .p5-info input {
         position: absolute;
         top:$header-height+10px;
+    }
+
+    .p5-canvas {
+        // margin-top: $p5-info-height;
+        // height: calc(100vh - #{$header-height} - #{$bottom-height} - #{$p5-info-height});
+
     }
 
     .submergence-hover br{
@@ -179,5 +209,6 @@
         display: inline-block;
         margin: 5px 15px;
         margin-top: 15px;
+        // text-shadow: $vhs-shadows-s;
     }
 }

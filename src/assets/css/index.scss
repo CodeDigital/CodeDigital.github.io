@@ -13,16 +13,24 @@ $phoenix-tertiary-color: #F7E27C;
 // $tertiary-color: $phoenix-primary-color;
 // $tertiary-text-color: $phoenix-secondary-color;
 
-$title-font: Monospace;
+$title-font: Monaco, monospace;
 // $body-font: Arial, Helvetica, sans-serif;
-$body-font: Monospace;
+// $body-font: Monospace;
+$body-font: Monaco, monospace;
 $header-height: 75px;
 $search-height: 35px;
 $thumbnail-size: 250px;
 $bottom-height: 70px;
 $regular-font-size: 14px;
-$p5-info-height: 105px;
+$p5-info-height: 135px;
 $thumbnail-transition: ease-in 0.25s;
+$vhs-shadows-l: greenyellow -5px 0px 0px, cyan 0.5px -5px 0px, red 3.5px 3px 0px;
+$vhs-shadows-m: greenyellow -2px 0px 0px, cyan 1.5px -2px 0px, red 2.5px 1.5px 0px;
+$vhs-shadows-s: greenyellow -1px 0px 0px, cyan 0.5px -1px 0px, red 1.5px 1px 0px;
+$vhs-shadows-drop-l: drop-shadow(greenyellow -5px 0px 0px) drop-shadow(cyan 0.5px -5px 0px) drop-shadow(red 3.5px 3px 0px);
+$vhs-shadows-drop-m: drop-shadow(greenyellow -2px 0px 0px) drop-shadow(cyan 1.5px -2px 0px) drop-shadow(red 2.5px 1.5px 0px);
+$vhs-shadows-drop-s: drop-shadow(greenyellow -1px 0px 0px) drop-shadow(cyan 0.5px -1px 0px) drop-shadow(red 1.5px 1px 0px);
+
 
 * {
   margin: 0;
@@ -88,6 +96,8 @@ code {
         transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     height: ($header-height - 10);
     margin: 5px;
+    // box-shadow: greenyellow -1.5px 1.5px 0px, cyan 0.5px -1.5px 0px, red 1.5px 1.5px 0px;
+
 }
 
 .header img:hover {
@@ -123,6 +133,14 @@ code {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$phoenix-primary-color, endColorstr=$phoenix-tertiary-color,GradientType=1 ); /* ie6-9 */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.vhs-color {
+    // mix-blend-mode: difference; 
+    // color: #00f;
+    // opacity: 0.5;
+    // text-shadow: #0f0 5px 5px 1px, #f00 10px 10px 1px; //, #00f -5px -5px 0px;
+    text-shadow: greenyellow -5px 0px 0px, cyan 0.5px -5px 0px, red 3.5px 3.5px 0px;
 }
 
 .tertiary-text-color{
