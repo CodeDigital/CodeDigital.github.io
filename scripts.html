@@ -4,12 +4,18 @@
     <script defer src="/assets/js/p5/addons/p5.speech.js"></script>
     <script defer src="/assets/js/jquery.min.js"></script>
     <script>
-        const sketchWidth = function() {return window.innerWidth - 20}
+        const sketchWidth = function() {
+            if(window.innerWidth > 768){
+                return window.innerWidth - 20;
+            }else{
+                return window.innerWidth - 10;
+            }
+        }
         const sketchHeight = function() {
             if(window.innerWidth > 768){
-                return window.innerHeight - 300;
+                return window.innerHeight - 235;
             }else{
-                return window.innerHeight - 290;
+                return window.innerHeight - 155;
             }
         }
         console.log('test');
@@ -19,6 +25,22 @@
             } catch (e) {
                 console.log('No Audio Context to close')
             };
+        }
+
+        function openP5SliderPanel(){
+            let infoP5 = document.getElementsByClassName('p5-info')[0];
+            if(!infoP5.className.includes('p5-info-show')){
+                infoP5.className += " p5-info-show";
+                infoP5.getElementsByTagName('p')[0].style.display = "block";
+                // document.getElementById('p5-info-slide').setAttribute('-webkit-transform', 'scaleX(-1)');
+                document.getElementById('p5-info-slide').getElementsByTagName('img')[0].style.display = "none";
+                document.getElementById('p5-info-slide').getElementsByTagName('img')[1].style.display = "block";
+            }else{
+                infoP5.className = "p5-info";
+                infoP5.getElementsByTagName('p')[0].style.display = "none";
+                document.getElementById('p5-info-slide').getElementsByTagName('img')[1].style.display = "none";
+                document.getElementById('p5-info-slide').getElementsByTagName('img')[0].style.display = "block";
+            }
         }
     </script>
 </div>

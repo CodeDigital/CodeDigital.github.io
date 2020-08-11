@@ -24,7 +24,7 @@ function setup(){
   cnv = createCanvas(w, h);
   if(w < 750){
     scl = 20;
-    fps = 15;
+    fps = 10;
     dt = 1/fps;
   }
   cnv.parent('p5-canvas-snake-game');
@@ -37,25 +37,32 @@ function setup(){
 			cells.push(cell);
 		}
 	}
-	snake = new Snake(0,0,5);
+  snake = new Snake(0,0,5);
   newFruit(snake);
   prevTime = currentDate().getTime();
 }
   
 function draw() {
-  clear();
+  // clear();
   push();
   if(rumble){
     translate((scl/2) + (snake.len - 5)*(Math.random()-0.5), (snake.len - 5)*(Math.random()-0.5));
   }else{
     translate((scl/2), 0);
   }
+
   // rotate((Math.random()-0.5)/(5*Math.PI));
   currentTime = currentDate().getTime();
   let elapsedTime = (currentTime - prevTime) / 1000;
   // frameRate(fps);
-  // var backC = color("#222222");
-  background(11);
+  var backC = color("#222222");
+  drawingContext.shadowColor = "none";
+  drawingContext.shadowBlur = 0;
+  background(backC);
+  noStroke();
+  fill(11);
+  rect(0, 50, cols*scl, rows * scl);
+
   for (var i = 0; i < cells.length; i++) {
     cells[i].show();
   }
@@ -71,6 +78,13 @@ function draw() {
     elapsedTime -= dt;
     prevTime = currentTime;
   }
+
+  // fill(255);
+  // drawingContext.shadowBlur = 0;
+  // drawingContext.shadowColor = "none";
+  // rect(0, (rows+1)*scl, width, 2*scl);
+
+
   pop();
   drawingContext.shadowBlur = 20;
     drawingContext.shadowColor = "white";
@@ -98,12 +112,11 @@ function Snake(i,j,len) {
 
     var dead = false;
     //check if fruit eaten with head.
-    for (var i = 0; i < cells.length; i++) {
-      if(cells[((this.headY * cols) + this.headX)].fruit == true){
-        this.len += 1;
-        cells[((this.headY * cols) + this.headX)].fruit = false;
-        newFruit(snake);
-      }
+    if(cells[((this.headY * cols) + this.headX)].fruit == true){
+      this.len += 1;
+      cells[((this.headY * cols) + this.headX)].fruit = false;
+      newFruit(snake);
+      dt *= 0.999;
     }
 
     for(var a = 0;a < this.scX.length - 1; a++){
@@ -192,12 +205,13 @@ function newFruit(snk){
   var newY;
   var notSnake = false
   while (!notSnake) {
-    newX = floor(random(1,cols - 2));
-    newY = floor(random(1,rows - 2));
+    newX = floor(random(0,cols));
+    newY = floor(random(0,rows));
     notSnake = true;
     for (var i = 0; i < snk.scX.length; i++) {
-      if(newX == snk.scX[i]|| newY == snk.scY[i]){
+      if(newX == snk.scX[i] && newY == snk.scY[i]){
         notSnake = false;
+        break;
       }
     }
     print(newX + "    -    " + newY);
@@ -218,6 +232,13 @@ function Cell(i,j) {
   this.show = function(){
 
     if(!this.snake && !this.fruit){
+      //noFill();
+      // fill(11);
+      //stroke(22);
+      // noStroke();
+      // drawingContext.shadowBlur = 0;
+      // drawingContext.shadowColor = "none";
+      // rect(x,y, scl, scl);
       return;
     }
 

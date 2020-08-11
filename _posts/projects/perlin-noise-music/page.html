@@ -1,9 +1,15 @@
+<a class="p5-info-slide" id="p5-info-slide">
+    <img src="/assets/img/downArrIcon.png" alt="v" srcset="">
+    <img src="/assets/img/upArrIcon.png" alt="^" srcset="" style="display:none;">
+</a>        
+<script>
+    document.getElementById('p5-info-slide').onclick = openP5SliderPanel;
+</script>
 <div>
     <div class="p5-info">
-        <h1>Perlin Noise Music Visualizer</h1>
-        <p>Look at that perlin noise terrain generation go to the beat of the music! Try it with your own music by uploading it at the TOP LEFT.</p>
-		 <input type="file" id="input"/>
-
+        <h1>Perlin Noise Visualizer</h1>
+        <p>Look at that perlin noise terrain generation go to the beat of the music! Try it with your own music by uploading it below.</p>
+		<input type="file" id="input"/>
 	</div>
        
     <div id="p5-canvas-perlin-noise-music" class="p5-canvas"></div>

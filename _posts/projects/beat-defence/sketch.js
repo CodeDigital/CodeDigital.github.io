@@ -154,7 +154,11 @@ function draw() {
   stroke(255);
   fill(0,50,255,255);
   //ellipse(w/2,h/2,80);
+  drawingContext.shadowBlur = 50;
+  drawingContext.shadowColor = "blue";
+
   if(isHit){
+    drawingContext.shadowColor = "red";
     image(earthHit,w/2 - ppm,h/2 - ppm,2 * ppm, 2 * ppm);
   }else{
     image(earth,w/2 - ppm,h/2 - ppm, 2 * ppm, 2 * ppm);
@@ -170,6 +174,8 @@ function draw() {
   if(playing){
     //fill(0,50,255,255);
     noFill();
+    drawingContext.shadowBlur = 10;
+    drawingContext.shadowColor = "white";
     //arc(w/2,h/2,140,140,(dir - aSize),(dir + aSize),CHORD);
     arc(w/2,h/2,2*shieldDist,2*shieldDist,(dir - aSize),(dir + aSize));
     noFill();
@@ -263,6 +269,9 @@ function draw() {
   textSize(w / 30);
   // strokeWeight(2);
   // stroke(0,0,255);
+
+  drawingContext.shadowBlur = 10;
+  drawingContext.shadowColor = "white";
 
   textAlign(LEFT);
   text(("HEALTH: " + health),10,20,200,40);
@@ -398,9 +407,13 @@ function inTempo(curr){
       var dX = this.x + (this.len * Math.cos(showAngle));
       var dY = this.y - (this.len * Math.sin(showAngle));
       stroke(255,50,0);
+      drawingContext.shadowBlur = 20;
+      drawingContext.shadowColor = color(255,50,0).toString('#rrggbb');  
       strokeWeight(ppm/10);
       line(this.x,this.y,this.sX,this.sY);
       strokeWeight(ppm/5);
+      drawingContext.shadowBlur = 0;
+      drawingContext.shadowColor = color(255,50,0).toString('#rrggbb');  
       stroke(255);
       line(this.x,this.y,dX,dY);
       //line(this.x,this.y,this.sX,this.sY);
