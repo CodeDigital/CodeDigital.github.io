@@ -31,13 +31,13 @@
             let infoP5 = document.getElementsByClassName('p5-info')[0];
             if(!infoP5.className.includes('p5-info-show')){
                 infoP5.className += " p5-info-show";
-                infoP5.getElementsByTagName('p')[0].style.display = "block";
+                // infoP5.getElementsByTagName('p')[0].style.display = "block";
                 // document.getElementById('p5-info-slide').setAttribute('-webkit-transform', 'scaleX(-1)');
                 document.getElementById('p5-info-slide').getElementsByTagName('img')[0].style.display = "none";
                 document.getElementById('p5-info-slide').getElementsByTagName('img')[1].style.display = "block";
             }else{
                 infoP5.className = "p5-info";
-                infoP5.getElementsByTagName('p')[0].style.display = "none";
+                // infoP5.getElementsByTagName('p')[0].style.display = "none";
                 document.getElementById('p5-info-slide').getElementsByTagName('img')[1].style.display = "none";
                 document.getElementById('p5-info-slide').getElementsByTagName('img')[0].style.display = "block";
             }

@@ -24,7 +24,7 @@ function setup(){
   cnv = createCanvas(w, h);
   if(w < 750){
     scl = 20;
-    fps = 10;
+    fps = 16;
     dt = 1/fps;
   }
   cnv.parent('p5-canvas-snake-game');

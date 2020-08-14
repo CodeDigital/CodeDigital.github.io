@@ -1,12 +1,12 @@
 <a class="p5-info-slide" id="p5-info-slide">
-    <img src="/assets/img/downArrIcon.png" alt="v" srcset="">
-    <img src="/assets/img/upArrIcon.png" alt="^" srcset="" style="display:none;">
+    <img src="/assets/img/downArrIcon.png" alt="v" srcset="" style="display:none;">
+    <img src="/assets/img/upArrIcon.png" alt="^" srcset="">
 </a>        
 <script>
     document.getElementById('p5-info-slide').onclick = openP5SliderPanel;
 </script>
 <div>
-    <div class="p5-info">
+    <div class="p5-info p5-info-show">
         <h1>Double Pendulum</h1>
         <p>A comparison of three different "Integrators" for the chaotic double pendulum system under ideal conditions (no air resistance). The best "Integrators" preserve the initial energy of the system as time progresses. Each of these is explained in a paper I wrote, which you can <a target="_blank" rel="noopener noreferrer" href="https://github.com/DigitalData/double-pendulum-IB-essay/blob/master/XT%20Methods%20of%20Numerical%20Analysis.pdf">read here</a>. I might write a weblog article later on.</p>
         <button type="button" id="double-pendulum-reset">Random Angle</button>
