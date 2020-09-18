@@ -351,7 +351,7 @@ function isInside(poly, point){
                 return false;
             }
 
-            return isInside(polyCopy, point)
+            return isInside(polyCopy, point);
         }
     }else{
         // console.log('Is convex');

@@ -1,0 +1,39 @@
+<a class="p5-info-slide" id="p5-info-slide">
+    <img src="/assets/img/downArrIcon.png" alt="v" srcset="" style="display:none;">
+    <img src="/assets/img/upArrIcon.png" alt="^" srcset="">
+</a>        
+<script>
+    document.getElementById('p5-info-slide').onclick = openP5SliderPanel;
+</script>
+<div>
+    <!-- <div class="p5-info p5-info-show"> -->
+    <div class="p5-info">
+        <h1>Powder Engine</h1>
+        <p>This is an idea for a powder engine, similar to what is used in Nolla Games' Noita.</p>
+    </div>
+       
+    <div id="p5-canvas-powder-engine-2" class="p5-canvas"></div>
+
+    <!-- General Classes -->
+    <script src="\_posts\projects\powder-engine-2\engine\physics-classes\Vector.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\Particle.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\Sandbox.js"></script>
+
+    <!-- General -->
+    <script src="\_posts\projects\powder-engine-2\engine\mathsHelpers.js"></script>
+
+    <!-- Particle Types -->
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Powder.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Liquid.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Sand.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Water.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Oil.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Wood.js"></script>
+    <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Salt.js"></script>
+
+    <!-- <script src="\_posts\projects\powder-engine-2\engine\particle-classes\types\Liquid.js"></script> -->
+
+    <!-- Canvas -->
+    <script src="\_posts\projects\powder-engine-2\sketch.js"></script>
+
+</div>

@@ -4,7 +4,7 @@ var cols, rows;
 var cells = [];
 var start = false;
 var rate = 400;
-var runRate = 200;
+var runRate = 40;
 var cnv
 
 function unmountScript(){
@@ -84,6 +84,8 @@ function draw() {
   }
   fill(255)
   textSize(20);
+  drawingContext.shadowBlur = 0;
+  drawingContext.shadowColor = "none";
   text("Rate Of Generation Increase: " + runRate,10,20);
 }
 
@@ -96,13 +98,20 @@ function Cell(i,j){
   this.show = function(){
     var x = this.i * size;
     var y = this.j * size;
-    stroke(115);
+    stroke(color("#1E1E1E"));
+    // noStroke();
     if(this.alive){
       var c = color(255,102,204);
       fill(c);
+      // noStroke();
+      drawingContext.shadowBlur = 20;
+      drawingContext.shadowColor = c.toString();
     }else{
       noFill();
+      drawingContext.shadowBlur = 0;
+      drawingContext.shadowColor = "none";
     }
+
     rect(x,y,size,size);
   }
 
@@ -207,6 +216,16 @@ function keyPressed(){
   }
 }
 
+function runGOL(){
+  start = !start;
+  if(start){
+    document.getElementById('game-of-life-run').innerText = "Pause Simulation";
+  }else{
+    document.getElementById('game-of-life-run').innerText = "Run Simulation";
+  }
+}
+
+document.getElementById('game-of-life-run').onclick = runGOL;
 
 function windowResized() {
     start = false;

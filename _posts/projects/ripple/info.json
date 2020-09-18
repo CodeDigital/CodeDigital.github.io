@@ -1,0 +1,7 @@
+{
+    "name":"Ripple Effect",
+    "description":"A ripple effect that looks like a wave.",		
+    "disabled": false,
+    "tags":["ripple", "dynamic", "art", "pulse"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}

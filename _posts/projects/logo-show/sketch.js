@@ -5,7 +5,7 @@ var timer = new Date();
 var points = [];
 var prevRad = [];
 var stillGrowing = true;
-var maxPoints = 1000;
+var maxPoints = 2000;
 let minDimension;
 
 function unmountScript(){

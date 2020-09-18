@@ -3,7 +3,7 @@ var w, h;
 let ppm;
 let G = 9.81;
 let eulerPendulum, rk4Pendulum, symprk4Pendulum; 
-let fps = 30;
+let fps = 45;
 let dt = 1/fps;
 let numMeters = 7.5;
 let mobileNum = 4.5;
@@ -13,6 +13,7 @@ function unmountScript(){
   }
 
 function setup(){
+    frameRate(fps);
     setWidthHeight();
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas-double-pendulum');
@@ -22,7 +23,7 @@ function setup(){
         ppm = Math.min(w, h) / numMeters;
     }
 
-    smooth();
+    // smooth();
 
 //     * {
 //        *  origin, [REQUIRED]
@@ -61,7 +62,11 @@ function setup(){
   
 function draw() {
 
-    frameRate(fps);
+    // if(frameRate()){
+        // fps = frameRate();
+        // dt = 1/fps;
+        // console.log(dt);
+    // }
 
     background(34, 100);
     // background(0);
