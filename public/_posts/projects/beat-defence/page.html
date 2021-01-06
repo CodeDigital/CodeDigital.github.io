@@ -1,5 +1,12 @@
+<a class="p5-info-slide" id="p5-info-slide">
+    <img src="/assets/img/downArrIcon.png" alt="v" srcset="" style="display:none;">
+    <img src="/assets/img/upArrIcon.png" alt="^" srcset="">
+</a>        
+<script>
+    document.getElementById('p5-info-slide').onclick = openP5SliderPanel;
+</script>
 <div>
-    <div class="p5-info">
+    <div class="p5-info p5-info-show">
         <h1>Beat Defence</h1>
         <p>My first original game. Defend the earth by shielding it from the missiles moving to the tempo of the music of your choice. Creative Ideation: Jack Barnell. Use <code>R</code> to RESTART.</p>
         <input type="file" id="input" accept="audio/*"/>

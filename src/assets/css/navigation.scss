@@ -23,7 +23,7 @@
     background:$tertiary-color;
     border:none;
     color:$primary-text-color;
-    width: 100%;
+    width: calc(100% - 45px);
     height:100%;
     padding: 0 10px;
     padding-right:$search-height;
@@ -49,12 +49,12 @@
     // border-radius: 5px;
     // transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
     // box-shadow: $secondary-color 7.5px 2.5px;
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     box-shadow: $secondary-color 5px 2.5px;
 }
 
 .navigator button:hover{
-    transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    // transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
     box-shadow: $secondary-color 7.5px 2.5px;
     // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     // box-shadow: $secondary-color 5px 2.5px;

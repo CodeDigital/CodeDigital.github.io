@@ -31,10 +31,31 @@ export default class Sharing extends React.Component {
     constructor(props){
         super(props);
         this.onPopupClicked = this.onPopupClicked.bind(this);
+        this.copyLinkToClipboard = this.copyLinkToClipboard.bind(this);
     }
 
     onPopupClicked(){
         this.props.onClose();
+    }
+
+    selectAllLink(){
+        let copyText = document.getElementById("share-link");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/        
+    }
+
+    copyLinkToClipboard(){
+        /* Get the text field */
+        let copyText = document.getElementById("share-link");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
     }
 
     render(){
@@ -49,7 +70,13 @@ export default class Sharing extends React.Component {
             <div className="popup-container">
                 <div className="popup-div">
                     <h1>Share "{this.props.project.name}"</h1>
+                    <br></br>
                     <p>Select one of the buttons below to share!</p>
+                    <br></br>
+                    <div className="share-link-container">
+                        <input readOnly value={this.props.url} onClick={this.selectAllLink} type="text" className="share-link" id="share-link"></input>
+                        <button className="share-link-copy" onClick={this.copyLinkToClipboard}>Copy Link</button>
+                    </div>
                     <br></br>
                     <div className="share-button-div">
                         <EmailShareButton 

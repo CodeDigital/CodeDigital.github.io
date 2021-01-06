@@ -22,7 +22,7 @@ $search-height: 35px;
 $thumbnail-size: 250px;
 $bottom-height: 70px;
 $regular-font-size: 14px;
-$p5-info-height: 135px;
+$p5-info-height: 75px;
 $thumbnail-transition: ease-in 0.25s;
 $vhs-shadows-l: greenyellow -5px 0px 0px, cyan 0.5px -5px 0px, red 3.5px 3px 0px;
 $vhs-shadows-m: greenyellow -2px 0px 0px, cyan 1.5px -2px 0px, red 2.5px 1.5px 0px;
@@ -51,7 +51,17 @@ input[type="search"]::-ms-clear{
     display: none;
 }
 
+button{
+    cursor: pointer;
+}
+
+// a{
+//     cursor: pointer;
+// }
+
 body {
+    margin: 0;
+    padding: 0;
     background-color:$primary-color;
     color:$primary-text-color;
     font-family: $body-font;
@@ -64,12 +74,13 @@ a {
     color:white;
     transition: $thumbnail-transition;
     // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    cursor: pointer;
 }
 
 a:hover {
     // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+    // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
     text-shadow: 0 0 5px $primary-text-color;
 }
 
@@ -93,7 +104,7 @@ code {
 .header img {
     transition: $thumbnail-transition;
         // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     height: ($header-height - 10);
     margin: 5px;
     // box-shadow: greenyellow -1.5px 1.5px 0px, cyan 0.5px -1.5px 0px, red 1.5px 1.5px 0px;
@@ -102,13 +113,13 @@ code {
 
 .header img:hover {
         // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+        // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .header h1 {
     transition: $thumbnail-transition;
-    // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
 .anniversary {
@@ -200,7 +211,8 @@ code {
     position: absolute;
     width: 100vw;
     text-align: center;
-    padding:100px 0px;
+    // padding:100px 0px;
+    padding: 50px 0px;
     pointer-events: none;
 }
 
@@ -246,12 +258,12 @@ code {
 
 .share-button-div > *{
     margin: 5px;
-    transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
+    // transform: rotateX(6deg) rotateY(-20deg) rotateZ(1deg);
     transition: ease-in 0.3s;
 }
 
 .share-button-div > *:hover {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 
     .share-button-icon{
         box-shadow:$tertiary-color 3px 2px;
@@ -270,6 +282,42 @@ code {
     background-color: $secondary-color;
     color: $primary-text-color;
     border-radius: 8px;
+}
+
+.share-link-container{
+    // background-color: white;
+}
+
+.share-link-copy{
+    padding: 7.5px 10px;
+    padding-top: 7;
+    padding-bottom: 8;
+    background-color: $tertiary-color;
+    color: $primary-text-color;
+    border: none;
+    // border-radius: 20px;
+    // border-top-right-radius: 20px;
+    // border-bottom-right-radius: 20px;
+
+    box-shadow: $secondary-color 5px 2.5px;
+}
+
+.share-link{
+
+    // -moz-user-select: all;
+    // -webkit-user-select: all;
+    // -ms-user-select: all;
+    // user-select: all;
+
+    text-align: center;
+    width: 320px;
+    padding: 7.5px;
+    text-overflow: ellipsis;
+    border: none;
+    // border-top-left-radius: 20px;
+    // border-bottom-left-radius: 20px;
+
+    box-shadow: $secondary-color 5px 2.5px;
 }
 
 @import './navigation.scss';

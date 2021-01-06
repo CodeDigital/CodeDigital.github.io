@@ -14,11 +14,11 @@
     padding: 0;
     margin: 30px;
     transition:$thumbnail-transition;
-    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+    // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .project-thumbnail:hover {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transition:$thumbnail-transition;
     // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
         box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
@@ -84,11 +84,11 @@
     padding: 0;
     margin: 30px;
     transition:$thumbnail-transition;
-    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+    // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .post-thumbnail:hover {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transition:$thumbnail-transition;
     // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
         box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;

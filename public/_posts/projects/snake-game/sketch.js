@@ -24,7 +24,7 @@ function setup(){
   cnv = createCanvas(w, h);
   if(w < 750){
     scl = 20;
-    fps = 10;
+    fps = 16;
     dt = 1/fps;
   }
   cnv.parent('p5-canvas-snake-game');
@@ -55,8 +55,14 @@ function draw() {
   currentTime = currentDate().getTime();
   let elapsedTime = (currentTime - prevTime) / 1000;
   // frameRate(fps);
-  // var backC = color("#222222");
-  background(11);
+  var backC = color("#222222");
+  drawingContext.shadowColor = "none";
+  drawingContext.shadowBlur = 0;
+  background(backC);
+  noStroke();
+  fill(11);
+  rect(0, 50, cols*scl, rows * scl);
+
   for (var i = 0; i < cells.length; i++) {
     cells[i].show();
   }
@@ -72,6 +78,13 @@ function draw() {
     elapsedTime -= dt;
     prevTime = currentTime;
   }
+
+  // fill(255);
+  // drawingContext.shadowBlur = 0;
+  // drawingContext.shadowColor = "none";
+  // rect(0, (rows+1)*scl, width, 2*scl);
+
+
   pop();
   drawingContext.shadowBlur = 20;
     drawingContext.shadowColor = "white";
@@ -219,6 +232,13 @@ function Cell(i,j) {
   this.show = function(){
 
     if(!this.snake && !this.fruit){
+      //noFill();
+      // fill(11);
+      //stroke(22);
+      // noStroke();
+      // drawingContext.shadowBlur = 0;
+      // drawingContext.shadowColor = "none";
+      // rect(x,y, scl, scl);
       return;
     }
 
