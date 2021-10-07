@@ -96,6 +96,8 @@
     text-align: left;
     // text-align: justify;
     margin-bottom: -7.5px;
+    padding-bottom: 7.5px;
+    text-align: justify;
 }
 
 .about-me{
@@ -119,9 +121,14 @@
     // border-radius: 10px;
     box-shadow: $primary-color 1px 1px 10px;
     // box-shadow: 10px 7.5px 1px 0px $primary-color;
-    // box-shadow:10px 7.5px 1px 0px $secondary-color;
     // height: 20px;
     // width: 10px;
+    transition: ease-in 0.2s;
+
+}
+
+.about-me img:hover{
+    box-shadow:10px 7.5px 1px 0px $secondary-color;
 }
 
 .contact-container {
@@ -366,6 +373,6 @@ $contact-left: 40%;
     filter: drop-shadow(6px 5px 0px $tertiary-color);
 }
 
-.submergence-hover:hover img {
-    // transform: translateX(1px) translateY(20px);
-}
+// .submergence-hover:hover img {
+//     // transform: translateX(1px) translateY(20px);
+// }

@@ -1,13 +1,20 @@
-// const birthday = new Date();
-// birthday.setFullYear(2000);
-// birthday.setMonth(10)
-// birthday.setDate(3);
+const birthday = new Date();
+birthday.setFullYear(2000);
+birthday.setMonth(10)
+birthday.setDate(3);
 
-// var age = new Date().getTime() - birthday.getTime();
-// age /= 1000 * 60 * 60 * 24 * 365.25;
-// age = Math.floor(age);
+function setAge(){
+    var age = new Date().getTime() - birthday.getTime();
+    age /= 1000 * 60 * 60 * 24 * 365.25;
+    age = Math.round(age);
 
-// document.getElementById('about-age').innerText = age;
+    document.getElementById('about-age').innerText = age;
+    console.log("Age: " + age);
+}
+
+
+document.getElementById('about-age').onmouseover = setAge;
+// document.onmousemove = setAge;
 
 // setInterval(function(){
     

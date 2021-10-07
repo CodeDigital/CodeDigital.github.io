@@ -11,6 +11,8 @@ let redLevel = 265;
 
 var polygon = new Polygon();
 let isDrawing = false;
+let mobileDrawing = true;
+let justSwitchedMobile = false;
 
 let timeTaken = 0;
 let timesTaken = [];
@@ -88,6 +90,19 @@ function draw(){
     ellipse(mouseX, mouseY, 10);
 }
 
+function switchDrawing(event){
+    console.log(event);
+    console.log("yo");
+    mobileDrawing = !mobileDrawing
+    isDrawing = mobileDrawing;
+    justSwitchedMobile = true;
+    if(!mobileDrawing){
+        event.target.innerText = "Start Drawing"
+    }else{
+        event.target.innerText = "Stop Drawing"
+    }
+}
+
 function windowResized() {
     setWidthHeight();
     resizeCanvas(w,h);
@@ -103,6 +118,11 @@ function unmountScript(){
 }
 
 function mouseClicked(){
+    if(!mobileDrawing || justSwitchedMobile) {
+        justSwitchedMobile = false;
+        return;
+    }
+
     if(mouseX > 0 && mouseY > 0){
         if(!isDrawing){
             isDrawing = true;
@@ -137,3 +157,5 @@ function exportCSV(arr){
 // add clearing the polygon on button press.
 document.getElementById('concave-containment-clear').onclick = clearPolygon;
 
+// add stop drawing functionality
+document.getElementById('concave-containment-stop-drawing').onclick = switchDrawing;

@@ -38,6 +38,18 @@
         // filter: $vhs-shadows-drop-s;
     }
 
+    .button-regular {
+        padding: 7.5px 12px;
+    }
+
+    .hide-on-web {
+        visibility: hidden;
+    }
+
+    .hide-on-mobile {
+        visibility: visible;
+    }
+
     .popup{
         height: calc(100% - #{$header-height} - #{$bottom-height});
     }
@@ -150,7 +162,7 @@
         // margin-left: 0px;
         // padding: 0;
         // padding: 0 10px;
-        padding-right: 37.5px;
+        padding-right: 30px;
         align-self: center;
     }
 
@@ -193,6 +205,7 @@
 
     .p5-info button {
         // padding: 5px;
+        // display: block;
         padding: 7.5px 12px;
         margin: 10px;
         position: absolute;
@@ -246,7 +259,7 @@
 
     .weblog-post{
         padding: 10px 30px;
-        text-align: center;
+        // text-align: center;
     }
 
     .weblog-post * {
@@ -261,7 +274,8 @@
     }
 
     .weblog-post p {
-        text-align: left;
+        // text-align: left;
+        text-align: justify;
         line-height: 25px;
     }
 

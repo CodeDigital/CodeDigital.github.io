@@ -30,7 +30,8 @@ $vhs-shadows-s: greenyellow -1px 0px 0px, cyan 0.5px -1px 0px, red 1.5px 1px 0px
 $vhs-shadows-drop-l: drop-shadow(greenyellow -5px 0px 0px) drop-shadow(cyan 0.5px -5px 0px) drop-shadow(red 3.5px 3px 0px);
 $vhs-shadows-drop-m: drop-shadow(greenyellow -2px 0px 0px) drop-shadow(cyan 1.5px -2px 0px) drop-shadow(red 2.5px 1.5px 0px);
 $vhs-shadows-drop-s: drop-shadow(greenyellow -1px 0px 0px) drop-shadow(cyan 0.5px -1px 0px) drop-shadow(red 1.5px 1px 0px);
-
+$grey-shadow: $primary-color 1px 1px 10px;
+$grey-shadow-drop: drop-shadow($primary-color 1px 1px 10px);
 
 * {
   margin: 0;
@@ -51,13 +52,60 @@ input[type="search"]::-ms-clear{
     display: none;
 }
 
-button{
+.button-regular{
     cursor: pointer;
+    padding: 5px;
+    font-size: 11px;
+    background-color: $tertiary-color;
+    color: $primary-text-color;
+    margin: 10px;
+    position: absolute;
+    color: $primary-text-color;
+    border: none;
+    -webkit-filter: drop-shadow(5px 2.5px 0px $secondary-color);
+    filter: drop-shadow(5px 2.5px 0px $secondary-color);
+    font-family: $body-font;
 }
 
-// a{
-//     cursor: pointer;
-// }
+.page-404{
+    text-align: center;
+    padding: 10%;
+}
+
+.page-404 h1{
+    text-shadow: $vhs-shadows-s;
+}
+
+.page-404 img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+    // filter:/*drop-shadow($tertiary-color 0px 0px 50px) */
+    //     // drop-shadow($tertiary-color 40px 0px 0px)
+    //     // drop-shadow($tertiary-color -40px 0px 0px)
+    //     drop-shadow($tertiary-color 0px 40px 0px);
+    //     // drop-shadow($tertiary-color 0px -40px 0px);
+}
+
+.page-404 img:hover{
+    transition: $thumbnail-transition;
+    filter: $vhs-shadows-drop-l;
+}
+
+.page-404 h2:hover{
+    filter:$vhs-shadows-drop-s;
+    transition: $thumbnail-transition;
+
+}
+
+.shadowed:hover{
+    transition: $thumbnail-transition;
+
+    box-shadow: $grey-shadow;
+    // box-shadow: $vhs-shadows-l;
+    // text-shadow: $vhs-shadows-l;
+}
 
 body {
     margin: 0;
@@ -103,8 +151,8 @@ code {
 
 .header img {
     transition: $thumbnail-transition;
-        // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-        // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     height: ($header-height - 10);
     margin: 5px;
     // box-shadow: greenyellow -1.5px 1.5px 0px, cyan 0.5px -1.5px 0px, red 1.5px 1.5px 0px;
@@ -113,13 +161,20 @@ code {
 
 .header img:hover {
         // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+        transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
+        filter: $vhs-shadows-drop-m;
+        // filter: $grey-shadow-drop;
 }
 
 .header h1 {
     transition: $thumbnail-transition;
     // // transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
-    // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.header h1:hover{
+    filter: $vhs-shadows-drop-l;
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(1deg);
 }
 
 .anniversary {

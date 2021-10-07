@@ -25,7 +25,7 @@
     <div class="about-me">
         <!-- <img src="/_posts/projects/about/assets/profile-photo.jpg" alt="Profile Photo"> -->
         <div>
-            <p class="about-p">I am a <span id="about-age">20</span> Year old with "design-focused" programming
+            <p class="about-p">I am a <code><span id="about-age">##</span></code> Year old with "design-focused" programming
                 experience. I have completed the IB Diploma, sporting an international education (Belgium, Thailand at the
                 Bangkok Patana School and Indonesia at the Jakarta Intercultural School). I am an Australian citizen, but only
                 moved to Melbourne in August 2017. I am Able to speak/read/write in English and French and speak/read in
@@ -53,38 +53,5 @@
             as I develop more fun stuff and continue to explore new concepts.</p>
     </div>
     <br>
-    <script>
-
-
-        const birthday = new Date();
-        birthday.setFullYear(2000);
-        birthday.setMonth(10)
-        birthday.setDate(3);
-
-        var age = new Date().getTime() - birthday.getTime();
-        age /= 1000 * 60 * 60 * 24 * 365.25;
-        age = Math.floor(age);
-
-        document.getElementById('about-age').innerText = age;
-        console.log('Age set to: ' + age);
-
-        
-        let ageInt = setInterval(function(){
-            
-            age = new Date().getTime() - birthday.getTime();
-            age /= 1000 * 60 * 60 * 24 * 365.25;
-            age = Math.floor(age);
-            if(document.getElementById('about-age')){
-                if(document.getElementById('about-age').innerText != age){
-                    document.getElementById('about-age').innerText = age;
-                    console.log('Age set to: ' + age);
-                }
-            }else{
-                clearInterval(ageInt);
-            }
-
-        },100);
-
-    </script>
     <script src="/_posts/projects/about/scripts.js"></script>
 </div>

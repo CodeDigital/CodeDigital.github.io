@@ -16,7 +16,7 @@ function Polygon(){
         });
 
         // draw the mouse point if still adding stuff
-        if(isDrawing) vertex(mouseX, mouseY);
+        if(isDrawing && mobileDrawing) vertex(mouseX, mouseY);
 
         endShape(CLOSE);
 
