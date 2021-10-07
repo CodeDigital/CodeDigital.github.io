@@ -21,7 +21,7 @@
     // transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transition:$thumbnail-transition;
     // box-shadow:inset 0 0 $thumbnail-size 200px black,10px 7.5px 1px 0px $tertiary-color;
-        box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
+    box-shadow:inset 0 0 $thumbnail-size 200px black, 5px 5px 1px 0px $secondary-color;
     text-shadow: none;
 }
 
