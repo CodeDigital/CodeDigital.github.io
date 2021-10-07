@@ -1,7 +1,7 @@
 {
-    "name":"The Concave Containment Algorithm",
+    "name":"A Concave Containment Algorithm",
     "description":"The process of designing (and implementing) an algorithm to calculate collision of concave shapes.",
-    "date":"2021-04-01",
+    "date":"2021-12-05",
     "disabled":true,
     "tags":["gamedev","algorithm","geometry","collisions"],
     "scripts":[]
