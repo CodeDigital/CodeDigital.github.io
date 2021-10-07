@@ -25,15 +25,15 @@
     <div class="about-me">
         <!-- <img src="/_posts/projects/about/assets/profile-photo.jpg" alt="Profile Photo"> -->
         <div>
-            <p class="about-p">I am a <span id="about-age">19</span> Year old with "design-focused" programming
-                experience. Completed the IB Diploma, sporting an international education (Belgium, Thailand at the
-                Bangkok Patana School and Indonesia at the Jakarta Intercultural School). Australian citizen, but only
-                moved to Melbourne in August 2017. Able to speak/read/write in English and French and speak/read in
+            <p class="about-p">I am a <span id="about-age">20</span> Year old with "design-focused" programming
+                experience. I have completed the IB Diploma, sporting an international education (Belgium, Thailand at the
+                Bangkok Patana School and Indonesia at the Jakarta Intercultural School). I am an Australian citizen, but only
+                moved to Melbourne in August 2017. I am Able to speak/read/write in English and French and speak/read in
                 Polish.
                 <br><br>
                 While recently I have mainly been working on Javascript projects, I do have experience using the likes
-                of Python, LUA and Java. I have found that my interest gravitates towards projects with great visual
-                feedback, leading me to believe that I work well with a design focus.
+                of Python, LUA and Java. I have found that my interest gravitates towards projects with visual
+                feedback and interactivity, leading me to believe that I work with a primary focus on the user experience and design.
                 <br><br>
                 Currently I am looking for part time work whilst I study and would be more than happy to take up any
                 role just to gain experience programming in a business environment. Please feel free to <a
@@ -54,6 +54,8 @@
     </div>
     <br>
     <script>
+
+
         const birthday = new Date();
         birthday.setFullYear(2000);
         birthday.setMonth(10)
@@ -65,17 +67,24 @@
 
         document.getElementById('about-age').innerText = age;
         console.log('Age set to: ' + age);
-        // setInterval(function(){
-            
-        //     var age = new Date().getTime() - birthday.getTime();
-        //     age /= 1000 * 60 * 60 * 24 * 365.25;
-        //     age = Math.floor(age);
 
-        //     if(document.getElementById('about-age').innerText != age){
-        //         document.getElementById('about-age').innerText = age;
-        //         console.log('Age set to: ' + age);
-        //     }
-        // },100);
+        
+        let ageInt = setInterval(function(){
+            
+            age = new Date().getTime() - birthday.getTime();
+            age /= 1000 * 60 * 60 * 24 * 365.25;
+            age = Math.floor(age);
+            if(document.getElementById('about-age')){
+                if(document.getElementById('about-age').innerText != age){
+                    document.getElementById('about-age').innerText = age;
+                    console.log('Age set to: ' + age);
+                }
+            }else{
+                clearInterval(ageInt);
+            }
+
+        },100);
+
     </script>
     <script src="/_posts/projects/about/scripts.js"></script>
 </div>
