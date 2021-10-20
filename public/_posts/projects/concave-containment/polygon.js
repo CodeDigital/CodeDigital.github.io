@@ -1,5 +1,11 @@
 function Polygon(){
     this.vertices = [];
+    this.edges = [];
+    this.normals = [];
+    this.area = 0;
+    this.center = new Vector(-1000, -1000);
+    this.triangles = [];
+    this.inertia = 0;
 
     this.show = function(){
 
@@ -25,12 +31,208 @@ function Polygon(){
         this.vertices.forEach(function(p, i) {
             ellipse(p.x, p.y, 10);
         });
+
+        if(DEBUGGING){
+
+            this.triangles.forEach(function(t, i) {
+                t.show();
+            });
+
+            drawingContext.shadowBlur = 1;
+            drawingContext.shadowColor = "blue";
+            strokeWeight(3);
+            fill(0, 0, 255);
+            for(var i = 0; i < this.edges.length; i++){
+                var e = this.edges[i];
+                var n = this.normals[i];
+                ellipse(e.x, e.y, 10);
+                stroke(0, 0, 255);
+                line(e.x, e.y,
+                    e.x + n.x, e.y + n.y);
+                push();
+                    translate(e.x + n.x, e.y + n.y);
+                    rotate(n.getAngle() + (Math.PI / 2));
+                    triangle(0, 0, 2.5, -5, -2.5, -5);
+                pop();
+            }
+
+            // fill(0, 255, 0);
+            // this.edges.forEach(function(p, i) {
+            //     ellipse(p.x, p.y, 10);
+            // });
+
+        }
+
+        noStroke();
+        fill(255, 50, 0);
+        ellipse(this.center.x, this.center.y, 10);
     
     }
 
-    this.add = function(v) {this.vertices.push(v);}
-    this.pop = function() {this.vertices.pop();}
-    this.clear = function() {this.vertices = [];}
+    this.add = function(v) {
+        this.vertices.push(v);
+        this.info();
+    }
+    this.pop = function() {
+        this.vertices.pop();
+        this.info();
+    }
+    this.clear = function() {
+        this.vertices = [];
+        this.edges = [];
+        this.triangles = [];
+        this.normals = [];
+        this.center = new Vector(-100, -100);
+        this.info();
+    }
+
+    this.info = function(){
+
+        if(!DEBUGGING) return;
+        if(this.vertices.length == 0) return;
+
+        this.edges = [];
+        this.normals = [];
+        this.triangles = [];
+
+        var polyLength = this.vertices.length;
+        var iA = polyLength - 1;
+        var vA = this.vertices[iA];
+        for(var i = 0; i < polyLength; i++){
+            iA = (iA + 1) % polyLength;
+            var vB = this.vertices[iA];
+            var mid = midpoint(vA, vB);
+            var dv = new Vector(vB.x - vA.x, vB.y - vA.y);
+            var norm = new Vector(-dv.y, dv.x);
+
+            this.edges.push(mid);
+            this.normals.push(norm.negative());
+
+            vA = this.vertices[iA];
+        }
+
+        this.triangles = ALG_TRIANGLE_MESHING.deconstructAsTriangles(this.vertices);
+
+        if(this.triangles.length > 0){
+            console.log(this.triangles);
+
+            var area = 0;
+            var inertia = 0;
+            var center = new Vector(0, 0);
+            this.triangles.forEach(function(t, i){
+                center.add(t.center, t.area);
+                area += t.area;
+                inertia += t.area * t.center.magnitudeSquared();
+            })
+
+            if(area != 0){
+                center.mult(1 / area);
+            }else{
+                center = new Vector(0, 0);
+            }
+            
+            this.area = area;
+            this.center = center;
+            this.inertia = inertia;
+        }
+
+        console.log(this.area);
+        console.log(this.inertia);
+        console.log(this.center);
+
+        // polyLength = this.vertices.length;
+        // var leftMost = 0;
+        // for(var i = 0; i < polyLength; i++){
+        //     if(this.vertices[i].x < this.vertices[leftMost].x){
+        //         leftMost = i;
+        //     }
+        // }
+
+        // this.edges = [];
+        // this.area = 0;
+        // var center = new Vector(0, 0);
+        // var iA = leftMost;
+        // var vA = this.vertices[iA];
+
+        // for(var i = 0; i < polyLength; i++){
+        //     iA = (iA + 1) % polyLength;
+        //     var vB = this.vertices[iA];
+
+        //     var tArea = triangleArea(vA, vB);
+        //     var mid = midpoint(vA, vB);
+
+        //     if(!isCC(vA, vB)){
+        //         this.area += tArea;
+        //         // this.center.add(mid, tArea);
+        //         center.add(mid, 1);
+        //     }else{
+        //         this.area -= tArea;
+        //         // this.center.add(mid, -tArea);
+        //         center.add(mid, 1);
+        //     }
+
+        //     this.edges.push(mid);
+
+        //     vA = this.vertices[iA];
+        // }
+
+        // // this.center.mult(1 / this.area);
+        // center.mult(1 / polyLength);
+        // // this.center.mult(1 / totalA);
+        // this.center = new Vector(0, 0);
+        
+        // for(var i = 0; i < polyLength; i++){
+
+        //     var vE = this.edges[i];
+        //     var vR = new Vector(vE.x - center.x, vE.y - center.y);
+            
+
+        // }
+
+        // console.log(this.area);
+
+    }
+}
+
+function Triangle(vertices){
+
+    this.vertices = vertices;
+
+    var a = this.vertices[0];
+    var b = this.vertices[1];
+    var c = this.vertices[2];
+
+    var ab = new Vector(b.x - a.x, b.y - a.y);
+    var ac = new Vector(c.x - a.x, c.y - a.y);
+
+    this.area = triangleArea(ab, ac);
+
+    this.center = new Vector(a.x, a.y);
+    this.center.add(b, 1);
+    this.center.add(c, 1);
+    this.center.mult(1 / 3);
+
+    this.show = function(){
+        drawingContext.shadowBlur = 10;
+        drawingContext.shadowColor = "green";
+
+        noFill();
+        beginShape();
+        this.vertices.forEach(function(v, i) {
+            stroke(0, 255, 0);
+            strokeWeight(5);
+            vertex(v.x, v.y);
+        });
+
+        endShape(CLOSE);
+
+        this.vertices.forEach(function(v, i) {
+            fill(0, 255, 0);
+            noStroke();
+            ellipse(v.x, v.y, 10);
+        });
+
+    }
 }
 
 /**
@@ -49,11 +251,30 @@ function Polygon(){
     }
 
     this.normal = function(){
-        return new Vector(this.x / this.magnitude, this.y / this.magnitude);
+        return new Vector(this.x / this.magnitude(), this.y / this.magnitude());
+    }
+
+    this.magnitudeSquared = function(){
+        return (this.x**2 + this.y**2);
+    }
+
+    this.magnitude = function(){
+        this.magnitude = Math.sqrt(this.x**2 + this.y**2);
+        return this.magnitude
     }
 
     this.negative = function(){
         return new Vector(-this.x, -this.y);
+    }
+
+    this.add = function(v, scale){
+        this.x += scale * v.x;
+        this.y += scale * v.y;
+    }
+
+    this.mult = function(scale){
+        this.x *= scale;
+        this.y *= scale;
     }
 }
 
@@ -139,4 +360,12 @@ function findExitNormal(poly, point){
     }
 
     return closest;
+}
+
+function triangleArea(a, b){
+    return 0.5 * Math.abs(a.x * b.y - b.x * a.y);
+}
+
+function isCC(a, b){
+    return ((a.x * -b.y + a.y * b.x) > 0);
 }

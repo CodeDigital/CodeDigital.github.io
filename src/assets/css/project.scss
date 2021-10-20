@@ -305,6 +305,10 @@ $contact-left: 40%;
     content: "Hide this information panel with the ^ button above";
     font-style: italic;
     font-size: 0.75 * $regular-font-size;
+    // text-shadow: $primary-color 1px 1px 0, $primary-color -1px 1px 0,
+    //     $primary-color 1px -1px 0, $primary-color -1px -1px 0;
+    text-shadow: $primary-color 1px 1px 2px;
+    // text-shadow: $grey-shadow;
     // float: left;
     display: inline;
     position: absolute;
