@@ -20,6 +20,8 @@ const MAX_TIMES = 1000;
 let recordTimes = false;
 let sendCSV = true;
 
+const DEBUGGING = false;
+
 function unmountScript(){
     remove();
   }
@@ -28,6 +30,13 @@ function setup(){
     setWidthHeight();
     cnv = createCanvas(w, h);
     cnv.parent('p5-canvas-concave-containment');
+
+    polygon.add(new Vector(100, 100));
+    polygon.add(new Vector(200, 100));
+    polygon.add(new Vector(200, 200));
+    polygon.add(new Vector(100, 200));
+    polygon.add(new Vector(150, 150));
+
 }
 
 function draw(){
