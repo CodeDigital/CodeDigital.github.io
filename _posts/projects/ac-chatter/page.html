@@ -1,0 +1,37 @@
+<style>
+    #input-ac-chatter{
+        margin-top: 70px;
+        padding: 20px;
+        width: 75%;
+    }
+
+    #button-ac-chatter{
+        padding: 20px;
+    }
+
+    #output-ac-chatter{
+        padding: 20px;
+        white-space: break-spaces;
+    }
+</style>
+<a class="p5-info-slide" id="p5-info-slide">
+    <img src="/assets/img/downArrIcon.png" alt="v" srcset="" style="display:none;">
+    <img src="/assets/img/upArrIcon.png" alt="^" srcset="">
+</a>        
+<script>
+    document.getElementById('p5-info-slide').onclick = openP5SliderPanel;
+</script>
+<div>
+    <div class="p5-info p5-info-show">
+        <h1>TTS Chatter</h1>
+        <p>A simple "Animal Crossing"-inspired chatter/text-to-speech machine.</p>
+    </div>
+       
+    <div class="p5-canvas">
+        <input type="text" id="input-ac-chatter" >
+        <input type="button" id="button-ac-chatter" value="Speak">
+        <br>
+        <p id="output-ac-chatter"></p>
+    </div>
+	<script src="/_posts/projects/ac-chatter/sketch.js"></script>
+</div>
