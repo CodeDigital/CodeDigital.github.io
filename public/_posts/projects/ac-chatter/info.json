@@ -1,0 +1,7 @@
+{
+    "name":"Chatter: Funny TTS",
+    "description":"Text-to-speech: \"Animal Crossing\" style.",		
+    "disabled": false,
+    "tags":["sounds", "text", "letters", "reader"],
+    "scripts":["p5/p5.min.js", "p5/addons/p5.sound.min.js"]
+}
